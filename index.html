@@ -98,13 +98,24 @@
     margin-bottom: 40px;
     opacity: 0.4;
   }
-  .store-badges img {
-    height: 44px;
+  .store-badges a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 1.2;
+    transition: opacity 0.2s;
   }
-  .store-badges img:last-child {
-    height: 65px;
-    margin: -10px 0;
-  }
+  .store-badges a:hover { opacity: 0.85; }
+  .store-badges .store-icon { font-size: 26px; }
+  .store-badges .store-label { text-align: left; }
+  .store-badges .store-small { font-size: 10px; opacity: 0.8; display: block; }
+  .store-badges .store-name { font-size: 17px; font-weight: 600; }
   .footer {
     font-size: 13px;
     color: var(--text-secondary);
@@ -155,8 +166,20 @@
 
   <p class="stores">Presto disponibile su</p>
   <div class="store-badges">
-    <img src="/assets/app-store-badge.svg" alt="Scarica su App Store">
-    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/it_badge_web_generic.png" alt="Disponibile su Google Play">
+    <a href="#">
+      <span class="store-icon"></span>
+      <span class="store-label">
+        <span class="store-small">Scarica su</span>
+        <span class="store-name">App Store</span>
+      </span>
+    </a>
+    <a href="#">
+      <span class="store-icon">▶️</span>
+      <span class="store-label">
+        <span class="store-small">Disponibile su</span>
+        <span class="store-name">Google Play</span>
+      </span>
+    </a>
   </div>
 
   <div class="footer">
