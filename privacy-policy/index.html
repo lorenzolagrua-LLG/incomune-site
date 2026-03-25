@@ -24,20 +24,22 @@
     -webkit-font-smoothing: antialiased;
   }
   .header {
-    background: var(--primary);
-    color: white;
+    background: var(--primary-light);
+    color: var(--text);
     padding: 48px 24px 40px;
     text-align: center;
+    border-bottom: 1px solid var(--border);
   }
   .header h1 {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 6px;
     letter-spacing: -0.3px;
+    color: var(--primary);
   }
   .header .subtitle {
     font-size: 15px;
-    opacity: 0.8;
+    color: var(--text-secondary);
     font-weight: 400;
   }
   .lang-switch {
@@ -47,9 +49,9 @@
     margin-top: 20px;
   }
   .lang-switch button {
-    background: rgba(255,255,255,0.15);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.3);
+    background: var(--card);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
     padding: 6px 18px;
     border-radius: 20px;
     font-size: 14px;
@@ -58,9 +60,9 @@
   }
   .lang-switch button.active,
   .lang-switch button:hover {
-    background: white;
-    color: var(--primary);
-    border-color: white;
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
   }
   .container {
     max-width: 720px;
@@ -126,16 +128,16 @@
   tr:last-child td { border-bottom: none; }
   tr:nth-child(even) { background: var(--primary-light); }
   .contact-box {
-    background: var(--primary);
-    color: white;
+    background: var(--primary-light);
+    border: 1px solid var(--border);
     border-radius: 14px;
     padding: 24px;
     margin-top: 36px;
     text-align: center;
   }
-  .contact-box p { color: rgba(255,255,255,0.85); }
-  .contact-box strong { color: white; }
-  .contact-box a { color: white; text-decoration: underline; }
+  .contact-box p { color: var(--text-secondary); }
+  .contact-box strong { color: var(--text); }
+  .contact-box a { color: var(--primary); text-decoration: underline; }
   .footer {
     text-align: center;
     padding: 24px;
