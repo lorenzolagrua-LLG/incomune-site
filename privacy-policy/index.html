@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — InComune</title>
+<style>
+  :root {
+    --primary: #1B4A8A;
+    --primary-light: #EBF0FA;
+    --accent: #C8273B;
+    --text: #1E1E1E;
+    --text-secondary: #555555;
+    --bg: #F5F7FB;
+    --card: #FFFFFF;
+    --border: #D6DEE8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .header {
+    background: var(--primary);
+    color: white;
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+  .header .subtitle {
+    font-size: 15px;
+    opacity: 0.8;
+    font-weight: 400;
+  }
+  .lang-switch {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .lang-switch button {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lang-switch button.active,
+  .lang-switch button:hover {
+    background: white;
+    color: var(--primary);
+    border-color: white;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+  }
+  .update-badge {
+    display: inline-block;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 28px;
+  }
+  h2 {
+    color: var(--primary);
+    font-size: 20px;
+    font-weight: 700;
+    margin: 36px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--primary-light);
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px 0 8px;
+    color: var(--text);
+  }
+  p { margin: 10px 0; color: var(--text-secondary); font-size: 15px; }
+  ul { margin: 10px 0 10px 20px; color: var(--text-secondary); font-size: 15px; }
+  li { margin: 6px 0; }
+  strong { color: var(--text); font-weight: 600; }
+  .card {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin: 16px 0;
+    box-shadow: 0 1px 4px rgba(27,74,138,0.06);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  th {
+    background: var(--primary);
+    color: white;
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  th:first-child { border-radius: 8px 0 0 0; }
+  th:last-child { border-radius: 0 8px 0 0; }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: var(--primary-light); }
+  .contact-box {
+    background: var(--primary);
+    color: white;
+    border-radius: 14px;
+    padding: 24px;
+    margin-top: 36px;
+    text-align: center;
+  }
+  .contact-box p { color: rgba(255,255,255,0.85); }
+  .contact-box strong { color: white; }
+  .contact-box a { color: white; text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+  }
+  .section-en { display: none; }
+  @media (max-width: 600px) {
+    .header { padding: 36px 16px 32px; }
+    .header h1 { font-size: 24px; }
+    .container { padding: 24px 16px 48px; }
+    h2 { font-size: 18px; }
+    table { font-size: 13px; }
+    th, td { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>InComune</h1>
+  <div class="subtitle">Privacy Policy</div>
+  <div class="lang-switch">
+    <button class="active" onclick="switchLang('it')">Italiano</button>
+    <button onclick="switchLang('en')">English</button>
+  </div>
+</div>
+
+<!-- ═══════════════ ITALIANO ═══════════════ -->
+<div class="container section-it">
+
+<span class="update-badge">Ultimo aggiornamento: 25 marzo 2026</span>
+
+<h2>Titolare del trattamento</h2>
+<div class="card">
+  <p><strong>Lorenzo La Grua</strong></p>
+  <p>Piazza Trento 6, 20135 Milano, Italia</p>
+  <p>Email: <strong>info@incomune.app</strong></p>
+</div>
+
+<h2>1. Quali dati raccogliamo</h2>
+
+<h3>Dati forniti dall'utente</h3>
+<ul>
+  <li><strong>Nome e cognome</strong> — per personalizzare il profilo</li>
+  <li><strong>Indirizzo email</strong> — per l'autenticazione e le comunicazioni di servizio</li>
+  <li><strong>Password</strong> — conservata in forma crittografata (hash), mai in chiaro</li>
+  <li><strong>Preferiti</strong> — le entit&agrave; salvate dall'utente</li>
+</ul>
+
+<h3>Dati raccolti automaticamente</h3>
+<ul>
+  <li><strong>Token di notifica push</strong> — identificativo tecnico del dispositivo per l'invio di notifiche</li>
+  <li><strong>Piattaforma</strong> — iOS o Android, per l'invio corretto delle notifiche</li>
+  <li><strong>Dati di utilizzo anonimi</strong> — pagine visitate, funzionalit&agrave; utilizzate, durata delle sessioni, tramite PostHog Analytics (server UE). Questi dati sono aggregati e non identificano personalmente l'utente.</li>
+</ul>
+
+<h3>Dati che NON raccogliamo</h3>
+<div class="card">
+  <ul>
+    <li>Posizione geografica (GPS)</li>
+    <li>Foto o immagini personali dell'utente</li>
+    <li>Contatti della rubrica</li>
+    <li>Dati di pagamento</li>
+    <li>Dati biometrici</li>
+  </ul>
+</div>
+
+<h2>2. Perch&eacute; raccogliamo i dati</h2>
+<table>
+  <tr><th>Finalit&agrave;</th><th>Base giuridica (GDPR)</th></tr>
+  <tr><td>Registrazione e autenticazione</td><td>Esecuzione del contratto (Art. 6.1.b)</td></tr>
+  <tr><td>Invio notifiche push</td><td>Consenso dell'utente (Art. 6.1.a)</td></tr>
+  <tr><td>Salvataggio preferiti</td><td>Esecuzione del contratto (Art. 6.1.b)</td></tr>
+  <tr><td>Analisi anonime di utilizzo</td><td>Legittimo interesse (Art. 6.1.f)</td></tr>
+  <tr><td>Comunicazioni di servizio</td><td>Obbligo legale (Art. 6.1.c)</td></tr>
+</table>
+
+<h2>3. Con chi condividiamo i dati</h2>
+<p>I dati personali <strong>non vengono venduti, ceduti o condivisi</strong> con terze parti per finalit&agrave; commerciali.</p>
+<p>I seguenti servizi tecnici trattano i dati per nostro conto:</p>
+<table>
+  <tr><th>Servizio</th><th>Finalit&agrave;</th><th>Sede dati</th></tr>
+  <tr><td><strong>Supabase</strong></td><td>Database, autenticazione, storage</td><td>Francoforte, Germania (UE)</td></tr>
+  <tr><td><strong>Expo</strong></td><td>Invio notifiche push</td><td>Stati Uniti*</td></tr>
+  <tr><td><strong>PostHog</strong></td><td>Analytics anonime</td><td>Unione Europea</td></tr>
+</table>
+<p><small>*Il servizio Expo Push Notifications processa i token push attraverso i servizi Apple (APNs) e Google (FCM). Il token &egrave; un identificativo tecnico, non un dato personale diretto.</small></p>
+
+<h2>4. Dove conserviamo i dati</h2>
+<p>Tutti i dati personali sono conservati su server situati nell'<strong>Unione Europea</strong> (Supabase — Francoforte, Germania). Le analisi di utilizzo sono processate su server UE (PostHog EU).</p>
+
+<h2>5. Per quanto tempo conserviamo i dati</h2>
+<table>
+  <tr><th>Dato</th><th>Durata</th></tr>
+  <tr><td>Profilo utente</td><td>Fino alla cancellazione dell'account</td></tr>
+  <tr><td>Preferiti</td><td>Fino alla cancellazione dell'account</td></tr>
+  <tr><td>Token di notifica</td><td>Fino alla cancellazione o disattivazione</td></tr>
+  <tr><td>Notifiche ricevute</td><td>30 giorni</td></tr>
+  <tr><td>Dati di analytics</td><td>12 mesi in forma aggregata</td></tr>
+</table>
+
+<h2>6. I tuoi diritti</h2>
+<p>In base al GDPR (Regolamento UE 2016/679), hai diritto a:</p>
+<div class="card">
+  <ul>
+    <li><strong>Accesso</strong> — sapere quali dati abbiamo su di te</li>
+    <li><strong>Rettifica</strong> — correggere dati inesatti</li>
+    <li><strong>Cancellazione</strong> — eliminare il tuo account e tutti i dati associati</li>
+    <li><strong>Portabilit&agrave;</strong> — ricevere i tuoi dati in formato leggibile</li>
+    <li><strong>Opposizione</strong> — opporti al trattamento basato su legittimo interesse</li>
+    <li><strong>Revoca del consenso</strong> — disattivare le notifiche push in qualsiasi momento</li>
+  </ul>
+</div>
+<h3>Come esercitare i tuoi diritti</h3>
+<ul>
+  <li><strong>Cancellazione account</strong>: direttamente dall'app (Profilo &rarr; Elimina account)</li>
+  <li><strong>Notifiche</strong>: disattivabili dalle impostazioni dell'app</li>
+  <li><strong>Altre richieste</strong>: scrivi a info@incomune.app</li>
+</ul>
+<p>Risponderemo entro 30 giorni dalla richiesta.</p>
+<p>Hai inoltre il diritto di presentare un reclamo al <strong>Garante per la protezione dei dati personali</strong> (www.garanteprivacy.it).</p>
+
+<h2>7. Et&agrave; minima</h2>
+<p>InComune &egrave; destinata a utenti di almeno <strong>14 anni</strong>. Non raccogliamo consapevolmente dati di minori di 14 anni. Se un genitore o tutore ritiene che un minore si sia registrato senza consenso, pu&ograve; contattarci a info@incomune.app per richiedere la cancellazione.</p>
+
+<h2>8. Sicurezza</h2>
+<div class="card">
+  <ul>
+    <li>Autenticazione con password crittografate (hash)</li>
+    <li>Row Level Security (RLS) su tutte le tabelle del database</li>
+    <li>Comunicazioni crittografate (HTTPS/TLS)</li>
+    <li>Accesso ai dati limitato al titolare del trattamento</li>
+  </ul>
+</div>
+
+<h2>9. Modifiche alla privacy policy</h2>
+<p>Ci riserviamo di aggiornare questa policy. In caso di modifiche sostanziali, gli utenti saranno informati tramite notifica nell'app.</p>
+
+<div class="contact-box">
+  <p><strong>Lorenzo La Grua</strong></p>
+  <p>Email: <a href="mailto:info@incomune.app">info@incomune.app</a></p>
+  <p>Piazza Trento 6, 20135 Milano, Italia</p>
+</div>
+
+</div>
+
+<!-- ═══════════════ ENGLISH ═══════════════ -->
+<div class="container section-en">
+
+<span class="update-badge">Last updated: March 25, 2026</span>
+
+<h2>Data Controller</h2>
+<div class="card">
+  <p><strong>Lorenzo La Grua</strong></p>
+  <p>Piazza Trento 6, 20135 Milan, Italy</p>
+  <p>Email: <strong>info@incomune.app</strong></p>
+</div>
+
+<h2>1. What data we collect</h2>
+
+<h3>Data provided by the user</h3>
+<ul>
+  <li><strong>Full name</strong> — to personalize your profile</li>
+  <li><strong>Email address</strong> — for authentication and service communications</li>
+  <li><strong>Password</strong> — stored in encrypted form (hash), never in plain text</li>
+  <li><strong>Favorites</strong> — entities saved by the user</li>
+</ul>
+
+<h3>Data collected automatically</h3>
+<ul>
+  <li><strong>Push notification token</strong> — technical device identifier for sending notifications</li>
+  <li><strong>Platform</strong> — iOS or Android, for correct notification delivery</li>
+  <li><strong>Anonymous usage data</strong> — pages visited, features used, session duration, via PostHog Analytics (EU servers). This data is aggregated and does not personally identify the user.</li>
+</ul>
+
+<h3>Data we do NOT collect</h3>
+<div class="card">
+  <ul>
+    <li>Geographic location (GPS)</li>
+    <li>Personal photos or images</li>
+    <li>Address book contacts</li>
+    <li>Payment data</li>
+    <li>Biometric data</li>
+  </ul>
+</div>
+
+<h2>2. Why we collect data</h2>
+<table>
+  <tr><th>Purpose</th><th>Legal basis (GDPR)</th></tr>
+  <tr><td>Registration and authentication</td><td>Performance of contract (Art. 6.1.b)</td></tr>
+  <tr><td>Push notifications</td><td>User consent (Art. 6.1.a)</td></tr>
+  <tr><td>Saving favorites</td><td>Performance of contract (Art. 6.1.b)</td></tr>
+  <tr><td>Anonymous usage analytics</td><td>Legitimate interest (Art. 6.1.f)</td></tr>
+  <tr><td>Service communications</td><td>Legal obligation (Art. 6.1.c)</td></tr>
+</table>
+
+<h2>3. Who we share data with</h2>
+<p>Personal data is <strong>not sold, transferred, or shared</strong> with third parties for commercial purposes.</p>
+<p>The following technical services process data on our behalf:</p>
+<table>
+  <tr><th>Service</th><th>Purpose</th><th>Data location</th></tr>
+  <tr><td><strong>Supabase</strong></td><td>Database, authentication, storage</td><td>Frankfurt, Germany (EU)</td></tr>
+  <tr><td><strong>Expo</strong></td><td>Push notification delivery</td><td>United States*</td></tr>
+  <tr><td><strong>PostHog</strong></td><td>Anonymous analytics</td><td>European Union</td></tr>
+</table>
+<p><small>*The Expo Push Notifications service processes push tokens through Apple (APNs) and Google (FCM) services. The token is a technical identifier, not a direct personal data point.</small></p>
+
+<h2>4. Where we store data</h2>
+<p>All personal data is stored on servers located in the <strong>European Union</strong> (Supabase — Frankfurt, Germany). Usage analytics are processed on EU servers (PostHog EU).</p>
+
+<h2>5. How long we keep data</h2>
+<table>
+  <tr><th>Data</th><th>Duration</th></tr>
+  <tr><td>User profile</td><td>Until account deletion</td></tr>
+  <tr><td>Favorites</td><td>Until account deletion</td></tr>
+  <tr><td>Notification token</td><td>Until account deletion or opt-out</td></tr>
+  <tr><td>Received notifications</td><td>30 days</td></tr>
+  <tr><td>Analytics data</td><td>12 months in aggregated form</td></tr>
+</table>
+
+<h2>6. Your rights</h2>
+<p>Under the GDPR (EU Regulation 2016/679), you have the right to:</p>
+<div class="card">
+  <ul>
+    <li><strong>Access</strong> — know what data we hold about you</li>
+    <li><strong>Rectification</strong> — correct inaccurate data</li>
+    <li><strong>Erasure</strong> — delete your account and all associated data</li>
+    <li><strong>Portability</strong> — receive your data in a readable format</li>
+    <li><strong>Objection</strong> — object to processing based on legitimate interest</li>
+    <li><strong>Withdraw consent</strong> — disable push notifications at any time</li>
+  </ul>
+</div>
+<h3>How to exercise your rights</h3>
+<ul>
+  <li><strong>Account deletion</strong>: directly from the app (Profile &rarr; Delete account)</li>
+  <li><strong>Notifications</strong>: can be disabled from the app settings</li>
+  <li><strong>Other requests</strong>: write to info@incomune.app</li>
+</ul>
+<p>We will respond within 30 days of your request.</p>
+<p>You also have the right to file a complaint with the <strong>Italian Data Protection Authority</strong> (Garante per la protezione dei dati personali — www.garanteprivacy.it).</p>
+
+<h2>7. Minimum age</h2>
+<p>InComune is intended for users aged <strong>14 and over</strong>. We do not knowingly collect data from children under 14. If a parent or guardian believes a minor has registered without consent, they can contact us at info@incomune.app to request account deletion.</p>
+
+<h2>8. Security</h2>
+<div class="card">
+  <ul>
+    <li>Authentication with encrypted passwords (hash)</li>
+    <li>Row Level Security (RLS) on all database tables</li>
+    <li>Encrypted communications (HTTPS/TLS)</li>
+    <li>Data access restricted to the data controller</li>
+  </ul>
+</div>
+
+<h2>9. Changes to this privacy policy</h2>
+<p>We reserve the right to update this policy. In case of substantial changes, users will be informed via an in-app notification.</p>
+
+<div class="contact-box">
+  <p><strong>Lorenzo La Grua</strong></p>
+  <p>Email: <a href="mailto:info@incomune.app">info@incomune.app</a></p>
+  <p>Piazza Trento 6, 20135 Milan, Italy</p>
+</div>
+
+</div>
+
+<!-- ═══════════════ FOOTER + SCRIPT ═══════════════ -->
+<div class="footer">
+  &copy; 2026 InComune — Tutti i diritti riservati
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelector('.section-it').style.display = lang === 'it' ? 'block' : 'none';
+  document.querySelector('.section-en').style.display = lang === 'en' ? 'block' : 'none';
+  var btns = document.querySelectorAll('.lang-switch button');
+  btns[0].className = lang === 'it' ? 'active' : '';
+  btns[1].className = lang === 'en' ? 'active' : '';
+}
+</script>
+
+</body>
+</html>
