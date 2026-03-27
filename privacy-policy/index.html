@@ -24,22 +24,20 @@
     -webkit-font-smoothing: antialiased;
   }
   .header {
-    background: var(--primary-light);
-    color: var(--text);
+    background: var(--primary);
+    color: white;
     padding: 48px 24px 40px;
     text-align: center;
-    border-bottom: 1px solid var(--border);
   }
   .header h1 {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 6px;
     letter-spacing: -0.3px;
-    color: var(--primary);
   }
   .header .subtitle {
     font-size: 15px;
-    color: var(--text-secondary);
+    opacity: 0.8;
     font-weight: 400;
   }
   .lang-switch {
@@ -49,9 +47,9 @@
     margin-top: 20px;
   }
   .lang-switch button {
-    background: var(--card);
-    color: var(--text-secondary);
-    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
     padding: 6px 18px;
     border-radius: 20px;
     font-size: 14px;
@@ -60,9 +58,9 @@
   }
   .lang-switch button.active,
   .lang-switch button:hover {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
+    background: white;
+    color: var(--primary);
+    border-color: white;
   }
   .container {
     max-width: 720px;
@@ -128,16 +126,16 @@
   tr:last-child td { border-bottom: none; }
   tr:nth-child(even) { background: var(--primary-light); }
   .contact-box {
-    background: var(--primary-light);
-    border: 1px solid var(--border);
+    background: var(--primary);
+    color: white;
     border-radius: 14px;
     padding: 24px;
     margin-top: 36px;
     text-align: center;
   }
-  .contact-box p { color: var(--text-secondary); }
-  .contact-box strong { color: var(--text); }
-  .contact-box a { color: var(--primary); text-decoration: underline; }
+  .contact-box p { color: rgba(255,255,255,0.85); }
+  .contact-box strong { color: white; }
+  .contact-box a { color: white; text-decoration: underline; }
   .footer {
     text-align: center;
     padding: 24px;
@@ -171,7 +169,7 @@
 <!-- ═══════════════ ITALIANO ═══════════════ -->
 <div class="container section-it">
 
-<span class="update-badge">Ultimo aggiornamento: 25 marzo 2026</span>
+<span class="update-badge">Ultimo aggiornamento: 27 marzo 2026</span>
 
 <h2>Titolare del trattamento</h2>
 <div class="card">
@@ -194,14 +192,15 @@
 <ul>
   <li><strong>Token di notifica push</strong> — identificativo tecnico del dispositivo per l'invio di notifiche</li>
   <li><strong>Piattaforma</strong> — iOS o Android, per l'invio corretto delle notifiche</li>
-  <li><strong>Dati di utilizzo anonimi</strong> — pagine visitate, funzionalit&agrave; utilizzate, durata delle sessioni, tramite PostHog Analytics (server UE). Questi dati sono aggregati e non identificano personalmente l'utente.</li>
+  <li><strong>Dati di utilizzo</strong> — pagine visitate, funzionalit&agrave; utilizzate, durata delle sessioni, tramite PostHog Analytics (server UE). Questi dati sono associati a un identificativo tecnico pseudonimo e non al tuo nome o email.</li>
+  <li><strong>Immagini di contenuto</strong> — foto e immagini caricate dagli amministratori per locandine, loghi, cover e post (non foto personali degli utenti).</li>
 </ul>
 
 <h3>Dati che NON raccogliamo</h3>
 <div class="card">
   <ul>
     <li>Posizione geografica (GPS)</li>
-    <li>Foto o immagini personali dell'utente</li>
+    <li>Foto o immagini personali dell'utente (il caricamento immagini &egrave; riservato agli amministratori per contenuti pubblici)</li>
     <li>Contatti della rubrica</li>
     <li>Dati di pagamento</li>
     <li>Dati biometrici</li>
@@ -214,9 +213,10 @@
   <tr><td>Registrazione e autenticazione</td><td>Esecuzione del contratto (Art. 6.1.b)</td></tr>
   <tr><td>Invio notifiche push</td><td>Consenso dell'utente (Art. 6.1.a)</td></tr>
   <tr><td>Salvataggio preferiti</td><td>Esecuzione del contratto (Art. 6.1.b)</td></tr>
-  <tr><td>Analisi anonime di utilizzo</td><td>Legittimo interesse (Art. 6.1.f)</td></tr>
+  <tr><td>Analisi di utilizzo (pseudonime)</td><td>Legittimo interesse (Art. 6.1.f)</td></tr>
   <tr><td>Comunicazioni di servizio</td><td>Obbligo legale (Art. 6.1.c)</td></tr>
 </table>
+<p><small><em>Interesse legittimo perseguito: migliorare le funzionalit&agrave; e l'esperienza d'uso dell'app, individuare malfunzionamenti e comprendere quali contenuti sono pi&ugrave; utili per la comunit&agrave;. I dati sono pseudonimi e limitati al necessario.</em></small></p>
 
 <h2>3. Con chi condividiamo i dati</h2>
 <p>I dati personali <strong>non vengono venduti, ceduti o condivisi</strong> con terze parti per finalit&agrave; commerciali.</p>
@@ -225,21 +225,23 @@
   <tr><th>Servizio</th><th>Finalit&agrave;</th><th>Sede dati</th></tr>
   <tr><td><strong>Supabase</strong></td><td>Database, autenticazione, storage</td><td>Francoforte, Germania (UE)</td></tr>
   <tr><td><strong>Expo</strong></td><td>Invio notifiche push</td><td>Stati Uniti*</td></tr>
-  <tr><td><strong>PostHog</strong></td><td>Analytics anonime</td><td>Unione Europea</td></tr>
+  <tr><td><strong>PostHog</strong></td><td>Analytics (dati pseudonimi)</td><td>Unione Europea</td></tr>
 </table>
-<p><small>*Il servizio Expo Push Notifications processa i token push attraverso i servizi Apple (APNs) e Google (FCM). Il token &egrave; un identificativo tecnico, non un dato personale diretto.</small></p>
+<p><small>*Il servizio Expo Push Notifications processa i token push attraverso i servizi Apple (APNs) e Google (FCM), con server negli Stati Uniti. Questo costituisce un trasferimento di dati extra-UE. Il token push &egrave; un identificativo tecnico del dispositivo; il trasferimento avviene sulla base delle Clausole Contrattuali Standard (SCC) adottate dalla Commissione Europea.</small></p>
 
 <h2>4. Dove conserviamo i dati</h2>
-<p>Tutti i dati personali sono conservati su server situati nell'<strong>Unione Europea</strong> (Supabase — Francoforte, Germania). Le analisi di utilizzo sono processate su server UE (PostHog EU).</p>
+<p>I dati personali (profilo, email, preferiti, notifiche) sono conservati su server nell'<strong>Unione Europea</strong> (Supabase — Francoforte, Germania). Le analisi di utilizzo sono processate su server UE (PostHog EU).</p>
+<p>I token di notifica push sono trasferiti negli <strong>Stati Uniti</strong> tramite Expo Push Service (con garanzie SCC), e successivamente trasmessi ad Apple (APNs) e Google (FCM) per la consegna al dispositivo.</p>
 
 <h2>5. Per quanto tempo conserviamo i dati</h2>
 <table>
   <tr><th>Dato</th><th>Durata</th></tr>
-  <tr><td>Profilo utente</td><td>Fino alla cancellazione dell'account</td></tr>
-  <tr><td>Preferiti</td><td>Fino alla cancellazione dell'account</td></tr>
-  <tr><td>Token di notifica</td><td>Fino alla cancellazione o disattivazione</td></tr>
-  <tr><td>Notifiche ricevute</td><td>30 giorni</td></tr>
-  <tr><td>Dati di analytics</td><td>12 mesi in forma aggregata</td></tr>
+  <tr><td>Profilo utente (nome, email)</td><td>Eliminato alla cancellazione dell'account</td></tr>
+  <tr><td>Preferiti</td><td>Eliminati alla cancellazione dell'account</td></tr>
+  <tr><td>Token di notifica push</td><td>Eliminato alla cancellazione dell'account o alla disattivazione delle notifiche</td></tr>
+  <tr><td>Notifiche ricevute</td><td>Eliminate alla cancellazione dell'account o dopo 30 giorni automaticamente</td></tr>
+  <tr><td>Immagini caricate da admin</td><td>Rimangono associate all'entit&agrave; pubblica; non eliminate alla cancellazione account</td></tr>
+  <tr><td>Dati di analytics (PostHog)</td><td>12 mesi; per richiedere cancellazione scrivere a info@incomune.app</td></tr>
 </table>
 
 <h2>6. I tuoi diritti</h2>
@@ -248,7 +250,7 @@
   <ul>
     <li><strong>Accesso</strong> — sapere quali dati abbiamo su di te</li>
     <li><strong>Rettifica</strong> — correggere dati inesatti</li>
-    <li><strong>Cancellazione</strong> — eliminare il tuo account e tutti i dati associati</li>
+    <li><strong>Cancellazione</strong> — eliminare il tuo account con profilo, preferiti, token push e notifiche (vedi sezione 5 per dettagli su analytics e immagini pubbliche)</li>
     <li><strong>Portabilit&agrave;</strong> — ricevere i tuoi dati in formato leggibile</li>
     <li><strong>Opposizione</strong> — opporti al trattamento basato su legittimo interesse</li>
     <li><strong>Revoca del consenso</strong> — disattivare le notifiche push in qualsiasi momento</li>
@@ -290,7 +292,7 @@
 <!-- ═══════════════ ENGLISH ═══════════════ -->
 <div class="container section-en">
 
-<span class="update-badge">Last updated: March 25, 2026</span>
+<span class="update-badge">Last updated: March 27, 2026</span>
 
 <h2>Data Controller</h2>
 <div class="card">
@@ -313,14 +315,15 @@
 <ul>
   <li><strong>Push notification token</strong> — technical device identifier for sending notifications</li>
   <li><strong>Platform</strong> — iOS or Android, for correct notification delivery</li>
-  <li><strong>Anonymous usage data</strong> — pages visited, features used, session duration, via PostHog Analytics (EU servers). This data is aggregated and does not personally identify the user.</li>
+  <li><strong>Usage data</strong> — pages visited, features used, session duration, via PostHog Analytics (EU servers). This data is associated with a pseudonymous technical identifier, not your name or email.</li>
+  <li><strong>Content images</strong> — photos and images uploaded by administrators for event posters, logos, cover photos, and posts (not personal photos of users).</li>
 </ul>
 
 <h3>Data we do NOT collect</h3>
 <div class="card">
   <ul>
     <li>Geographic location (GPS)</li>
-    <li>Personal photos or images</li>
+    <li>Personal photos or images of users (image uploads are reserved for administrators for public content)</li>
     <li>Address book contacts</li>
     <li>Payment data</li>
     <li>Biometric data</li>
@@ -333,9 +336,10 @@
   <tr><td>Registration and authentication</td><td>Performance of contract (Art. 6.1.b)</td></tr>
   <tr><td>Push notifications</td><td>User consent (Art. 6.1.a)</td></tr>
   <tr><td>Saving favorites</td><td>Performance of contract (Art. 6.1.b)</td></tr>
-  <tr><td>Anonymous usage analytics</td><td>Legitimate interest (Art. 6.1.f)</td></tr>
+  <tr><td>Usage analytics (pseudonymous)</td><td>Legitimate interest (Art. 6.1.f)</td></tr>
   <tr><td>Service communications</td><td>Legal obligation (Art. 6.1.c)</td></tr>
 </table>
+<p><small><em>Legitimate interest pursued: improving the app's features and user experience, identifying issues, and understanding which content is most useful to the community. Data is pseudonymous and limited to what is necessary.</em></small></p>
 
 <h2>3. Who we share data with</h2>
 <p>Personal data is <strong>not sold, transferred, or shared</strong> with third parties for commercial purposes.</p>
@@ -344,21 +348,23 @@
   <tr><th>Service</th><th>Purpose</th><th>Data location</th></tr>
   <tr><td><strong>Supabase</strong></td><td>Database, authentication, storage</td><td>Frankfurt, Germany (EU)</td></tr>
   <tr><td><strong>Expo</strong></td><td>Push notification delivery</td><td>United States*</td></tr>
-  <tr><td><strong>PostHog</strong></td><td>Anonymous analytics</td><td>European Union</td></tr>
+  <tr><td><strong>PostHog</strong></td><td>Analytics (pseudonymous data)</td><td>European Union</td></tr>
 </table>
-<p><small>*The Expo Push Notifications service processes push tokens through Apple (APNs) and Google (FCM) services. The token is a technical identifier, not a direct personal data point.</small></p>
+<p><small>*The Expo Push Notifications service processes push tokens through Apple (APNs) and Google (FCM) services, with servers in the United States. This constitutes an extra-EU data transfer. The push token is a technical device identifier; the transfer is carried out on the basis of Standard Contractual Clauses (SCCs) adopted by the European Commission.</small></p>
 
 <h2>4. Where we store data</h2>
-<p>All personal data is stored on servers located in the <strong>European Union</strong> (Supabase — Frankfurt, Germany). Usage analytics are processed on EU servers (PostHog EU).</p>
+<p>Personal data (profile, email, favorites, notifications) is stored on servers in the <strong>European Union</strong> (Supabase — Frankfurt, Germany). Usage analytics are processed on EU servers (PostHog EU).</p>
+<p>Push notification tokens are transferred to the <strong>United States</strong> via Expo Push Service (with SCC safeguards), and subsequently forwarded to Apple (APNs) and Google (FCM) for delivery to the device.</p>
 
 <h2>5. How long we keep data</h2>
 <table>
   <tr><th>Data</th><th>Duration</th></tr>
-  <tr><td>User profile</td><td>Until account deletion</td></tr>
-  <tr><td>Favorites</td><td>Until account deletion</td></tr>
-  <tr><td>Notification token</td><td>Until account deletion or opt-out</td></tr>
-  <tr><td>Received notifications</td><td>30 days</td></tr>
-  <tr><td>Analytics data</td><td>12 months in aggregated form</td></tr>
+  <tr><td>User profile (name, email)</td><td>Deleted upon account deletion</td></tr>
+  <tr><td>Favorites</td><td>Deleted upon account deletion</td></tr>
+  <tr><td>Push notification token</td><td>Deleted upon account deletion or notification opt-out</td></tr>
+  <tr><td>Received notifications</td><td>Deleted upon account deletion or after 30 days automatically</td></tr>
+  <tr><td>Admin-uploaded images</td><td>Remain associated with the public entity; not deleted upon account deletion</td></tr>
+  <tr><td>Analytics data (PostHog)</td><td>12 months; to request deletion write to info@incomune.app</td></tr>
 </table>
 
 <h2>6. Your rights</h2>
@@ -367,7 +373,7 @@
   <ul>
     <li><strong>Access</strong> — know what data we hold about you</li>
     <li><strong>Rectification</strong> — correct inaccurate data</li>
-    <li><strong>Erasure</strong> — delete your account and all associated data</li>
+    <li><strong>Erasure</strong> — delete your account with associated profile, favorites, push tokens and notifications (see section 5 for details on analytics and public images)</li>
     <li><strong>Portability</strong> — receive your data in a readable format</li>
     <li><strong>Objection</strong> — object to processing based on legitimate interest</li>
     <li><strong>Withdraw consent</strong> — disable push notifications at any time</li>
