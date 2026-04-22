@@ -174,7 +174,7 @@
   </div>
 
   <div class="container section-it">
-    <span class="update-badge">Ultimo aggiornamento: 13 aprile 2026</span>
+    <span class="update-badge">Ultimo aggiornamento: 22 aprile 2026</span>
 
     <h2>Titolare del trattamento</h2>
     <div class="card">
@@ -190,7 +190,8 @@
       <li><strong>Nome e cognome</strong> - per personalizzare il profilo</li>
       <li><strong>Indirizzo email</strong> - per l'autenticazione e le comunicazioni di servizio</li>
       <li><strong>Password</strong> - per gli account email/password, conservata in forma crittografata (hash), mai in chiaro</li>
-      <li><strong>Preferiti</strong> - le entita salvate dall'utente (attivita, associazioni, eventi, articoli, chiese)</li>
+      <li><strong>Preferiti</strong> - le entita salvate dall'utente (attivita, associazioni, eventi, articoli, chiese, professionisti)</li>
+      <li><strong>Segnalazioni di nuove entita</strong> - quando invii una segnalazione tramite il form dedicato, raccogliamo i dati dell'entita suggerita (nome, categoria, contatti pubblici, descrizione, note). Se la segnalazione include riferimenti a persone fisiche terze (es. professionisti), garantisci di segnalare solo informazioni gia pubbliche o che hai titolo a comunicare.</li>
     </ul>
 
     <h3>Accesso con provider esterni</h3>
@@ -227,8 +228,10 @@
       <tr><td>Salvataggio preferiti</td><td>Esecuzione del contratto (Art. 6.1.b)</td></tr>
       <tr><td>Analisi di utilizzo (pseudonime)</td><td>Legittimo interesse (Art. 6.1.f)</td></tr>
       <tr><td>Comunicazioni di servizio</td><td>Obbligo legale (Art. 6.1.c)</td></tr>
+      <tr><td>Gestione e moderazione di segnalazioni inviate dagli utenti</td><td>Esecuzione del contratto (Art. 6.1.b)</td></tr>
+      <tr><td>Trattamento di dati di persone fisiche terze presenti nelle segnalazioni</td><td>Legittimo interesse (Art. 6.1.f)</td></tr>
     </table>
-    <p><small><em>Interesse legittimo perseguito: migliorare le funzionalita e l'esperienza d'uso dell'app, individuare malfunzionamenti e comprendere quali contenuti sono piu utili per la comunita. I dati sono pseudonimi e limitati al necessario.</em></small></p>
+    <p><small><em>Interesse legittimo perseguito: migliorare le funzionalita e l'esperienza d'uso dell'app, individuare malfunzionamenti e comprendere quali contenuti sono piu utili per la comunita. I dati sono pseudonimi e limitati al necessario. Per le segnalazioni, l'interesse legittimo perseguito e consentire alla comunita di Novoli di arricchire l'app con informazioni pubbliche rilevanti (attivita, professionisti, associazioni), nel rispetto dei principi di minimizzazione e pertinenza.</em></small></p>
 
     <h2>3. Con chi condividiamo i dati</h2>
     <p>I dati personali non vengono venduti, ceduti o condivisi con terze parti per finalita commerciali.</p>
@@ -237,6 +240,8 @@
       <tr><th>Servizio</th><th>Finalita</th><th>Sede dati</th></tr>
       <tr><td><strong>Supabase</strong> (supabase.com)</td><td>Database, autenticazione, storage</td><td>Francoforte, Germania (UE)</td></tr>
       <tr><td><strong>Expo</strong> (expo.dev)</td><td>Invio notifiche push</td><td>Stati Uniti*</td></tr>
+      <tr><td><strong>Apple Push Notification Service (APNs)</strong></td><td>Consegna notifiche push su dispositivi iOS</td><td>Stati Uniti*</td></tr>
+      <tr><td><strong>Firebase Cloud Messaging (Google FCM)</strong></td><td>Consegna notifiche push su dispositivi Android</td><td>Stati Uniti*</td></tr>
       <tr><td><strong>PostHog</strong> (posthog.com)</td><td>Analytics (dati pseudonimi)</td><td>Unione Europea</td></tr>
     </table>
     <p><small><em>Il servizio Expo Push Notifications processa i token push attraverso i servizi Apple (APNs) e Google (FCM), con server negli Stati Uniti. Questo costituisce un trasferimento di dati extra-UE. Il token push e un identificativo tecnico del dispositivo; il trasferimento avviene sulla base delle Clausole Contrattuali Standard (SCC) adottate dalla Commissione Europea.</em></small></p>
@@ -253,6 +258,7 @@
       <tr><td>Token di notifica push</td><td>Eliminati alla cancellazione dell'account o alla disattivazione delle notifiche</td></tr>
       <tr><td>Notifiche ricevute</td><td>Eliminate alla cancellazione dell'account o dopo 30 giorni automaticamente</td></tr>
       <tr><td>Immagini caricate da admin (locandine, loghi, cover)</td><td>Non collegate al profilo personale; rimangono associate all'entita pubblica e non vengono eliminate alla cancellazione dell'account</td></tr>
+      <tr><td>Segnalazioni di nuove entita</td><td>Conservate fino alla revisione (approvazione o rifiuto). Le segnalazioni rifiutate sono eliminate entro 90 giorni. Le segnalazioni approvate diventano parte del contenuto pubblico della scheda creata.</td></tr>
       <tr><td>Dati di analytics (PostHog, pseudonimi)</td><td>12 mesi; per richiedere la cancellazione scrivere a info@incomune.app</td></tr>
     </table>
 
@@ -287,6 +293,7 @@
       <li>Row Level Security (RLS) su tutte le tabelle del database</li>
       <li>Comunicazioni crittografate (HTTPS/TLS)</li>
       <li>Accesso ai dati limitato al titolare del trattamento</li>
+      <li>Registrazione della data di accettazione della presente Privacy Policy, per dimostrare il consenso ai sensi dell'Art. 7 GDPR</li>
     </ul>
 
     <h2>9. Modifiche alla privacy policy</h2>
@@ -301,7 +308,7 @@
   </div>
 
   <div class="container section-en">
-    <span class="update-badge">Last updated: April 13, 2026</span>
+    <span class="update-badge">Last updated: April 22, 2026</span>
 
     <h2>Data Controller</h2>
     <div class="card">
@@ -317,7 +324,8 @@
       <li><strong>Full name</strong> - to personalize your profile</li>
       <li><strong>Email address</strong> - for authentication and service communications</li>
       <li><strong>Password</strong> - for email/password accounts, stored in encrypted form (hash), never in plain text</li>
-      <li><strong>Favorites</strong> - entities saved by the user (businesses, associations, events, articles, churches)</li>
+      <li><strong>Favorites</strong> - entities saved by the user (businesses, associations, events, articles, churches, professionals)</li>
+      <li><strong>New entity suggestions</strong> - when you submit a suggestion through the dedicated form, we collect the data of the suggested entity (name, category, public contact details, description, notes). If the suggestion includes references to third-party natural persons (e.g. professionals), you warrant that you are only reporting information that is already public or that you are entitled to disclose.</li>
     </ul>
 
     <h3>Sign-in with external providers</h3>
@@ -354,8 +362,10 @@
       <tr><td>Saving favorites</td><td>Performance of contract (Art. 6.1.b)</td></tr>
       <tr><td>Usage analytics (pseudonymous)</td><td>Legitimate interest (Art. 6.1.f)</td></tr>
       <tr><td>Service communications</td><td>Legal obligation (Art. 6.1.c)</td></tr>
+      <tr><td>Management and moderation of user-submitted suggestions</td><td>Performance of contract (Art. 6.1.b)</td></tr>
+      <tr><td>Processing of third-party natural person data included in suggestions</td><td>Legitimate interest (Art. 6.1.f)</td></tr>
     </table>
-    <p><small><em>Legitimate interest pursued: improving the app's features and user experience, identifying issues, and understanding which content is most useful to the community. Data is pseudonymous and limited to what is necessary.</em></small></p>
+    <p><small><em>Legitimate interest pursued: improving the app's features and user experience, identifying issues, and understanding which content is most useful to the community. Data is pseudonymous and limited to what is necessary. For suggestions, the legitimate interest pursued is to enable the Novoli community to enrich the app with relevant public information (businesses, professionals, associations), in compliance with the principles of minimization and relevance.</em></small></p>
 
     <h2>3. Who we share data with</h2>
     <p>Personal data is not sold, transferred, or shared with third parties for commercial purposes.</p>
@@ -364,6 +374,8 @@
       <tr><th>Service</th><th>Purpose</th><th>Data location</th></tr>
       <tr><td><strong>Supabase</strong> (supabase.com)</td><td>Database, authentication, storage</td><td>Frankfurt, Germany (EU)</td></tr>
       <tr><td><strong>Expo</strong> (expo.dev)</td><td>Push notification delivery</td><td>United States*</td></tr>
+      <tr><td><strong>Apple Push Notification Service (APNs)</strong></td><td>Push notification delivery to iOS devices</td><td>United States*</td></tr>
+      <tr><td><strong>Firebase Cloud Messaging (Google FCM)</strong></td><td>Push notification delivery to Android devices</td><td>United States*</td></tr>
       <tr><td><strong>PostHog</strong> (posthog.com)</td><td>Analytics (pseudonymous data)</td><td>European Union</td></tr>
     </table>
     <p><small><em>The Expo Push Notifications service processes push tokens through Apple (APNs) and Google (FCM) services, with servers in the United States. This constitutes an extra-EU data transfer. The push token is a technical device identifier; the transfer is carried out on the basis of Standard Contractual Clauses (SCCs) adopted by the European Commission.</em></small></p>
@@ -380,6 +392,7 @@
       <tr><td>Push notification token</td><td>Deleted upon account deletion or notification opt-out</td></tr>
       <tr><td>Received notifications</td><td>Deleted upon account deletion or after 30 days automatically</td></tr>
       <tr><td>Admin-uploaded images (posters, logos, covers)</td><td>Not linked to the personal profile; remain associated with the public entity and are not deleted upon account deletion</td></tr>
+      <tr><td>New entity suggestions</td><td>Retained until review (approval or rejection). Rejected suggestions are deleted within 90 days. Approved suggestions become part of the public content of the created record.</td></tr>
       <tr><td>Analytics data (PostHog, pseudonymous)</td><td>12 months; to request deletion write to info@incomune.app</td></tr>
     </table>
 
@@ -414,6 +427,7 @@
       <li>Row Level Security (RLS) on all database tables</li>
       <li>Encrypted communications (HTTPS/TLS)</li>
       <li>Data access restricted to the data controller</li>
+      <li>Recording of the date of acceptance of this Privacy Policy, in order to demonstrate consent pursuant to Art. 7 GDPR</li>
     </ul>
 
     <h2>9. Changes to this privacy policy</h2>
