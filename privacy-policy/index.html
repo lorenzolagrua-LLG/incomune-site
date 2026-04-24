@@ -174,7 +174,7 @@
   </div>
 
   <div class="container section-it">
-    <span class="update-badge">Ultimo aggiornamento: 22 aprile 2026</span>
+    <span class="update-badge">Ultimo aggiornamento: 24 aprile 2026</span>
 
     <h2>Titolare del trattamento</h2>
     <div class="card">
@@ -206,6 +206,7 @@
       <li><strong>Token di notifica push</strong> - identificativo tecnico del dispositivo per l'invio di notifiche (tramite Expo Push Service)</li>
       <li><strong>Piattaforma</strong> - iOS o Android, per l'invio corretto delle notifiche</li>
       <li><strong>Dati di utilizzo</strong> - pagine visitate, funzionalit&agrave; utilizzate, durata delle sessioni, tramite PostHog Analytics (server UE). Questi dati sono associati a un identificativo tecnico pseudonimo e non al tuo nome o email.</li>
+      <li><strong>Report di errori</strong> - stack trace, versione dell'app, modello del dispositivo e sistema operativo, identificativo tecnico pseudonimo, quando l'app va in crash o genera un errore non gestito, tramite Firebase Crashlytics (Google). Non raccogliamo il contenuto delle schermate n&eacute; screenshot. Finalit&agrave;: diagnostica tecnica e stabilit&agrave; del servizio.</li>
       <li><strong>Immagini di contenuto</strong> - foto e immagini caricate dagli amministratori per locandine, loghi, cover e post (non foto personali degli utenti).</li>
     </ul>
 
@@ -227,6 +228,7 @@
       <tr><td>Invio notifiche push</td><td>Consenso dell'utente (Art. 6.1.a)</td></tr>
       <tr><td>Salvataggio preferiti</td><td>Esecuzione del contratto (Art. 6.1.b)</td></tr>
       <tr><td>Analisi di utilizzo (pseudonime)</td><td>Legittimo interesse (Art. 6.1.f)</td></tr>
+      <tr><td>Monitoraggio errori tecnici (pseudonimi)</td><td>Legittimo interesse (Art. 6.1.f)</td></tr>
       <tr><td>Comunicazioni di servizio</td><td>Obbligo legale (Art. 6.1.c)</td></tr>
       <tr><td>Gestione e moderazione di segnalazioni inviate dagli utenti</td><td>Esecuzione del contratto (Art. 6.1.b)</td></tr>
       <tr><td>Trattamento di dati di persone fisiche terze presenti nelle segnalazioni</td><td>Legittimo interesse (Art. 6.1.f)</td></tr>
@@ -243,12 +245,14 @@
       <tr><td><strong>Apple Push Notification Service (APNs)</strong></td><td>Consegna notifiche push su dispositivi iOS</td><td>Stati Uniti*</td></tr>
       <tr><td><strong>Firebase Cloud Messaging (Google FCM)</strong></td><td>Consegna notifiche push su dispositivi Android</td><td>Stati Uniti*</td></tr>
       <tr><td><strong>PostHog</strong> (posthog.com)</td><td>Analytics (dati pseudonimi)</td><td>Unione Europea</td></tr>
+      <tr><td><strong>Firebase Crashlytics (Google)</strong></td><td>Monitoraggio errori tecnici (dati pseudonimi)</td><td>Stati Uniti*</td></tr>
     </table>
-    <p><small><em>Il servizio Expo Push Notifications processa i token push attraverso i servizi Apple (APNs) e Google (FCM), con server negli Stati Uniti. Questo costituisce un trasferimento di dati extra-UE. Il token push &egrave; un identificativo tecnico del dispositivo; il trasferimento avviene sulla base delle Clausole Contrattuali Standard (SCC) adottate dalla Commissione Europea.</em></small></p>
+    <p><small><em>I servizi Expo Push Notifications, Apple (APNs), Google (FCM) e Firebase Crashlytics processano dati su server negli Stati Uniti. Questo costituisce un trasferimento di dati extra-UE. I dati trasferiti sono identificativi tecnici del dispositivo (token push) o metadati tecnici di crash (stack trace, modello dispositivo, versione app); il trasferimento avviene sulla base delle Clausole Contrattuali Standard (SCC) adottate dalla Commissione Europea.</em></small></p>
 
     <h2>4. Dove conserviamo i dati</h2>
     <p>I dati personali (profilo, email, preferiti, notifiche) sono conservati su server nell'<strong>Unione Europea</strong> (Supabase - Francoforte, Germania). Le analisi di utilizzo sono processate su server UE (PostHog EU).</p>
     <p>I token di notifica push sono trasferiti negli <strong>Stati Uniti</strong> tramite Expo Push Service (con garanzie SCC), e successivamente trasmessi ad Apple (APNs) e Google (FCM) per la consegna della notifica al dispositivo.</p>
+    <p>I report di errori tecnici (stack trace, metadati dispositivo, identificativo pseudonimo) sono trasferiti negli <strong>Stati Uniti</strong> tramite Firebase Crashlytics (Google), sulla base delle Clausole Contrattuali Standard (SCC).</p>
 
     <h2>5. Per quanto tempo conserviamo i dati</h2>
     <table>
@@ -260,6 +264,7 @@
       <tr><td>Immagini caricate da admin (locandine, loghi, cover)</td><td>Non collegate al profilo personale; rimangono associate all'entit&agrave; pubblica e non vengono eliminate alla cancellazione dell'account</td></tr>
       <tr><td>Segnalazioni di nuove entit&agrave;</td><td>Conservate fino alla revisione (approvazione o rifiuto). Le segnalazioni rifiutate sono eliminate entro 90 giorni. Le segnalazioni approvate diventano parte del contenuto pubblico della scheda creata.</td></tr>
       <tr><td>Dati di analytics (PostHog, pseudonimi)</td><td>12 mesi; per richiedere la cancellazione scrivere a info@incomune.app</td></tr>
+      <tr><td>Report di errori tecnici (Firebase Crashlytics, pseudonimi)</td><td>90 giorni (retention di default Google); per richiedere la cancellazione scrivere a info@incomune.app</td></tr>
     </table>
 
     <h2>6. I tuoi diritti</h2>
@@ -308,7 +313,7 @@
   </div>
 
   <div class="container section-en">
-    <span class="update-badge">Last updated: April 22, 2026</span>
+    <span class="update-badge">Last updated: April 24, 2026</span>
 
     <h2>Data Controller</h2>
     <div class="card">
@@ -340,6 +345,7 @@
       <li><strong>Push notification token</strong> - technical device identifier for sending notifications (via Expo Push Service)</li>
       <li><strong>Platform</strong> - iOS or Android, for correct notification delivery</li>
       <li><strong>Usage data</strong> - pages visited, features used, session duration, via PostHog Analytics (EU servers). This data is associated with a pseudonymous technical identifier, not your name or email.</li>
+      <li><strong>Error reports</strong> - stack trace, app version, device model and OS, pseudonymous technical identifier, when the app crashes or generates an unhandled error, via Firebase Crashlytics (Google). We do not collect screen content or screenshots. Purpose: technical diagnostics and service stability.</li>
       <li><strong>Content images</strong> - photos and images uploaded by administrators for event posters, logos, cover photos, and posts (not personal photos of users).</li>
     </ul>
 
@@ -361,6 +367,7 @@
       <tr><td>Push notifications</td><td>User consent (Art. 6.1.a)</td></tr>
       <tr><td>Saving favorites</td><td>Performance of contract (Art. 6.1.b)</td></tr>
       <tr><td>Usage analytics (pseudonymous)</td><td>Legitimate interest (Art. 6.1.f)</td></tr>
+      <tr><td>Technical error monitoring (pseudonymous)</td><td>Legitimate interest (Art. 6.1.f)</td></tr>
       <tr><td>Service communications</td><td>Legal obligation (Art. 6.1.c)</td></tr>
       <tr><td>Management and moderation of user-submitted suggestions</td><td>Performance of contract (Art. 6.1.b)</td></tr>
       <tr><td>Processing of third-party natural person data included in suggestions</td><td>Legitimate interest (Art. 6.1.f)</td></tr>
@@ -377,12 +384,14 @@
       <tr><td><strong>Apple Push Notification Service (APNs)</strong></td><td>Push notification delivery to iOS devices</td><td>United States*</td></tr>
       <tr><td><strong>Firebase Cloud Messaging (Google FCM)</strong></td><td>Push notification delivery to Android devices</td><td>United States*</td></tr>
       <tr><td><strong>PostHog</strong> (posthog.com)</td><td>Analytics (pseudonymous data)</td><td>European Union</td></tr>
+      <tr><td><strong>Firebase Crashlytics (Google)</strong></td><td>Technical error monitoring (pseudonymous data)</td><td>United States*</td></tr>
     </table>
-    <p><small><em>The Expo Push Notifications service processes push tokens through Apple (APNs) and Google (FCM) services, with servers in the United States. This constitutes an extra-EU data transfer. The push token is a technical device identifier; the transfer is carried out on the basis of Standard Contractual Clauses (SCCs) adopted by the European Commission.</em></small></p>
+    <p><small><em>Expo Push Notifications, Apple (APNs), Google (FCM), and Firebase Crashlytics process data on servers in the United States. This constitutes an extra-EU data transfer. The transferred data consists of technical device identifiers (push tokens) or technical crash metadata (stack trace, device model, app version); the transfer is carried out on the basis of Standard Contractual Clauses (SCCs) adopted by the European Commission.</em></small></p>
 
     <h2>4. Where we store data</h2>
     <p>Personal data (profile, email, favorites, notifications) is stored on servers in the <strong>European Union</strong> (Supabase - Frankfurt, Germany). Usage analytics are processed on EU servers (PostHog EU).</p>
     <p>Push notification tokens are transferred to the <strong>United States</strong> via Expo Push Service (with SCC safeguards), and subsequently forwarded to Apple (APNs) and Google (FCM) for delivery to the device.</p>
+    <p>Technical error reports (stack trace, device metadata, pseudonymous identifier) are transferred to the <strong>United States</strong> via Firebase Crashlytics (Google), on the basis of Standard Contractual Clauses (SCCs).</p>
 
     <h2>5. How long we keep data</h2>
     <table>
@@ -394,6 +403,7 @@
       <tr><td>Admin-uploaded images (posters, logos, covers)</td><td>Not linked to the personal profile; remain associated with the public entity and are not deleted upon account deletion</td></tr>
       <tr><td>New entity suggestions</td><td>Retained until review (approval or rejection). Rejected suggestions are deleted within 90 days. Approved suggestions become part of the public content of the created record.</td></tr>
       <tr><td>Analytics data (PostHog, pseudonymous)</td><td>12 months; to request deletion write to info@incomune.app</td></tr>
+      <tr><td>Technical error reports (Firebase Crashlytics, pseudonymous)</td><td>90 days (Google default retention); to request deletion write to info@incomune.app</td></tr>
     </table>
 
     <h2>6. Your rights</h2>
