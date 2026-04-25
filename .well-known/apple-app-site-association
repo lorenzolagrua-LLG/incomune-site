@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["S8ZSGV5YP8.app.incomune"],
+        "components": [
+          { "/": "/eventi/*" },
+          { "/": "/attivita/*" },
+          { "/": "/associazioni/*" },
+          { "/": "/chiese/*" },
+          { "/": "/professionisti/*" },
+          { "/": "/varie/*" }
+        ]
+      }
+    ]
+  }
+}

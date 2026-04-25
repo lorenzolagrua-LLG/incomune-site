@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.incomune",
+      "sha256_cert_fingerprints": [
+        "53:9E:84:09:AE:CB:FE:8C:E2:22:E4:DE:2A:CD:37:68:F0:B8:4A:4D:B4:71:1F:BC:4E:F9:97:5A:B3:43:66:ED"
+      ]
+    }
+  }
+]
