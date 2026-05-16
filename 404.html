@@ -6,6 +6,13 @@
 <title>InComune — Apri nell'app</title>
 <meta name="description" content="Per visualizzare questo contenuto installa InComune, l'app della comunità di Novoli (LE).">
 
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#1B4A8A">
+
 <!-- OpenGraph (anteprima link su WhatsApp / Facebook / iMessage) -->
 <meta property="og:title" content="InComune — Novoli">
 <meta property="og:description" content="L'app della comunità di Novoli (LE). Eventi, attività, associazioni e novità del paese.">
@@ -46,12 +53,24 @@
     max-width: 520px;
     width: 100%;
   }
+  .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .brand-logo {
+    width: 88px;
+    height: auto;
+    display: block;
+  }
   .logo-text {
-    font-size: 42px;
+    font-size: 38px;
     font-weight: 800;
     color: var(--primary);
     letter-spacing: -1px;
-    margin-bottom: 8px;
+    line-height: 1;
   }
   .tagline {
     font-size: 17px;
@@ -132,7 +151,8 @@
     text-decoration: underline;
   }
   @media (max-width: 400px) {
-    .logo-text { font-size: 34px; }
+    .brand-logo { width: 72px; }
+    .logo-text { font-size: 32px; }
     .message { padding: 20px 16px; }
   }
 </style>
@@ -142,7 +162,10 @@
 <div class="container">
   <div class="badge">Coming Soon</div>
 
-  <div class="logo-text">InComune</div>
+  <div class="brand">
+    <img src="/assets/logo-blue.svg" alt="" class="brand-logo" width="88" height="115">
+    <div class="logo-text">InComune</div>
+  </div>
   <p class="tagline">La comunità di Novoli, in un'unica app.</p>
 
   <div class="message">
