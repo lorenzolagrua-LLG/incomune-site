@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elimina account — InComune</title>
+<meta name="description" content="Come eliminare il tuo account InComune e quali dati vengono rimossi.">
+
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#1B4A8A">
+
+<meta property="og:title" content="Elimina account — InComune">
+<meta property="og:description" content="Come eliminare il tuo account InComune e quali dati vengono rimossi.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://incomune.app/elimina-account/">
+<meta property="og:locale" content="it_IT">
+
+<style>
+  :root {
+    --primary: #1B4A8A;
+    --primary-light: #EBF0FA;
+    --text: #1E1E1E;
+    --text-secondary: #555555;
+    --bg: #F5F7FB;
+    --card: #FFFFFF;
+    --border: #D6DEE8;
+    --warning: #B45309;
+    --warning-bg: #FEF3C7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px;
+    line-height: 1.55;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+  header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .brand-logo {
+    width: 72px;
+    height: auto;
+    display: block;
+    margin: 0 auto 12px;
+  }
+  .home-link {
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .home-link:hover { text-decoration: underline; }
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+  .lede {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 2px 12px rgba(27,74,138,0.06);
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 18px 0 8px;
+  }
+  p { color: var(--text); margin-bottom: 12px; font-size: 16px; }
+  p:last-child { margin-bottom: 0; }
+  ul, ol {
+    padding-left: 22px;
+    margin-bottom: 12px;
+  }
+  li { margin-bottom: 8px; font-size: 16px; }
+  .step-list {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: step;
+  }
+  .step-list li {
+    counter-increment: step;
+    padding-left: 44px;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .step-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .notice {
+    background: var(--warning-bg);
+    border-left: 4px solid var(--warning);
+    padding: 14px 18px;
+    border-radius: 4px;
+    margin: 16px 0;
+    color: #5C3B0A;
+    font-size: 15px;
+  }
+  .notice strong { color: var(--warning); }
+  .contact-card {
+    background: var(--primary-light);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .contact-card a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .contact-card a:hover { text-decoration: underline; }
+  .footer {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .footer a { color: var(--primary); text-decoration: none; margin: 0 6px; }
+  .footer a:hover { text-decoration: underline; }
+  code {
+    background: var(--primary-light);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Menlo', 'Monaco', monospace;
+    font-size: 14px;
+    color: var(--primary);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <a href="/" class="home-link">← incomune.app</a>
+    <img src="/assets/logo-blue.png" alt="InComune" class="brand-logo" onerror="this.style.display='none'">
+    <h1>Elimina il tuo account</h1>
+    <p class="lede">Guida passo-passo per eliminare definitivamente l'account InComune e i dati associati.</p>
+  </header>
+
+  <div class="card">
+    <h2>Come eliminare l'account dall'app</h2>
+    <p>L'app InComune permette di eliminare il tuo account direttamente dal tuo telefono in qualunque momento, senza scrivere a nessuno.</p>
+
+    <ol class="step-list">
+      <li>Apri l'app <strong>InComune</strong> sul tuo telefono.</li>
+      <li>Tocca l'icona del profilo in alto a destra (la silhouette) per aprire la tua pagina personale.</li>
+      <li>Scorri fino in fondo alla pagina <strong>"Il mio profilo"</strong>.</li>
+      <li>Tocca la voce <strong>"Elimina il mio account"</strong>.</li>
+      <li>Conferma due volte (per sicurezza). L'eliminazione è immediata e definitiva.</li>
+    </ol>
+
+    <div class="notice">
+      <p><strong>Attenzione:</strong> l'eliminazione non è reversibile. Una volta confermata, non potrai recuperare i dati cancellati. Se vuoi tornare a usare InComune dovrai registrarti di nuovo come nuovo utente.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Quali dati vengono eliminati</h2>
+    <p>Eliminando l'account, vengono rimossi <strong>in modo permanente</strong> dai nostri server:</p>
+    <ul>
+      <li>il tuo profilo (nome, email, immagine profilo);</li>
+      <li>le tue preferenze (entità preferite, eventi salvati, organizzatori seguiti);</li>
+      <li>le tue notifiche (cronologia delle notifiche ricevute);</li>
+      <li>i token push del tuo dispositivo (smetti di ricevere notifiche istantaneamente);</li>
+      <li>le credenziali di accesso (email + password / Apple ID / Google).</li>
+    </ul>
+
+    <h3>Cosa NON viene eliminato</h3>
+    <p>Per motivi di funzionalità dell'app e tutela della comunità, restano salvati anche dopo l'eliminazione:</p>
+    <ul>
+      <li>le schede pubbliche (attività, associazioni, chiese, professionisti, teatro) di cui eri amministratore — restano nell'app ma <strong>senza alcun amministratore associato</strong> (puoi rivendicarle in futuro o segnalare una nuova candidatura admin);</li>
+      <li>i contenuti pubblici che hai eventualmente pubblicato come amministratore di una scheda (post, eventi, foto delle attività) — sono <strong>contenuti della scheda</strong>, non del tuo account personale, e restano disponibili;</li>
+      <li>i log tecnici aggregati e anonimi (statistiche di utilizzo) — non collegabili a te.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Tempi di cancellazione</h2>
+    <p>L'eliminazione dei dati personali è <strong>immediata</strong> nel momento in cui confermi l'operazione nell'app. Non c'è alcun periodo di grace o ripensamento.</p>
+    <p>I backup di sistema potrebbero contenere copie temporanee dei dati fino a 30 giorni per ragioni tecniche, dopodiché vengono sovrascritti automaticamente. Durante questo periodo i dati nei backup non sono accessibili.</p>
+  </div>
+
+  <div class="card">
+    <h2>Non riesci a eliminare l'account dall'app?</h2>
+    <p>Se per qualunque motivo non riesci ad accedere all'app o a completare l'eliminazione (per esempio non ricordi le credenziali o l'app non si avvia), puoi scriverci direttamente. Ti chiederemo solo l'email con cui ti sei registrato per verificare l'identità.</p>
+    <div class="contact-card">
+      <p style="margin:0 0 6px"><strong>Scrivi a:</strong></p>
+      <p style="margin:0; font-size:18px"><a href="mailto:info@incomune.app?subject=Richiesta%20eliminazione%20account">info@incomune.app</a></p>
+      <p style="margin:10px 0 0; font-size:14px; color:var(--text-secondary)">Risposta entro 30 giorni lavorativi.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>InComune — La comunità di Novoli (LE), in un'unica app.</p>
+    <p style="margin-top:6px">
+      <a href="/">Home</a>·
+      <a href="/privacy-policy/">Privacy</a>·
+      <a href="/termini/">Termini</a>·
+      <a href="mailto:info@incomune.app">Contatti</a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
