@@ -9,7 +9,8 @@
           { "/": "/associazioni/*" },
           { "/": "/chiese/*" },
           { "/": "/professionisti/*" },
-          { "/": "/varie/*" }
+          { "/": "/varie/*" },
+          { "/": "/reset-password*" }
         ]
       }
     ]
