@@ -10,6 +10,7 @@
           { "/": "/chiese/*" },
           { "/": "/professionisti/*" },
           { "/": "/varie/*" },
+          { "/": "/paese/teatro" },
           { "/": "/reset-password*" },
           { "/": "/email-confirmed*" }
         ]
