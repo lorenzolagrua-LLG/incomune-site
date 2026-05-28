@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - InComune</title>
+  <style>
+    :root {
+      --primary: #1b4a8a;
+      --primary-light: #ebf0fa;
+      --text: #1e1e1e;
+      --text-secondary: #555555;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --border: #d6dee8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .header {
+      background: var(--primary);
+      color: #fff;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+    .header .subtitle {
+      font-size: 15px;
+      opacity: 0.85;
+      font-weight: 400;
+    }
+    .lang-switch {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .lang-switch button {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-switch button.active,
+    .lang-switch button:hover {
+      background: #fff;
+      color: var(--primary);
+      border-color: #fff;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+    .update-badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-bottom: 28px;
+    }
+    h2 {
+      color: var(--primary);
+      font-size: 20px;
+      font-weight: 700;
+      margin: 36px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary-light);
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0 8px;
+      color: var(--text);
+    }
+    p {
+      margin: 10px 0;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+    ul {
+      margin: 10px 0 10px 20px;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+    li { margin: 6px 0; }
+    strong { color: var(--text); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin: 16px 0;
+      box-shadow: 0 1px 4px rgba(27, 74, 138, 0.06);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+    th {
+      background: var(--primary);
+      color: #fff;
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    th:first-child { border-radius: 8px 0 0 0; }
+    th:last-child { border-radius: 0 8px 0 0; }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) { background: var(--primary-light); }
+    .contact-box {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 36px;
+      text-align: center;
+    }
+    .contact-box p { color: rgba(255, 255, 255, 0.88); }
+    .contact-box strong { color: #fff; }
+    .contact-box a { color: #fff; text-decoration: underline; }
+    .footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-secondary);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+    }
+    .section-en { display: none; }
+    @media (max-width: 600px) {
+      .header { padding: 36px 16px 32px; }
+      .header h1 { font-size: 24px; }
+      .container { padding: 24px 16px 48px; }
+      h2 { font-size: 18px; }
+      table { font-size: 13px; }
+      th, td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>InComune</h1>
+    <div class="subtitle">Privacy Policy</div>
+    <div class="lang-switch">
+      <button class="active" onclick="switchLang('it')">Italiano</button>
+      <button onclick="switchLang('en')">English</button>
+    </div>
+  </div>
+
+  <div class="container section-it">
+    <span class="update-badge">Ultimo aggiornamento: 29 aprile 2026</span>
+
+    <h2>Titolare del trattamento</h2>
+    <div class="card">
+      <p><strong>Lorenzo La Grua</strong></p>
+      <p>Piazza Trento 6, 20135 Milano, Italia</p>
+      <p>Email: <strong>info@incomune.app</strong></p>
+    </div>
+
+    <h2>1. Quali dati raccogliamo</h2>
+
+    <h3>Dati forniti dall'utente</h3>
+    <ul>
+      <li><strong>Nome e cognome</strong> - per personalizzare il profilo</li>
+      <li><strong>Indirizzo email</strong> - per l'autenticazione e le comunicazioni di servizio</li>
+      <li><strong>Password</strong> - per gli account email/password, conservata in forma crittografata (hash), mai in chiaro</li>
+      <li><strong>Preferiti</strong> - le entit&agrave; salvate dall'utente (attivit&agrave;, associazioni, eventi, articoli, chiese, professionisti)</li>
+      <li><strong>Segnalazioni di nuove entit&agrave;</strong> - quando invii una segnalazione tramite il form dedicato, raccogliamo i dati dell'entit&agrave; suggerita (nome, categoria, contatti pubblici, descrizione, note). Se la segnalazione include riferimenti a persone fisiche terze (es. professionisti), garantisci di segnalare solo informazioni gi&agrave; pubbliche o che hai titolo a comunicare.</li>
+      <li><strong>Rivendiche e richieste di modifica/rimozione delle schede</strong> - se utilizzi il pulsante &laquo;Sei il titolare?&raquo; su una scheda di attivit&agrave;, associazione, chiesa o professionista, raccogliamo la descrizione che fornisci, il tipo di richiesta (rivendica, modifica, rimozione), il riferimento alla scheda interessata e l'eventuale recapito di contatto opzionale. Questi dati sono visibili solo al super amministratore per la gestione della richiesta.</li>
+    </ul>
+
+    <h3>Schede pre-popolate da fonti pubbliche</h3>
+    <p>Le schede di attivit&agrave; commerciali, associazioni, chiese, professionisti e luoghi pubblici di Novoli sono state create raccogliendo dati gi&agrave; resi pubblici dalle entit&agrave; stesse: profili Google Maps / Google Business, pagine Facebook ufficiali, siti web istituzionali, comunicazioni pubbliche del Comune. I dati pubblicati si limitano a informazioni di contatto pubbliche (nome, indirizzo, telefono, email pubblica, sito, social) e non includono dati personali sensibili.</p>
+    <p>Per le schede dei <strong>professionisti</strong> (persone fisiche o ditte individuali), la pubblicazione avviene di regola solo previo consenso esplicito o auto-segnalazione del professionista (Art. 6.1.a GDPR). Le schede pre-popolate da fonti pubbliche per professionisti sono limitate a contatti gi&agrave; pubblici e includono sempre il pulsante &laquo;Sei il titolare?&raquo; per facilitare l'esercizio dei diritti GDPR.</p>
+
+    <h3>Accesso con provider esterni</h3>
+    <ul>
+      <li>L'utente pu&ograve; scegliere di accedere anche tramite <strong>Google</strong> o <strong>Apple</strong></li>
+      <li>In questo caso riceviamo dal provider i dati necessari per autenticare e creare l'account, come ad esempio <strong>indirizzo email</strong> e, se disponibile, <strong>nome</strong></li>
+      <li>Per questi account, le <strong>credenziali di accesso</strong> possono essere gestite dal provider esterno e alcune modifiche (ad esempio password o email di accesso) potrebbero non essere disponibili direttamente nell'app</li>
+    </ul>
+
+    <h3>Dati raccolti automaticamente</h3>
+    <ul>
+      <li><strong>Token di notifica push</strong> - identificativo tecnico del dispositivo per l'invio di notifiche (tramite Expo Push Service)</li>
+      <li><strong>Piattaforma</strong> - iOS o Android, per l'invio corretto delle notifiche</li>
+      <li><strong>Dati di utilizzo</strong> - pagine visitate, funzionalit&agrave; utilizzate, durata delle sessioni, tramite PostHog Analytics (server UE). Questi dati sono associati a un identificativo tecnico pseudonimo e non al tuo nome o email.</li>
+      <li><strong>Report di errori</strong> - stack trace, versione dell'app, modello del dispositivo e sistema operativo, identificativo tecnico pseudonimo, quando l'app va in crash o genera un errore non gestito, tramite Firebase Crashlytics (Google). Non raccogliamo il contenuto delle schermate n&eacute; screenshot. Finalit&agrave;: diagnostica tecnica e stabilit&agrave; del servizio.</li>
+      <li><strong>Immagini di contenuto</strong> - foto e immagini caricate dagli amministratori per locandine, loghi, cover e post (non foto personali degli utenti).</li>
+    </ul>
+
+    <h3>Dati che NON raccogliamo</h3>
+    <div class="card">
+      <ul>
+        <li>Posizione geografica (GPS)</li>
+        <li>Foto o immagini personali dell'utente (il caricamento immagini &egrave; riservato agli amministratori per contenuti pubblici)</li>
+        <li>Contatti della rubrica</li>
+        <li>Dati di pagamento</li>
+        <li>Dati biometrici</li>
+      </ul>
+    </div>
+
+    <h2>2. Perch&eacute; raccogliamo i dati</h2>
+    <table>
+      <tr><th>Finalit&agrave;</th><th>Base giuridica (GDPR)</th></tr>
+      <tr><td>Registrazione e autenticazione</td><td>Esecuzione del contratto (Art. 6.1.b)</td></tr>
+      <tr><td>Invio notifiche push</td><td>Consenso dell'utente (Art. 6.1.a)</td></tr>
+      <tr><td>Salvataggio preferiti</td><td>Esecuzione del contratto (Art. 6.1.b)</td></tr>
+      <tr><td>Analisi di utilizzo (pseudonime)</td><td>Legittimo interesse (Art. 6.1.f)</td></tr>
+      <tr><td>Monitoraggio errori tecnici (pseudonimi)</td><td>Legittimo interesse (Art. 6.1.f)</td></tr>
+      <tr><td>Comunicazioni di servizio</td><td>Obbligo legale (Art. 6.1.c)</td></tr>
+      <tr><td>Gestione e moderazione di segnalazioni inviate dagli utenti</td><td>Esecuzione del contratto (Art. 6.1.b)</td></tr>
+      <tr><td>Trattamento di dati di persone fisiche terze presenti nelle segnalazioni</td><td>Legittimo interesse (Art. 6.1.f)</td></tr>
+      <tr><td>Pubblicazione di schede di attivit&agrave;, associazioni, chiese e luoghi pubblici a partire da fonti pubbliche</td><td>Legittimo interesse (Art. 6.1.f)</td></tr>
+      <tr><td>Pubblicazione di schede di professionisti (persone fisiche / ditte individuali)</td><td>Consenso esplicito o auto-segnalazione (Art. 6.1.a)</td></tr>
+      <tr><td>Gestione di rivendiche e richieste di modifica/rimozione delle schede</td><td>Esecuzione del contratto e diritti dell'interessato (Art. 6.1.b, Art. 16, 17, 21 GDPR)</td></tr>
+    </table>
+    <p><small><em>Interesse legittimo perseguito (Art. 6.1.f): migliorare le funzionalit&agrave; e l'esperienza d'uso dell'app, individuare malfunzionamenti e comprendere quali contenuti sono pi&ugrave; utili per la comunit&agrave; di Novoli, e fornire ai cittadini un punto di riferimento aggiornato sulle realt&agrave; locali. I dati pubblicati sulle schede sono limitati a informazioni gi&agrave; rese pubbliche dalle entit&agrave; stesse, l'impatto sulla privacy degli interessati &egrave; minimo, ed &egrave; sempre disponibile dal pulsante &laquo;Sei il titolare?&raquo; un canale visibile per esercitare il diritto di opposizione, rettifica o cancellazione (Art. 21, 16, 17 GDPR).</em></small></p>
+
+    <h2>3. Con chi condividiamo i dati</h2>
+    <p>I dati personali non vengono venduti, ceduti o condivisi con terze parti per finalit&agrave; commerciali.</p>
+    <p>I seguenti servizi tecnici trattano i dati per nostro conto (responsabili del trattamento):</p>
+    <table>
+      <tr><th>Servizio</th><th>Finalit&agrave;</th><th>Sede dati</th></tr>
+      <tr><td><strong>Supabase</strong> (supabase.com)</td><td>Database, autenticazione, storage</td><td>Francoforte, Germania (UE)</td></tr>
+      <tr><td><strong>Expo</strong> (expo.dev)</td><td>Invio notifiche push</td><td>Stati Uniti*</td></tr>
+      <tr><td><strong>Apple Push Notification Service (APNs)</strong></td><td>Consegna notifiche push su dispositivi iOS</td><td>Stati Uniti*</td></tr>
+      <tr><td><strong>Firebase Cloud Messaging (Google FCM)</strong></td><td>Consegna notifiche push su dispositivi Android</td><td>Stati Uniti*</td></tr>
+      <tr><td><strong>PostHog</strong> (posthog.com)</td><td>Analytics (dati pseudonimi)</td><td>Unione Europea</td></tr>
+      <tr><td><strong>Firebase Crashlytics (Google)</strong></td><td>Monitoraggio errori tecnici (dati pseudonimi)</td><td>Stati Uniti*</td></tr>
+    </table>
+    <p><small><em>I servizi Expo Push Notifications, Apple (APNs), Google (FCM) e Firebase Crashlytics processano dati su server negli Stati Uniti. Questo costituisce un trasferimento di dati extra-UE. I dati trasferiti sono identificativi tecnici del dispositivo (token push) o metadati tecnici di crash (stack trace, modello dispositivo, versione app); il trasferimento avviene sulla base delle Clausole Contrattuali Standard (SCC) adottate dalla Commissione Europea.</em></small></p>
+
+    <h2>4. Dove conserviamo i dati</h2>
+    <p>I dati personali (profilo, email, preferiti, notifiche) sono conservati su server nell'<strong>Unione Europea</strong> (Supabase - Francoforte, Germania). Le analisi di utilizzo sono processate su server UE (PostHog EU).</p>
+    <p>I token di notifica push sono trasferiti negli <strong>Stati Uniti</strong> tramite Expo Push Service (con garanzie SCC), e successivamente trasmessi ad Apple (APNs) e Google (FCM) per la consegna della notifica al dispositivo.</p>
+    <p>I report di errori tecnici (stack trace, metadati dispositivo, identificativo pseudonimo) sono trasferiti negli <strong>Stati Uniti</strong> tramite Firebase Crashlytics (Google), sulla base delle Clausole Contrattuali Standard (SCC).</p>
+
+    <h2>5. Per quanto tempo conserviamo i dati</h2>
+    <table>
+      <tr><th>Dato</th><th>Durata</th></tr>
+      <tr><td>Profilo utente (nome, email)</td><td>Eliminato alla cancellazione dell'account</td></tr>
+      <tr><td>Preferiti</td><td>Eliminati alla cancellazione dell'account</td></tr>
+      <tr><td>Token di notifica push</td><td>Eliminati alla cancellazione dell'account o alla disattivazione delle notifiche</td></tr>
+      <tr><td>Notifiche ricevute</td><td>Eliminate alla cancellazione dell'account o dopo 30 giorni automaticamente</td></tr>
+      <tr><td>Immagini caricate da admin (locandine, loghi, cover)</td><td>Non collegate al profilo personale; rimangono associate all'entit&agrave; pubblica e non vengono eliminate alla cancellazione dell'account</td></tr>
+      <tr><td>Segnalazioni di nuove entit&agrave;</td><td>Conservate fino alla revisione (approvazione o rifiuto). Le segnalazioni rifiutate sono eliminate entro 90 giorni. Le segnalazioni approvate diventano parte del contenuto pubblico della scheda creata.</td></tr>
+      <tr><td>Rivendiche e richieste di modifica/rimozione</td><td>Conservate fino alla revisione (accolta o rifiutata). Le richieste rifiutate sono eliminate entro 90 giorni. Quando una rivendica viene accolta, l'utente viene assegnato come titolare della scheda.</td></tr>
+      <tr><td>Schede di entit&agrave; oggetto di richiesta di rimozione accolta</td><td>La scheda viene nascosta subito a tutti gli utenti. L'eliminazione fisica avviene automaticamente dopo 7 giorni: in questa finestra il super amministratore pu&ograve; annullare l'eliminazione se attivata per errore. Trascorsi i 7 giorni la cancellazione &egrave; definitiva.</td></tr>
+      <tr><td>Dati di analytics (PostHog, pseudonimi)</td><td>12 mesi; per richiedere la cancellazione scrivere a info@incomune.app</td></tr>
+      <tr><td>Report di errori tecnici (Firebase Crashlytics, pseudonimi)</td><td>90 giorni (retention di default Google); per richiedere la cancellazione scrivere a info@incomune.app</td></tr>
+    </table>
+
+    <h2>6. I tuoi diritti</h2>
+    <p>In base al GDPR (Regolamento UE 2016/679), hai diritto a:</p>
+    <ul>
+      <li><strong>Accesso</strong> - sapere quali dati abbiamo su di te</li>
+      <li><strong>Rettifica</strong> - correggere dati inesatti</li>
+      <li><strong>Cancellazione</strong> - eliminare il tuo account con profilo, preferiti e token push associati</li>
+      <li><strong>Portabilit&agrave;</strong> - ricevere i tuoi dati in formato leggibile</li>
+      <li><strong>Opposizione</strong> - opporti al trattamento basato su legittimo interesse</li>
+      <li><strong>Revoca del consenso</strong> - disattivare le notifiche push in qualsiasi momento</li>
+    </ul>
+
+    <h3>Come esercitare i tuoi diritti</h3>
+    <ul>
+      <li><strong>Cancellazione account</strong>: direttamente dall'app (Profilo -&gt; Elimina account)</li>
+      <li><strong>Notifiche</strong>: disattivabili dalle impostazioni dell'app</li>
+      <li><strong>Rettifica per account con login social (Google/Apple)</strong>: se non puoi modificare direttamente email o credenziali dall'app, scrivi a info@incomune.app</li>
+      <li><strong>Diritti su una scheda di entit&agrave; (attivit&agrave;, associazione, chiesa, professionista)</strong>: usa il pulsante &laquo;Sei il titolare?&raquo; presente nella scheda stessa per rivendicarla, richiederne la modifica o l'eliminazione. In alternativa, scrivi a info@incomune.app</li>
+      <li><strong>Altre richieste</strong>: scrivi a info@incomune.app</li>
+    </ul>
+    <p>Risponderemo entro 30 giorni dalla richiesta.</p>
+    <p>Hai inoltre il diritto di presentare un reclamo al <strong>Garante per la protezione dei dati personali</strong> (www.garanteprivacy.it).</p>
+
+    <h2>7. Et&agrave; minima</h2>
+    <p>InComune &egrave; destinata a utenti di almeno <strong>14 anni</strong>. Non raccogliamo consapevolmente dati di minori di 14 anni. Se un genitore o tutore ritiene che un minore si sia registrato senza consenso, pu&ograve; contattarci a info@incomune.app per richiedere la cancellazione dell'account.</p>
+
+    <h2>8. Sicurezza</h2>
+    <ul>
+      <li>Autenticazione con password crittografate (hash)</li>
+      <li>Per gli account con login social, autenticazione delegata al provider scelto dall'utente</li>
+      <li>Row Level Security (RLS) su tutte le tabelle del database</li>
+      <li>Comunicazioni crittografate (HTTPS/TLS)</li>
+      <li>Accesso ai dati limitato al titolare del trattamento</li>
+      <li>Registrazione della data di accettazione della presente Privacy Policy, per dimostrare il consenso ai sensi dell'Art. 7 GDPR</li>
+    </ul>
+
+    <h2>9. Modifiche alla privacy policy</h2>
+    <p>Ci riserviamo di aggiornare questa policy. In caso di modifiche sostanziali, gli utenti saranno informati tramite notifica nell'app. La data dell'ultimo aggiornamento &egrave; indicata in cima a questo documento.</p>
+
+    <h2>10. Contatti</h2>
+    <div class="contact-box">
+      <p><strong>Lorenzo La Grua</strong></p>
+      <p>Email: <a href="mailto:info@incomune.app">info@incomune.app</a></p>
+      <p>Indirizzo: Piazza Trento 6, 20135 Milano, Italia</p>
+    </div>
+  </div>
+
+  <div class="container section-en">
+    <span class="update-badge">Last updated: April 29, 2026</span>
+
+    <h2>Data Controller</h2>
+    <div class="card">
+      <p><strong>Lorenzo La Grua</strong></p>
+      <p>Piazza Trento 6, 20135 Milan, Italy</p>
+      <p>Email: <strong>info@incomune.app</strong></p>
+    </div>
+
+    <h2>1. What data we collect</h2>
+
+    <h3>Data provided by the user</h3>
+    <ul>
+      <li><strong>Full name</strong> - to personalize your profile</li>
+      <li><strong>Email address</strong> - for authentication and service communications</li>
+      <li><strong>Password</strong> - for email/password accounts, stored in encrypted form (hash), never in plain text</li>
+      <li><strong>Favorites</strong> - entities saved by the user (businesses, associations, events, articles, churches, professionals)</li>
+      <li><strong>New entity suggestions</strong> - when you submit a suggestion through the dedicated form, we collect the data of the suggested entity (name, category, public contact details, description, notes). If the suggestion includes references to third-party natural persons (e.g. professionals), you warrant that you are only reporting information that is already public or that you are entitled to disclose.</li>
+      <li><strong>Listing claims and edit/removal requests</strong> - if you use the &laquo;Are you the owner?&raquo; button on a business, association, church, or professional listing, we collect the description you provide, the request type (claim, edit, removal), the reference to the listing, and any optional contact details you choose to share. This data is only visible to the administrator handling the request.</li>
+    </ul>
+
+    <h3>Listings pre-populated from public sources</h3>
+    <p>Listings of businesses, associations, churches, professionals, and public places in Novoli were created from data already made public by the entities themselves: Google Maps / Google Business profiles, official Facebook pages, institutional websites, and public communications from the Municipality. Published data is limited to public contact information (name, address, phone, public email, website, social media) and does not include sensitive personal data.</p>
+    <p>For <strong>professional listings</strong> (natural persons or sole proprietorships), publication generally requires the professional's explicit consent or self-submission (Art. 6.1.a GDPR). Listings pre-populated from public sources for professionals are limited to already-public contact details and always include the &laquo;Are you the owner?&raquo; button to facilitate the exercise of GDPR rights.</p>
+
+    <h3>Sign-in with external providers</h3>
+    <ul>
+      <li>Users may also sign in with <strong>Google</strong> or <strong>Apple</strong></li>
+      <li>In this case, we receive from the provider the data needed to authenticate and create the account, such as <strong>email address</strong> and, if available, <strong>name</strong></li>
+      <li>For these accounts, <strong>login credentials</strong> may be managed by the external provider, and some changes (for example password or sign-in email) may not be available directly in the app</li>
+    </ul>
+
+    <h3>Data collected automatically</h3>
+    <ul>
+      <li><strong>Push notification token</strong> - technical device identifier for sending notifications (via Expo Push Service)</li>
+      <li><strong>Platform</strong> - iOS or Android, for correct notification delivery</li>
+      <li><strong>Usage data</strong> - pages visited, features used, session duration, via PostHog Analytics (EU servers). This data is associated with a pseudonymous technical identifier, not your name or email.</li>
+      <li><strong>Error reports</strong> - stack trace, app version, device model and OS, pseudonymous technical identifier, when the app crashes or generates an unhandled error, via Firebase Crashlytics (Google). We do not collect screen content or screenshots. Purpose: technical diagnostics and service stability.</li>
+      <li><strong>Content images</strong> - photos and images uploaded by administrators for event posters, logos, cover photos, and posts (not personal photos of users).</li>
+    </ul>
+
+    <h3>Data we do NOT collect</h3>
+    <div class="card">
+      <ul>
+        <li>Geographic location (GPS)</li>
+        <li>Personal photos or images of users (image uploads are reserved for administrators for public content)</li>
+        <li>Address book contacts</li>
+        <li>Payment data</li>
+        <li>Biometric data</li>
+      </ul>
+    </div>
+
+    <h2>2. Why we collect data</h2>
+    <table>
+      <tr><th>Purpose</th><th>Legal basis (GDPR)</th></tr>
+      <tr><td>Registration and authentication</td><td>Performance of contract (Art. 6.1.b)</td></tr>
+      <tr><td>Push notifications</td><td>User consent (Art. 6.1.a)</td></tr>
+      <tr><td>Saving favorites</td><td>Performance of contract (Art. 6.1.b)</td></tr>
+      <tr><td>Usage analytics (pseudonymous)</td><td>Legitimate interest (Art. 6.1.f)</td></tr>
+      <tr><td>Technical error monitoring (pseudonymous)</td><td>Legitimate interest (Art. 6.1.f)</td></tr>
+      <tr><td>Service communications</td><td>Legal obligation (Art. 6.1.c)</td></tr>
+      <tr><td>Management and moderation of user-submitted suggestions</td><td>Performance of contract (Art. 6.1.b)</td></tr>
+      <tr><td>Processing of third-party natural person data included in suggestions</td><td>Legitimate interest (Art. 6.1.f)</td></tr>
+      <tr><td>Publication of listings for businesses, associations, churches, and public places based on public sources</td><td>Legitimate interest (Art. 6.1.f)</td></tr>
+      <tr><td>Publication of professional listings (natural persons / sole proprietorships)</td><td>Explicit consent or self-submission (Art. 6.1.a)</td></tr>
+      <tr><td>Handling of claims and edit/removal requests on listings</td><td>Performance of contract and data subject rights (Art. 6.1.b, Art. 16, 17, 21 GDPR)</td></tr>
+    </table>
+    <p><small><em>Legitimate interest pursued (Art. 6.1.f): improving the app's features and user experience, identifying issues, understanding which content is most useful to the Novoli community, and providing Novoli citizens with an up-to-date reference on local entities. Data published in listings is limited to information already made public by the entities themselves, the impact on data subjects' privacy is minimal, and the &laquo;Are you the owner?&raquo; button always provides a visible channel to exercise the right to object, rectify, or erase (Art. 21, 16, 17 GDPR).</em></small></p>
+
+    <h2>3. Who we share data with</h2>
+    <p>Personal data is not sold, transferred, or shared with third parties for commercial purposes.</p>
+    <p>The following technical services process data on our behalf (data processors):</p>
+    <table>
+      <tr><th>Service</th><th>Purpose</th><th>Data location</th></tr>
+      <tr><td><strong>Supabase</strong> (supabase.com)</td><td>Database, authentication, storage</td><td>Frankfurt, Germany (EU)</td></tr>
+      <tr><td><strong>Expo</strong> (expo.dev)</td><td>Push notification delivery</td><td>United States*</td></tr>
+      <tr><td><strong>Apple Push Notification Service (APNs)</strong></td><td>Push notification delivery to iOS devices</td><td>United States*</td></tr>
+      <tr><td><strong>Firebase Cloud Messaging (Google FCM)</strong></td><td>Push notification delivery to Android devices</td><td>United States*</td></tr>
+      <tr><td><strong>PostHog</strong> (posthog.com)</td><td>Analytics (pseudonymous data)</td><td>European Union</td></tr>
+      <tr><td><strong>Firebase Crashlytics (Google)</strong></td><td>Technical error monitoring (pseudonymous data)</td><td>United States*</td></tr>
+    </table>
+    <p><small><em>Expo Push Notifications, Apple (APNs), Google (FCM), and Firebase Crashlytics process data on servers in the United States. This constitutes an extra-EU data transfer. The transferred data consists of technical device identifiers (push tokens) or technical crash metadata (stack trace, device model, app version); the transfer is carried out on the basis of Standard Contractual Clauses (SCCs) adopted by the European Commission.</em></small></p>
+
+    <h2>4. Where we store data</h2>
+    <p>Personal data (profile, email, favorites, notifications) is stored on servers in the <strong>European Union</strong> (Supabase - Frankfurt, Germany). Usage analytics are processed on EU servers (PostHog EU).</p>
+    <p>Push notification tokens are transferred to the <strong>United States</strong> via Expo Push Service (with SCC safeguards), and subsequently forwarded to Apple (APNs) and Google (FCM) for delivery to the device.</p>
+    <p>Technical error reports (stack trace, device metadata, pseudonymous identifier) are transferred to the <strong>United States</strong> via Firebase Crashlytics (Google), on the basis of Standard Contractual Clauses (SCCs).</p>
+
+    <h2>5. How long we keep data</h2>
+    <table>
+      <tr><th>Data</th><th>Duration</th></tr>
+      <tr><td>User profile (name, email)</td><td>Deleted upon account deletion</td></tr>
+      <tr><td>Favorites</td><td>Deleted upon account deletion</td></tr>
+      <tr><td>Push notification token</td><td>Deleted upon account deletion or notification opt-out</td></tr>
+      <tr><td>Received notifications</td><td>Deleted upon account deletion or after 30 days automatically</td></tr>
+      <tr><td>Admin-uploaded images (posters, logos, covers)</td><td>Not linked to the personal profile; remain associated with the public entity and are not deleted upon account deletion</td></tr>
+      <tr><td>New entity suggestions</td><td>Retained until review (approval or rejection). Rejected suggestions are deleted within 90 days. Approved suggestions become part of the public content of the created record.</td></tr>
+      <tr><td>Claims and edit/removal requests</td><td>Retained until review (accepted or rejected). Rejected requests are deleted within 90 days. When a claim is accepted, the user is assigned as the listing owner.</td></tr>
+      <tr><td>Listings subject to an accepted removal request</td><td>The listing is immediately hidden from all users. Physical deletion occurs automatically after 7 days; during this window the administrator can cancel the deletion if it was triggered by mistake. After 7 days, deletion is final.</td></tr>
+      <tr><td>Analytics data (PostHog, pseudonymous)</td><td>12 months; to request deletion write to info@incomune.app</td></tr>
+      <tr><td>Technical error reports (Firebase Crashlytics, pseudonymous)</td><td>90 days (Google default retention); to request deletion write to info@incomune.app</td></tr>
+    </table>
+
+    <h2>6. Your rights</h2>
+    <p>Under the GDPR (EU Regulation 2016/679), you have the right to:</p>
+    <ul>
+      <li><strong>Access</strong> - know what data we hold about you</li>
+      <li><strong>Rectification</strong> - correct inaccurate data</li>
+      <li><strong>Erasure</strong> - delete your account with associated profile, favorites, and push tokens</li>
+      <li><strong>Portability</strong> - receive your data in a readable format</li>
+      <li><strong>Objection</strong> - object to processing based on legitimate interest</li>
+      <li><strong>Withdraw consent</strong> - disable push notifications at any time</li>
+    </ul>
+
+    <h3>How to exercise your rights</h3>
+    <ul>
+      <li><strong>Account deletion</strong>: directly from the app (Profile -&gt; Delete account)</li>
+      <li><strong>Notifications</strong>: can be disabled from the app settings</li>
+      <li><strong>Rectification for social login accounts (Google/Apple)</strong>: if you cannot directly update your email or credentials in the app, write to info@incomune.app</li>
+      <li><strong>Rights regarding an entity listing (business, association, church, professional)</strong>: use the &laquo;Are you the owner?&raquo; button on the listing itself to claim it, request edits, or request removal. Alternatively, write to info@incomune.app</li>
+      <li><strong>Other requests</strong>: write to info@incomune.app</li>
+    </ul>
+    <p>We will respond within 30 days of your request.</p>
+    <p>You also have the right to file a complaint with the <strong>Italian Data Protection Authority</strong> (Garante per la protezione dei dati personali - www.garanteprivacy.it).</p>
+
+    <h2>7. Minimum age</h2>
+    <p>InComune is intended for users aged <strong>14 and over</strong>. We do not knowingly collect data from children under 14. If a parent or guardian believes a minor has registered without consent, they can contact us at info@incomune.app to request account deletion.</p>
+
+    <h2>8. Security</h2>
+    <ul>
+      <li>Authentication with encrypted passwords (hash)</li>
+      <li>For social-login accounts, authentication may be delegated to the provider chosen by the user</li>
+      <li>Row Level Security (RLS) on all database tables</li>
+      <li>Encrypted communications (HTTPS/TLS)</li>
+      <li>Data access restricted to the data controller</li>
+      <li>Recording of the date of acceptance of this Privacy Policy, in order to demonstrate consent pursuant to Art. 7 GDPR</li>
+    </ul>
+
+    <h2>9. Changes to this privacy policy</h2>
+    <p>We reserve the right to update this policy. In case of substantial changes, users will be informed via an in-app notification. The date of the last update is indicated at the top of this document.</p>
+
+    <h2>10. Contact</h2>
+    <div class="contact-box">
+      <p><strong>Lorenzo La Grua</strong></p>
+      <p>Email: <a href="mailto:info@incomune.app">info@incomune.app</a></p>
+      <p>Address: Piazza Trento 6, 20135 Milan, Italy</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    InComune - Privacy Policy
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      const it = document.querySelector(".section-it");
+      const en = document.querySelector(".section-en");
+      const buttons = document.querySelectorAll(".lang-switch button");
+      buttons.forEach((button) => button.classList.remove("active"));
+      if (lang === "it") {
+        it.style.display = "block";
+        en.style.display = "none";
+        buttons[0].classList.add("active");
+        document.documentElement.lang = "it";
+      } else {
+        it.style.display = "none";
+        en.style.display = "block";
+        buttons[1].classList.add("active");
+        document.documentElement.lang = "en";
+      }
+    }
+  </script>
+</body>
+</html>
