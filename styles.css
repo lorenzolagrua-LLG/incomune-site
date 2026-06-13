@@ -93,7 +93,7 @@
 /* ----- Reset --------------------------------------------------------------- */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overscroll-behavior-y: none; }
 
 body {
   font-family: var(--font-sans);
@@ -103,6 +103,7 @@ body {
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 img, svg { display: block; max-width: 100%; }
