@@ -4,16 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>InComune — La comunità di Novoli, in un'unica app</title>
-<meta name="description" content="InComune: attività, eventi, associazioni e tutto ciò che riguarda Novoli (LE). Disponibile su App Store e Google Play.">
+<meta name="description" content="InComune: eventi, attività, associazioni, chiese e comune di Novoli (LE), in un'unica app. Scaricala su App Store e Google Play.">
 
-<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#B95111">
 
-<!-- OpenGraph (anteprima link su WhatsApp / Facebook / iMessage) -->
 <meta property="og:title" content="InComune — La comunità di Novoli">
 <meta property="og:description" content="L'app della comunità di Novoli (LE). Eventi, attività, associazioni e novità del paese.">
 <meta property="og:type" content="website">
@@ -27,204 +25,244 @@
 <meta name="twitter:description" content="L'app della comunità di Novoli (LE).">
 <meta name="twitter:image" content="https://incomune.app/assets/og-image.png">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+
 <style>
-  :root {
-    --primary: #B95111;
-    --primary-light: #F0E6D5;
-    --text: #1E1E1E;
-    --text-secondary: #555555;
-    --bg: #FAF8F4;
-    --card: #FFFFFF;
-    --border: #D6DEE8;
+  /* ---- Hero asimmetrico ---- */
+  .hero { padding-block: clamp(40px, 6vw, 88px) clamp(48px, 7vw, 96px); overflow: hidden; }
+  .hero__grid {
+    display: grid; gap: clamp(32px, 5vw, 72px); align-items: center;
+    grid-template-columns: 1.05fr 0.95fr;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    -webkit-font-smoothing: antialiased;
-    padding: 24px;
-    text-align: center;
+  .hero__title { font-family: var(--font-serif); font-weight: 400; font-size: var(--fs-display); line-height: 1.02; letter-spacing: -0.01em; margin: 14px 0 18px; }
+  .hero__title em { font-style: normal; color: var(--terracotta); }
+  .hero__lead { font-size: var(--fs-lead); color: var(--text-secondary); max-width: 30ch; line-height: 1.45; }
+  .hero__cta { margin-top: 28px; }
+  .hero__note { margin-top: 14px; font-size: var(--fs-small); color: var(--text-secondary); }
+  .hero__art { display: flex; justify-content: center; }
+
+  /* ---- Device frame ---- */
+  .device {
+    position: relative; width: min(300px, 78vw);
+    background: #15100c; border-radius: 44px; padding: 11px;
+    box-shadow: var(--shadow-lg), 0 0 0 2px rgba(58,28,14,0.10);
   }
-  .container {
-    max-width: 520px;
-    width: 100%;
-  }
-  .brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-  .brand-logo {
-    width: 88px;
-    height: auto;
-    display: block;
-  }
-  .logo-text {
-    font-size: 38px;
-    font-weight: 800;
-    color: var(--primary);
-    letter-spacing: -1px;
-    line-height: 1;
-  }
-  .tagline {
-    font-size: 17px;
-    color: var(--text-secondary);
-    margin-bottom: 40px;
-    line-height: 1.5;
-  }
-  .badge {
-    display: inline-block;
-    background: var(--primary);
-    color: white;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 6px 16px;
-    border-radius: 20px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-  }
-  .features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 40px;
-  }
-  .feature {
-    background: var(--card);
-    border-radius: 14px;
-    padding: 20px 16px;
-    box-shadow: 0 1px 4px rgba(58, 28, 14,0.06);
-  }
-  .feature .emoji {
-    font-size: 28px;
-    margin-bottom: 8px;
-  }
-  .feature .label {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-  }
-  .divider {
-    width: 40px;
-    height: 3px;
-    background: var(--primary);
-    border-radius: 2px;
-    margin: 0 auto 32px;
-  }
-  .stores {
-    font-size: 15px;
-    color: var(--text-secondary);
-    margin-bottom: 12px;
-  }
-  .store-badges {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 40px;
-  }
-  .store-badges a.disabled {
-    opacity: 0.4;
-    pointer-events: none;
-  }
-  .store-badges a {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #000;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-size: 13px;
-    line-height: 1.2;
-    transition: opacity 0.2s;
-  }
-  .store-badges a:hover { opacity: 0.85; }
-  .store-badges .store-icon { font-size: 26px; }
-  .store-badges .store-label { text-align: left; }
-  .store-badges .store-small { font-size: 10px; opacity: 0.8; display: block; }
-  .store-badges .store-name { font-size: 17px; font-weight: 600; }
-  .footer {
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin-top: 20px;
-  }
-  .footer a {
-    color: var(--primary);
-    text-decoration: none;
-  }
-  .footer a:hover {
-    text-decoration: underline;
-  }
-  @media (max-width: 400px) {
-    .brand-logo { width: 72px; }
-    .logo-text { font-size: 32px; }
-    .features { grid-template-columns: 1fr 1fr; gap: 8px; }
-    .feature { padding: 16px 12px; }
+  .device__screen { width: 100%; aspect-ratio: 620 / 1259; border-radius: 34px; overflow: hidden; background: var(--avorio); position: relative; }
+  .device__screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+
+  /* ---- Galleria screenshot ---- */
+  .shots { display: grid; gap: clamp(16px, 3vw, 28px); grid-template-columns: repeat(3, 1fr); }
+  .shot { display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center; }
+  .shot__frame { width: 100%; max-width: 240px; aspect-ratio: 620 / 1259; border-radius: 26px; overflow: hidden; background: #15100c; padding: 7px; box-shadow: var(--shadow-md); }
+  .shot__frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 20px; }
+  .shot__cap { font-weight: 700; font-size: var(--fs-small); }
+  .shot__cap span { display: block; font-weight: 400; color: var(--text-secondary); font-size: 0.85rem; }
+  @media (max-width: 720px) { .shots { grid-template-columns: 1fr; max-width: 280px; margin-inline: auto; } }
+
+  /* ---- Funzionalita ---- */
+  .features { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .feature { display: flex; flex-direction: column; gap: 10px; }
+  .feature__ico { width: 52px; height: 52px; border-radius: 14px; background: var(--pill-quieto); color: var(--terracotta); display: grid; place-items: center; box-shadow: var(--shadow-sm); }
+  .feature__ico svg { width: 26px; height: 26px; }
+  .feature h3 { font-size: 1.15rem; }
+  .feature p { color: var(--text-secondary); font-size: var(--fs-small); line-height: 1.5; }
+
+  /* ---- Sezione "cos'e" ---- */
+  .about__grid { display: grid; gap: clamp(28px, 4vw, 56px); grid-template-columns: 0.9fr 1.1fr; align-items: center; }
+  .about__lead { font-family: var(--font-serif); font-weight: 400; font-size: var(--fs-h2); line-height: 1.15; }
+  .about ul { list-style: none; display: grid; gap: 14px; }
+  .about li { display: flex; gap: 12px; align-items: flex-start; font-size: var(--fs-body); }
+  .about li svg { width: 22px; height: 22px; color: var(--verde-ulivo); flex: none; margin-top: 2px; }
+
+  /* ---- CTA finale ---- */
+  .cta-final { text-align: center; }
+  .cta-final .card { max-width: 640px; margin-inline: auto; padding: clamp(28px, 5vw, 48px); }
+  .cta-final h2 { font-family: var(--font-serif); font-weight: 400; }
+  .cta-final .store-row { justify-content: center; margin-top: 22px; }
+
+  @media (max-width: 860px) {
+    .hero__grid { grid-template-columns: 1fr; }
+    .hero__art { order: -1; }
+    .hero__lead { max-width: none; }
+    .about__grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="brand">
-    <img src="/assets/logo-blue.svg" alt="" class="brand-logo" width="88" height="115">
-    <div class="logo-text">InComune</div>
-  </div>
-  <p class="tagline">La comunità di Novoli, in un'unica app.</p>
-
-  <div class="features">
-    <div class="feature">
-      <div class="emoji">🏪</div>
-      <div class="label">Servizi</div>
-    </div>
-    <div class="feature">
-      <div class="emoji">📅</div>
-      <div class="label">Eventi</div>
-    </div>
-    <div class="feature">
-      <div class="emoji">🤝</div>
-      <div class="label">Associazioni</div>
-    </div>
-    <div class="feature">
-      <div class="emoji">🏛️</div>
-      <div class="label">Comune</div>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <p class="stores">Scarica l'app</p>
-  <div class="store-badges">
-    <a href="https://apps.apple.com/app/id6761307454" target="_blank" rel="noopener" aria-label="Scarica InComune su App Store">
-      <svg class="store-icon" viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      <span class="store-label">
-        <span class="store-small">Scarica su</span>
-        <span class="store-name">App Store</span>
-      </span>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand-lockup" href="/" aria-label="InComune, home">
+      <img class="logo-mark" src="/assets/logo-in.svg" alt="" width="23" height="30">
+      <span class="wordmark">InComune</span>
     </a>
-    <a href="https://play.google.com/store/apps/details?id=app.incomune" target="_blank" rel="noopener" aria-label="Scarica InComune su Google Play">
-      <svg class="store-icon" viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm.91-.91L19.59 12l-1.87-2.21-2.27 2.27 2.27 2.15zM6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/></svg>
-      <span class="store-label">
-        <span class="store-small">Scarica su</span>
-        <span class="store-name">Google Play</span>
-      </span>
-    </a>
+    <nav>
+      <a href="#funzioni">Cosa fa</a>
+      <a href="#scarica">Scarica</a>
+      <a href="/supporto">Supporto</a>
+    </nav>
   </div>
+</header>
 
-  <div class="footer">
-    <a href="/privacy-policy">Privacy Policy</a> &middot; <a href="/accessibilita">Accessibilit&agrave;</a> &middot; <a href="/supporto">Supporto</a>
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__text">
+        <p class="eyebrow reveal">Novoli · Lecce</p>
+        <h1 class="hero__title reveal" data-delay="1">La comunità di Novoli, <em>in un'unica app.</em></h1>
+        <p class="hero__lead reveal" data-delay="2">Eventi, attività, associazioni, chiese e comune. Quello che succede in paese, sul telefono, prima che capiti per caso.</p>
+        <div class="hero__cta store-row reveal" data-delay="3" id="scarica-top">
+          <a class="store-btn" href="https://apps.apple.com/app/id6761307454" target="_blank" rel="noopener" aria-label="Scarica InComune su App Store">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span class="store-label"><span class="store-small">Scarica su</span><span class="store-name">App Store</span></span>
+          </a>
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=app.incomune" target="_blank" rel="noopener" aria-label="Scarica InComune su Google Play">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm.91-.91L19.59 12l-1.87-2.21-2.27 2.27 2.27 2.15zM6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/></svg>
+            <span class="store-label"><span class="store-small">Scarica su</span><span class="store-name">Google Play</span></span>
+          </a>
+        </div>
+        <p class="hero__note reveal" data-delay="3">Gratis. Senza pubblicità. Fatta per il paese.</p>
+      </div>
+
+      <div class="hero__art reveal" data-delay="2">
+        <div class="device">
+          <div class="device__screen">
+            <img src="/assets/screenshots/eventi.jpg" width="620" height="1259" alt="La schermata Eventi dell'app InComune: il calendario di sagre, messe e spettacoli di Novoli" fetchpriority="high">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNZIONALITA -->
+  <section class="section" id="funzioni">
+    <div class="container">
+      <p class="eyebrow">Tutto il paese</p>
+      <h2 class="serif" style="margin:6px 0 36px; max-width: 18ch;">Una cosa sola, al posto di mille bacheche.</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9M3 9h18M9 20v-6h6v6"/></svg></div>
+          <h3>Servizi</h3>
+          <p>Attività, professionisti e negozi del paese. Orari, contatti, dove sono. Senza chiedere in piazza.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4M8 14h3"/></svg></div>
+          <h3>Eventi</h3>
+          <p>Sagre, messe, spettacoli, iniziative del comune. Tutto in un calendario, con le notifiche di ciò a cui tieni.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0M16 5.5a3 3 0 0 1 0 5.5M17 14.5a5.5 5.5 0 0 1 3.5 5.5"/></svg></div>
+          <h3>Associazioni</h3>
+          <p>Le realtà che animano Novoli, con la loro pagina. Seguile e resta aggiornato su cosa organizzano.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></div>
+          <h3>Comune e chiese</h3>
+          <p>Uffici, orari, recapiti del comune e delle parrocchie. L'informazione ufficiale, sempre aggiornata.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COS'E -->
+  <section class="section" style="background: color-mix(in srgb, var(--surface) 55%, var(--bg));">
+    <div class="container about">
+      <div class="about__grid">
+        <div>
+          <p class="eyebrow">Un'app del paese</p>
+          <p class="about__lead">Bacheca della parrocchia, locandine sui pali, gruppi WhatsApp, sito comunale, passaparola: tutto in un posto solo.</p>
+        </div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Scopri</b> cosa succede prima che capiti per caso.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Trova</b> in un attimo attività, associazioni e chiese.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ricevi</b> notifiche solo su ciò che hai salvato.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Gestisci</b> la tua scheda, se hai un'attività o un'associazione.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERIA -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Dentro l'app</p>
+      <h2 class="serif" style="margin:6px 0 36px; max-width: 16ch;">Chiara, calda, fatta per tutti.</h2>
+      <div class="shots">
+        <figure class="shot">
+          <div class="shot__frame"><img src="/assets/screenshots/associazioni.jpg" width="620" height="1259" alt="La schermata Associazioni dell'app InComune, con le realtà del paese" loading="lazy"></div>
+          <figcaption class="shot__cap">Associazioni<span>Le realtà che animano il paese</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot__frame"><img src="/assets/screenshots/comune.jpg" width="620" height="1259" alt="La schermata Info utili del Comune di Novoli: raccolta differenziata, uffici, trasporto pubblico" loading="lazy"></div>
+          <figcaption class="shot__cap">Comune<span>Info utili sempre a portata</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot__frame"><img src="/assets/screenshots/teatro.jpg" width="620" height="1259" alt="La scheda del Teatro Comunale di Novoli: orari, contatti e novità" loading="lazy"></div>
+          <figcaption class="shot__cap">Schede dettaglio<span>Orari, contatti e novità</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINALE -->
+  <section class="section cta-final" id="scarica">
+    <div class="container">
+      <div class="card">
+        <p class="eyebrow">Scaricala ora</p>
+        <h2 style="margin:8px 0 6px;">Porta Novoli in tasca.</h2>
+        <p class="lead measure" style="margin-inline:auto;">Disponibile per iPhone e Android. Gratis, per tutti.</p>
+        <div class="store-row">
+          <a class="store-btn" href="https://apps.apple.com/app/id6761307454" target="_blank" rel="noopener" aria-label="Scarica InComune su App Store">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span class="store-label"><span class="store-small">Scarica su</span><span class="store-name">App Store</span></span>
+          </a>
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=app.incomune" target="_blank" rel="noopener" aria-label="Scarica InComune su Google Play">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm.91-.91L19.59 12l-1.87-2.21-2.27 2.27 2.27 2.15zM6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/></svg>
+            <span class="store-label"><span class="store-small">Scarica su</span><span class="store-name">Google Play</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div style="max-width: 280px;">
+        <a class="brand-lockup" href="/" aria-label="InComune, home">
+          <img class="logo-mark" src="/assets/logo-in.svg" alt="" width="23" height="30">
+          <span class="wordmark">InComune</span>
+        </a>
+        <p class="muted" style="margin-top:12px; font-size: var(--fs-small);">L'app della comunità di Novoli (LE). Fatta nel paese, per il paese.</p>
+      </div>
+      <div class="site-footer__col">
+        <h4>App</h4>
+        <a href="#funzioni">Cosa fa</a>
+        <a href="#scarica">Scarica</a>
+        <a href="/supporto">Supporto</a>
+      </div>
+      <div class="site-footer__col">
+        <h4>Legale</h4>
+        <a href="/privacy-policy">Privacy</a>
+        <a href="/termini">Termini</a>
+        <a href="/accessibilita">Accessibilità</a>
+      </div>
+      <div class="site-footer__col">
+        <h4>Contatti</h4>
+        <a href="mailto:info@incomune.app">info@incomune.app</a>
+        <a href="https://instagram.com/incomuneapp" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="site-footer__bottom">© 2026 InComune · incomune.app</div>
   </div>
-</div>
+</footer>
 
 </body>
 </html>

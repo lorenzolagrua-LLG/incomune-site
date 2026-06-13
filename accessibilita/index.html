@@ -9,243 +9,163 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
   <meta name="theme-color" content="#B95111">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
   <style>
-    :root {
-      --primary: #B95111;
-      --primary-light: #F0E6D5;
-      --text: #1e1e1e;
-      --text-secondary: #555555;
-      --bg: #FAF8F4;
-      --card: #ffffff;
-      --border: #d6dee8;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-    .header {
-      background: var(--primary);
-      color: #fff;
-      padding: 48px 24px 40px;
-      text-align: center;
-    }
-    .header h1 {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      letter-spacing: -0.3px;
-    }
-    .header .subtitle {
-      font-size: 15px;
-      opacity: 0.85;
-      font-weight: 400;
-    }
-    .lang-switch {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 20px;
-    }
-    .lang-switch button {
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 6px 18px;
-      border-radius: 20px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .lang-switch button.active,
-    .lang-switch button:hover {
-      background: #fff;
-      color: var(--primary);
-      border-color: #fff;
-    }
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 32px 20px 64px;
-    }
-    .update-badge {
-      display: inline-block;
-      background: var(--primary-light);
-      color: var(--primary);
-      font-size: 13px;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 12px;
-      margin-bottom: 28px;
-    }
-    h2 {
-      color: var(--primary);
-      font-size: 20px;
-      font-weight: 700;
-      margin: 36px 0 14px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--primary-light);
-    }
-    h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin: 20px 0 8px;
-      color: var(--text);
-    }
-    p {
-      margin: 10px 0;
-      color: var(--text-secondary);
-      font-size: 15px;
-    }
-    ul {
-      margin: 10px 0 10px 20px;
-      color: var(--text-secondary);
-      font-size: 15px;
-    }
-    li { margin: 6px 0; }
-    strong { color: var(--text); font-weight: 600; }
-    a { color: var(--primary); }
-    .card {
-      background: var(--card);
-      border-radius: 14px;
-      padding: 20px 22px;
-      margin: 16px 0;
-      box-shadow: 0 1px 4px rgba(58, 28, 14, 0.06);
-    }
-    .contact-box {
-      background: var(--primary);
-      color: #fff;
-      border-radius: 14px;
-      padding: 24px;
-      margin-top: 36px;
-      text-align: center;
-    }
-    .contact-box p { color: rgba(255, 255, 255, 0.88); }
-    .contact-box strong { color: #fff; }
-    .contact-box a { color: #fff; text-decoration: underline; }
-    .footer {
-      text-align: center;
-      padding: 24px;
-      color: var(--text-secondary);
-      font-size: 13px;
-      border-top: 1px solid var(--border);
-      margin-top: 48px;
-    }
+    .page-head { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; margin-bottom: 8px; }
     .section-en { display: none; }
-    @media (max-width: 600px) {
-      .header { padding: 36px 16px 32px; }
-      .header h1 { font-size: 24px; }
-      .container { padding: 24px 16px 48px; }
-      h2 { font-size: 18px; }
-    }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>InComune</h1>
-    <div class="subtitle">Dichiarazione di Accessibilit&agrave;</div>
-    <div class="lang-switch">
-      <button class="active" onclick="switchLang('it')">Italiano</button>
-      <button onclick="switchLang('en')">English</button>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand-lockup" href="/" aria-label="InComune, home">
+        <img class="logo-mark" src="/assets/logo-in.svg" alt="" width="23" height="30">
+        <span class="wordmark">InComune</span>
+      </a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/supporto">Supporto</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <div class="container section-it">
-    <span class="update-badge">Ultimo aggiornamento: 29 maggio 2026</span>
+  <main class="container legal">
+    <div class="page-head">
+      <p class="eyebrow" style="margin:0;">Dichiarazione di Accessibilit&agrave;</p>
+      <div class="lang-toggle">
+        <button class="active" onclick="switchLang('it')">Italiano</button>
+        <button onclick="switchLang('en')">English</button>
+      </div>
+    </div>
 
-    <h2>Il nostro impegno</h2>
-    <p>InComune &egrave; l'app della comunit&agrave; di Novoli e vogliamo che sia utilizzabile da tutti, comprese le persone con disabilit&agrave; visive, motorie, uditive o cognitive. Lavoriamo per rendere l'app pi&ugrave; accessibile in modo continuo, applicando le buone pratiche di accessibilit&agrave; del mobile a ogni aggiornamento.</p>
-    <p>Questa &egrave; una dichiarazione volontaria: InComune non &egrave; un servizio della pubblica amministrazione, ma scegliamo comunque di prendere l'accessibilit&agrave; come impegno preciso.</p>
+    <div class="legal-body section-it">
+      <h1>Accessibilit&agrave;</h1>
+      <span class="update-badge">Aggiornato il 29 maggio 2026</span>
 
-    <h2>Obiettivo di conformit&agrave;</h2>
-    <p>Puntiamo ad allinearci alle linee guida internazionali <strong>WCAG 2.1 livello AA</strong> (Web Content Accessibility Guidelines), adattate al contesto delle app mobili native. Il lavoro &egrave; in miglioramento continuo: alcune aree potrebbero non essere ancora pienamente conformi e le correggiamo progressivamente.</p>
+      <h2>Il nostro impegno</h2>
+      <p>InComune &egrave; l'app della comunit&agrave; di Novoli e vogliamo che sia utilizzabile da tutti, comprese le persone con disabilit&agrave; visive, motorie, uditive o cognitive. Lavoriamo per rendere l'app pi&ugrave; accessibile in modo continuo, applicando le buone pratiche di accessibilit&agrave; del mobile a ogni aggiornamento.</p>
+      <p>Questa &egrave; una dichiarazione volontaria: InComune non &egrave; un servizio della pubblica amministrazione, ma scegliamo comunque di prendere l'accessibilit&agrave; come impegno preciso.</p>
 
-    <h2>Cosa abbiamo gi&agrave; fatto</h2>
-    <div class="card">
+      <h2>Obiettivo di conformit&agrave;</h2>
+      <p>Puntiamo ad allinearci alle linee guida internazionali <strong>WCAG 2.1 livello AA</strong> (Web Content Accessibility Guidelines), adattate al contesto delle app mobili native. Il lavoro &egrave; in miglioramento continuo: alcune aree potrebbero non essere ancora pienamente conformi e le correggiamo progressivamente.</p>
+
+      <h2>Cosa abbiamo gi&agrave; fatto</h2>
+      <div class="card">
+        <ul>
+          <li><strong>Supporto agli screen reader</strong> (VoiceOver su iOS e TalkBack su Android): pulsanti, campi e icone hanno etichette descrittive, cos&igrave; chi non vede lo schermo sa cosa sta toccando.</li>
+          <li><strong>Testo ridimensionabile</strong>: l'app rispetta la dimensione del testo impostata nel sistema (Dynamic Type), entro un limite che preserva la leggibilit&agrave; del layout.</li>
+          <li><strong>Aree di tocco ampie</strong>: i comandi piccoli hanno una zona sensibile maggiorata, pi&ugrave; facile da centrare anche con ridotta precisione motoria.</li>
+          <li><strong>Contrasto e colori</strong>: una palette pensata per un buon contrasto tra testo e sfondo, con <strong>modalit&agrave; chiara e scura</strong> che seguono le preferenze del dispositivo.</li>
+          <li><strong>Struttura coerente</strong>: ruoli e stati dei comandi (pulsante, link, selezionato) sono dichiarati per consentire una navigazione assistita prevedibile.</li>
+          <li><strong>Etichette esplicite sui controlli icona</strong>: i pulsanti rappresentati solo da un'icona hanno un nome leggibile dagli assistenti vocali.</li>
+        </ul>
+      </div>
+
+      <h2>Limitazioni note</h2>
+      <p>Nonostante il nostro impegno, alcune parti potrebbero presentare ancora barriere:</p>
       <ul>
-        <li><strong>Supporto agli screen reader</strong> (VoiceOver su iOS e TalkBack su Android): pulsanti, campi e icone hanno etichette descrittive, cos&igrave; chi non vede lo schermo sa cosa sta toccando.</li>
-        <li><strong>Testo ridimensionabile</strong>: l'app rispetta la dimensione del testo impostata nel sistema (Dynamic Type), entro un limite che preserva la leggibilit&agrave; del layout.</li>
-        <li><strong>Aree di tocco ampie</strong>: i comandi piccoli hanno una zona sensibile maggiorata, pi&ugrave; facile da centrare anche con ridotta precisione motoria.</li>
-        <li><strong>Contrasto e colori</strong>: una palette pensata per un buon contrasto tra testo e sfondo, con <strong>modalit&agrave; chiara e scura</strong> che seguono le preferenze del dispositivo.</li>
-        <li><strong>Struttura coerente</strong>: ruoli e stati dei comandi (pulsante, link, selezionato) sono dichiarati per consentire una navigazione assistita prevedibile.</li>
-        <li><strong>Etichette esplicite sui controlli icona</strong>: i pulsanti rappresentati solo da un'icona hanno un nome leggibile dagli assistenti vocali.</li>
+        <li>I <strong>contenuti caricati dagli utenti e dagli amministratori</strong> (immagini, locandine, post) potrebbero non avere sempre un testo alternativo descrittivo.</li>
+        <li>Alcuni componenti di <strong>terze parti</strong> (mappe, contenuti incorporati) potrebbero non essere pienamente accessibili.</li>
+        <li>Alcune animazioni o transizioni potrebbero non rispettare ancora completamente le preferenze di riduzione del movimento.</li>
       </ul>
+      <p>Stiamo lavorando per ridurre progressivamente queste limitazioni.</p>
+
+      <h2>Segnala una barriera</h2>
+      <p>Se incontri una difficolt&agrave; di accessibilit&agrave; usando InComune, faccelo sapere: ogni segnalazione ci aiuta a migliorare. Indica, se puoi, il dispositivo che usi (iOS o Android), la tecnologia assistiva attiva (es. VoiceOver, TalkBack) e la schermata in cui hai riscontrato il problema. Cercheremo di risponderti entro <strong>30 giorni</strong>.</p>
+
+      <h2>Contatti</h2>
+      <div class="contact-box">
+        <p><strong>Lorenzo La Grua</strong></p>
+        <p>Email: <a href="mailto:info@incomune.app">info@incomune.app</a></p>
+        <p>Indirizzo: Piazza Trento 6, 20135 Milano, Italia</p>
+      </div>
     </div>
 
-    <h2>Limitazioni note</h2>
-    <p>Nonostante il nostro impegno, alcune parti potrebbero presentare ancora barriere:</p>
-    <ul>
-      <li>I <strong>contenuti caricati dagli utenti e dagli amministratori</strong> (immagini, locandine, post) potrebbero non avere sempre un testo alternativo descrittivo.</li>
-      <li>Alcuni componenti di <strong>terze parti</strong> (mappe, contenuti incorporati) potrebbero non essere pienamente accessibili.</li>
-      <li>Alcune animazioni o transizioni potrebbero non rispettare ancora completamente le preferenze di riduzione del movimento.</li>
-    </ul>
-    <p>Stiamo lavorando per ridurre progressivamente queste limitazioni.</p>
+    <div class="legal-body section-en">
+      <h1>Accessibility</h1>
+      <span class="update-badge">Last updated May 29, 2026</span>
 
-    <h2>Segnala una barriera</h2>
-    <p>Se incontri una difficolt&agrave; di accessibilit&agrave; usando InComune, faccelo sapere: ogni segnalazione ci aiuta a migliorare. Indica, se puoi, il dispositivo che usi (iOS o Android), la tecnologia assistiva attiva (es. VoiceOver, TalkBack) e la schermata in cui hai riscontrato il problema. Cercheremo di risponderti entro <strong>30 giorni</strong>.</p>
+      <h2>Our commitment</h2>
+      <p>InComune is the community app for Novoli, and we want it to be usable by everyone, including people with visual, motor, hearing, or cognitive disabilities. We work to make the app more accessible on an ongoing basis, applying mobile accessibility best practices with every update.</p>
+      <p>This is a voluntary statement: InComune is not a public-administration service, but we still choose to treat accessibility as a clear commitment.</p>
 
-    <h2>Contatti</h2>
-    <div class="contact-box">
-      <p><strong>Lorenzo La Grua</strong></p>
-      <p>Email: <a href="mailto:info@incomune.app">info@incomune.app</a></p>
-      <p>Indirizzo: Piazza Trento 6, 20135 Milano, Italia</p>
-    </div>
-  </div>
+      <h2>Conformance target</h2>
+      <p>We aim to align with the international <strong>WCAG 2.1 level AA</strong> guidelines (Web Content Accessibility Guidelines), adapted to the native mobile app context. This is an ongoing effort: some areas may not yet be fully conformant, and we fix them progressively.</p>
 
-  <div class="container section-en">
-    <span class="update-badge">Last updated: May 29, 2026</span>
+      <h2>What we have already done</h2>
+      <div class="card">
+        <ul>
+          <li><strong>Screen reader support</strong> (VoiceOver on iOS and TalkBack on Android): buttons, fields, and icons have descriptive labels, so people who cannot see the screen know what they are tapping.</li>
+          <li><strong>Resizable text</strong>: the app respects the system text size (Dynamic Type), within a limit that preserves the layout's readability.</li>
+          <li><strong>Large touch targets</strong>: small controls have an enlarged tappable area, easier to hit even with reduced motor precision.</li>
+          <li><strong>Contrast and colors</strong>: a palette designed for good text-to-background contrast, with <strong>light and dark modes</strong> that follow the device preferences.</li>
+          <li><strong>Consistent structure</strong>: control roles and states (button, link, selected) are declared to enable predictable assistive navigation.</li>
+          <li><strong>Explicit labels on icon controls</strong>: buttons shown only as an icon have a name readable by voice assistants.</li>
+        </ul>
+      </div>
 
-    <h2>Our commitment</h2>
-    <p>InComune is the community app for Novoli, and we want it to be usable by everyone, including people with visual, motor, hearing, or cognitive disabilities. We work to make the app more accessible on an ongoing basis, applying mobile accessibility best practices with every update.</p>
-    <p>This is a voluntary statement: InComune is not a public-administration service, but we still choose to treat accessibility as a clear commitment.</p>
-
-    <h2>Conformance target</h2>
-    <p>We aim to align with the international <strong>WCAG 2.1 level AA</strong> guidelines (Web Content Accessibility Guidelines), adapted to the native mobile app context. This is an ongoing effort: some areas may not yet be fully conformant, and we fix them progressively.</p>
-
-    <h2>What we have already done</h2>
-    <div class="card">
+      <h2>Known limitations</h2>
+      <p>Despite our efforts, some parts may still present barriers:</p>
       <ul>
-        <li><strong>Screen reader support</strong> (VoiceOver on iOS and TalkBack on Android): buttons, fields, and icons have descriptive labels, so people who cannot see the screen know what they are tapping.</li>
-        <li><strong>Resizable text</strong>: the app respects the system text size (Dynamic Type), within a limit that preserves the layout's readability.</li>
-        <li><strong>Large touch targets</strong>: small controls have an enlarged tappable area, easier to hit even with reduced motor precision.</li>
-        <li><strong>Contrast and colors</strong>: a palette designed for good text-to-background contrast, with <strong>light and dark modes</strong> that follow the device preferences.</li>
-        <li><strong>Consistent structure</strong>: control roles and states (button, link, selected) are declared to enable predictable assistive navigation.</li>
-        <li><strong>Explicit labels on icon controls</strong>: buttons shown only as an icon have a name readable by voice assistants.</li>
+        <li><strong>User- and administrator-uploaded content</strong> (images, posters, posts) may not always have descriptive alternative text.</li>
+        <li>Some <strong>third-party</strong> components (maps, embedded content) may not be fully accessible.</li>
+        <li>Some animations or transitions may not yet fully respect reduce-motion preferences.</li>
       </ul>
+      <p>We are working to gradually reduce these limitations.</p>
+
+      <h2>Report a barrier</h2>
+      <p>If you run into an accessibility difficulty while using InComune, let us know: every report helps us improve. If you can, mention the device you use (iOS or Android), the assistive technology you have on (e.g. VoiceOver, TalkBack), and the screen where you hit the problem. We will try to respond within <strong>30 days</strong>.</p>
+
+      <h2>Contact</h2>
+      <div class="contact-box">
+        <p><strong>Lorenzo La Grua</strong></p>
+        <p>Email: <a href="mailto:info@incomune.app">info@incomune.app</a></p>
+        <p>Address: Piazza Trento 6, 20135 Milan, Italy</p>
+      </div>
     </div>
+  </main>
 
-    <h2>Known limitations</h2>
-    <p>Despite our efforts, some parts may still present barriers:</p>
-    <ul>
-      <li><strong>User- and administrator-uploaded content</strong> (images, posters, posts) may not always have descriptive alternative text.</li>
-      <li>Some <strong>third-party</strong> components (maps, embedded content) may not be fully accessible.</li>
-      <li>Some animations or transitions may not yet fully respect reduce-motion preferences.</li>
-    </ul>
-    <p>We are working to gradually reduce these limitations.</p>
-
-    <h2>Report a barrier</h2>
-    <p>If you run into an accessibility difficulty while using InComune, let us know: every report helps us improve. If you can, mention the device you use (iOS or Android), the assistive technology you have on (e.g. VoiceOver, TalkBack), and the screen where you hit the problem. We will try to respond within <strong>30 days</strong>.</p>
-
-    <h2>Contact</h2>
-    <div class="contact-box">
-      <p><strong>Lorenzo La Grua</strong></p>
-      <p>Email: <a href="mailto:info@incomune.app">info@incomune.app</a></p>
-      <p>Address: Piazza Trento 6, 20135 Milan, Italy</p>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div style="max-width: 280px;">
+          <a class="brand-lockup" href="/" aria-label="InComune, home">
+            <img class="logo-mark" src="/assets/logo-in.svg" alt="" width="23" height="30">
+            <span class="wordmark">InComune</span>
+          </a>
+          <p class="muted" style="margin-top:12px; font-size: var(--fs-small);">L'app della comunità di Novoli (LE). Fatta nel paese, per il paese.</p>
+        </div>
+        <div class="site-footer__col">
+          <h4>App</h4>
+          <a href="/#funzioni">Cosa fa</a>
+          <a href="/#scarica">Scarica</a>
+          <a href="/supporto">Supporto</a>
+        </div>
+        <div class="site-footer__col">
+          <h4>Legale</h4>
+          <a href="/privacy-policy">Privacy</a>
+          <a href="/termini">Termini</a>
+          <a href="/accessibilita">Accessibilità</a>
+        </div>
+        <div class="site-footer__col">
+          <h4>Contatti</h4>
+          <a href="mailto:info@incomune.app">info@incomune.app</a>
+          <a href="https://instagram.com/incomuneapp" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="site-footer__bottom">© 2026 InComune · incomune.app</div>
     </div>
-  </div>
-
-  <div class="footer">
-    InComune - Dichiarazione di Accessibilit&agrave;
-  </div>
+  </footer>
 
   <script>
     function switchLang(lang) {
       const it = document.querySelector(".section-it");
       const en = document.querySelector(".section-en");
-      const buttons = document.querySelectorAll(".lang-switch button");
+      const buttons = document.querySelectorAll(".lang-toggle button");
       buttons.forEach((button) => button.classList.remove("active"));
       if (lang === "it") {
         it.style.display = "block";

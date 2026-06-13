@@ -1,0 +1,313 @@
+/* =========================================================================
+   InComune — sito incomune.app
+   Design system condiviso, coerente con l'app (DESIGN.md "la piazza di paese").
+   Token trascritti da InComune/DESIGN.md. Font: Nunito + DM Serif Display.
+   ========================================================================= */
+
+/* ----- Token --------------------------------------------------------------- */
+:root {
+  /* Palette narrativa */
+  --terracotta: #B95111;
+  --terracotta-scuro: #9A4310;
+  --rosso-pompeiano: #B33B33;
+  --senape: #B89030;
+  --verde-ulivo: #4A6B2E;
+  --blu-notte: #3D6485;
+
+  /* Neutri caldi */
+  --avorio: #FAF8F4;
+  --bianco-carta: #FFFFFF;
+  --bruno-seppia: #2A1F18;
+  --caffe-tenue: #6B574A;
+  --sabbia-bordo: #D9C9B0;
+  --pill-quieto: #EADFCE;
+  --pill-quieto-sottile: #F0E6D5;
+  --pill-text: #7A4E2E;
+
+  /* Semantici */
+  --aperto-bg: #E8F0E2;
+  --aperto-testo: #4A6B2E;
+  --chiuso-bg: #F4E5D2;
+  --chiuso-testo: #8B5A2A;
+  --info-bg: #DDE6EE;
+  --errore-bg: #F5DDD7;
+  --errore-testo: #8B2E20;
+
+  /* Ruoli di superficie (light) */
+  --bg: var(--avorio);
+  --surface: var(--bianco-carta);
+  --text: var(--bruno-seppia);
+  --text-secondary: var(--caffe-tenue);
+  --border: var(--sabbia-bordo);
+  --tint: var(--terracotta);
+  --on-tint: var(--bianco-carta);
+
+  /* Tipografia */
+  --font-sans: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'DM Serif Display', ui-serif, Georgia, 'Times New Roman', serif;
+
+  /* Scala fluida (web: corpo a 16px minimo per leggibilita desktop 65+) */
+  --fs-display: clamp(2.75rem, 1.8rem + 4.6vw, 5rem);   /* hero wordmark / display */
+  --fs-h1: clamp(2rem, 1.5rem + 2.4vw, 3rem);
+  --fs-h2: clamp(1.5rem, 1.2rem + 1.4vw, 2.1rem);
+  --fs-h3: clamp(1.2rem, 1.05rem + 0.7vw, 1.5rem);
+  --fs-lead: clamp(1.1rem, 1rem + 0.55vw, 1.4rem);
+  --fs-body: 1.0625rem;   /* 17px */
+  --fs-small: 0.9375rem;  /* 15px */
+  --fs-eyebrow: 0.75rem;  /* 12px uppercase */
+
+  /* Raggi (da DESIGN.md) */
+  --r-sm: 8px;
+  --r-md: 10px;
+  --r-lg: 12px;
+  --r-card: 16px;
+  --r-pill: 20px;
+  --r-capsule: 22px;
+  --r-sheet: 24px;
+  --r-hero: 28px;
+
+  /* Spaziatura */
+  --s-xs: 4px;
+  --s-sm: 8px;
+  --s-md: 12px;
+  --s-lg: 16px;
+  --s-xl: 20px;
+  --s-2xl: 24px;
+  --s-3xl: 40px;
+  --s-4xl: 64px;
+  --s-5xl: clamp(64px, 8vw, 120px);
+
+  /* Ombre tinte bruno seppia, quasi-flat */
+  --shadow-sm: 0 1px 3px rgba(58, 28, 14, 0.06), 0 3px 10px rgba(58, 28, 14, 0.05);
+  --shadow-md: 0 4px 14px rgba(58, 28, 14, 0.10);
+  --shadow-lg: 0 8px 30px rgba(58, 28, 14, 0.14);
+
+  --maxw: 1120px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1); /* ease-out-quart */
+}
+
+/* Dark mode: palette Notte dell'app */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1A1410;
+    --surface: #2A2018;
+    --text: #F0E8DE;
+    --text-secondary: #C5B49E;
+    --border: #4A3A2A;
+    --tint: #D78862;
+    --on-tint: #1A1410;
+    --pill-quieto: #3A2D1F;
+    --pill-quieto-sottile: #322619;
+    --pill-text: #E8D9C4;
+    --senape: #D4AC4A;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ----- Reset --------------------------------------------------------------- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+a { color: var(--tint); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+::selection { background: var(--terracotta); color: #fff; }
+
+:focus-visible { outline: 2px solid var(--tint); outline-offset: 2px; border-radius: 4px; }
+
+/* ----- Tipografia ---------------------------------------------------------- */
+.serif { font-family: var(--font-serif); font-weight: 400; line-height: 1.08; }
+
+h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 700; }
+
+.eyebrow {
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--tint);
+}
+
+.lead { font-size: var(--fs-lead); color: var(--text-secondary); line-height: 1.5; }
+.muted { color: var(--text-secondary); }
+
+/* ----- Layout -------------------------------------------------------------- */
+.container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(20px, 5vw, 40px); }
+.section { padding-block: var(--s-5xl); }
+.measure { max-width: 68ch; }
+
+/* ----- Header sito --------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  -webkit-backdrop-filter: saturate(140%) blur(8px);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+}
+.site-header__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--s-lg);
+  min-height: 64px;
+}
+.brand-lockup { display: inline-flex; align-items: center; gap: 10px; color: var(--text); }
+.brand-lockup:hover { text-decoration: none; }
+.brand-lockup .logo-mark { height: 30px; width: auto; color: var(--tint); }
+.brand-lockup .wordmark { font-family: var(--font-serif); font-size: 1.5rem; line-height: 1; color: var(--text); }
+.site-header nav { display: flex; align-items: center; gap: clamp(12px, 2vw, 28px); }
+.site-header nav a { color: var(--text-secondary); font-weight: 600; font-size: var(--fs-small); }
+.site-header nav a:hover { color: var(--text); text-decoration: none; }
+.site-header .nav-hide-sm { } /* visibile di default */
+
+/* ----- Bottoni ------------------------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 12px 24px;
+  border-radius: var(--r-lg); border: 1px solid transparent;
+  font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-small);
+  cursor: pointer; transition: transform 0.12s var(--ease), background-color 0.2s, opacity 0.2s;
+}
+.btn:hover { text-decoration: none; }
+.btn:active { transform: scale(0.98); }
+.btn-primary { background: var(--terracotta); color: #fff; }
+.btn-primary:hover { background: var(--terracotta-scuro); }
+.btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
+.btn-ghost:hover { background: var(--pill-quieto-sottile); }
+
+/* ----- Pill / chip --------------------------------------------------------- */
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: var(--r-capsule);
+  background: var(--pill-quieto); color: var(--pill-text);
+  font-weight: 700; font-size: var(--fs-small);
+}
+.pill--active { background: var(--terracotta); color: #fff; }
+
+/* ----- Card ---------------------------------------------------------------- */
+.card {
+  background: var(--surface); border-radius: var(--r-card);
+  padding: var(--s-xl); box-shadow: var(--shadow-sm);
+  border: 1px solid color-mix(in srgb, var(--border) 45%, transparent);
+}
+
+/* ----- Store badge --------------------------------------------------------- */
+.store-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.store-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--bruno-seppia); color: #fff;
+  padding: 11px 20px; border-radius: var(--r-lg);
+  min-height: 56px; transition: opacity 0.2s, transform 0.12s var(--ease);
+}
+@media (prefers-color-scheme: dark) { .store-btn { background: #000; border: 1px solid var(--border); } }
+.store-btn:hover { opacity: 0.9; text-decoration: none; }
+.store-btn:active { transform: scale(0.98); }
+.store-btn svg { width: 26px; height: 26px; fill: #fff; flex: none; }
+.store-btn .store-label { text-align: left; line-height: 1.15; }
+.store-btn .store-small { font-size: 11px; opacity: 0.85; display: block; }
+.store-btn .store-name { font-size: 17px; font-weight: 700; }
+.store-btn.disabled { opacity: 0.4; pointer-events: none; }
+
+/* ----- Footer sito --------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  background: color-mix(in srgb, var(--surface) 60%, var(--bg));
+  padding-block: var(--s-3xl);
+  margin-top: var(--s-4xl);
+}
+.site-footer__grid {
+  display: flex; flex-wrap: wrap; gap: var(--s-2xl) var(--s-4xl);
+  align-items: flex-start; justify-content: space-between;
+}
+.site-footer .brand-lockup .logo-mark { color: var(--tint); }
+.site-footer__col h4 { font-size: var(--fs-eyebrow); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 10px; font-weight: 700; }
+.site-footer__col a { display: block; color: var(--text); font-weight: 600; font-size: var(--fs-small); padding: 5px 0; }
+.site-footer__col a:hover { color: var(--tint); text-decoration: none; }
+.site-footer__bottom { margin-top: var(--s-2xl); padding-top: var(--s-lg); border-top: 1px solid color-mix(in srgb, var(--border) 40%, transparent); color: var(--text-secondary); font-size: var(--fs-small); }
+
+/* ----- Long-form legale ---------------------------------------------------- */
+.legal { padding-block: var(--s-3xl) var(--s-4xl); }
+.legal .legal-body { max-width: 72ch; margin-inline: auto; }
+.legal h1 { font-family: var(--font-serif); font-weight: 400; letter-spacing: 0; font-size: var(--fs-h1); margin-bottom: var(--s-sm); }
+.legal h2 { font-size: var(--fs-h3); margin-top: var(--s-2xl); margin-bottom: var(--s-sm); }
+.legal h3 { font-size: 1.1rem; margin-top: var(--s-xl); margin-bottom: 6px; }
+.legal p, .legal li { color: var(--text); line-height: 1.7; }
+.legal p, .legal ul, .legal ol { margin-bottom: var(--s-md); }
+.legal ul, .legal ol { padding-left: 1.3em; }
+.legal li { margin-bottom: 6px; }
+.legal a { text-decoration: underline; }
+.legal .meta { color: var(--text-secondary); font-size: var(--fs-small); }
+.legal table { width: 100%; border-collapse: collapse; margin: var(--s-md) 0; font-size: var(--fs-small); }
+.legal th, .legal td { text-align: left; padding: 10px 12px; border: 1px solid var(--border); vertical-align: top; }
+.legal th { background: var(--pill-quieto-sottile); font-weight: 700; }
+
+/* Badge "ultimo aggiornamento" */
+.update-badge {
+  display: inline-block; background: var(--pill-quieto); color: var(--pill-text);
+  font-size: var(--fs-eyebrow); font-weight: 700; padding: 5px 12px; border-radius: var(--r-pill);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+
+/* Box contatti caldo (terracotta) */
+.contact-box {
+  background: var(--terracotta); color: #fff; border-radius: var(--r-card);
+  padding: var(--s-2xl); margin-top: var(--s-2xl); text-align: center;
+}
+.contact-box p { color: rgba(255,255,255,0.9); margin: 4px 0; }
+.contact-box strong { color: #fff; }
+.contact-box a { color: #fff; text-decoration: underline; }
+
+/* Toggle lingua */
+.lang-toggle { display: inline-flex; gap: 4px; background: var(--pill-quieto-sottile); border-radius: var(--r-capsule); padding: 4px; }
+.lang-toggle button {
+  border: 0; background: transparent; cursor: pointer;
+  font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-small);
+  color: var(--pill-text); padding: 6px 14px; border-radius: var(--r-pill);
+}
+.lang-toggle button.active { background: var(--terracotta); color: #fff; }
+
+/* ----- Pagine tecniche (deep-link / 404) ----------------------------------- */
+.centered-screen {
+  min-height: 100dvh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: var(--s-2xl); gap: var(--s-lg);
+}
+.medallion {
+  width: 76px; height: 76px; border-radius: 38px;
+  display: grid; place-items: center;
+  background: var(--pill-quieto); color: var(--tint);
+  box-shadow: var(--shadow-sm);
+}
+.medallion svg { width: 34px; height: 34px; }
+
+/* ----- Motion -------------------------------------------------------------- */
+.reveal { opacity: 0; transform: translateY(16px); animation: reveal 0.7s var(--ease) forwards; }
+.reveal[data-delay="1"] { animation-delay: 0.08s; }
+.reveal[data-delay="2"] { animation-delay: 0.16s; }
+.reveal[data-delay="3"] { animation-delay: 0.24s; }
+.reveal[data-delay="4"] { animation-delay: 0.32s; }
+@keyframes reveal { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-delay: 0 !important; transition-duration: 0.001ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}

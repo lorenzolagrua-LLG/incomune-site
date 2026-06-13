@@ -12,21 +12,25 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#B95111">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --primary: #B95111;
     --primary-light: #F0E6D5;
-    --success: #1E7A4A;
-    --success-light: #E4F4EC;
-    --text: #1E1E1E;
-    --text-secondary: #555555;
+    --success: #4A6B2E;
+    --success-light: #E8F0E2;
+    --text: #2A1F18;
+    --text-secondary: #6B574A;
     --bg: #FAF8F4;
     --card: #FFFFFF;
-    --border: #D6DEE8;
+    --border: #D9C9B0;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
@@ -46,11 +50,12 @@
     margin: 0 auto 12px;
   }
   h1 {
-    font-size: 26px;
-    font-weight: 700;
+    font-family: 'DM Serif Display', ui-serif, Georgia, serif;
+    font-size: 30px;
+    font-weight: 400;
     color: var(--text);
     margin-bottom: 16px;
-    letter-spacing: -0.4px;
+    letter-spacing: 0;
   }
   .card {
     background: var(--card);
@@ -130,7 +135,7 @@
 </head>
 <body>
 <div class="container">
-  <img src="/assets/logo-blue.png" alt="InComune" class="brand-logo" onerror="this.style.display='none'">
+  <img src="/assets/logo-in.svg" alt="InComune" class="brand-logo" width="72" height="94">
   <h1>Email confermata</h1>
   <div class="card">
 

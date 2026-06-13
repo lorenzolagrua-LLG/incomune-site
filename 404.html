@@ -6,14 +6,12 @@
 <title>InComune — Apri nell'app</title>
 <meta name="description" content="Per visualizzare questo contenuto installa InComune, l'app della comunità di Novoli (LE).">
 
-<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#B95111">
 
-<!-- OpenGraph (anteprima link su WhatsApp / Facebook / iMessage) -->
 <meta property="og:title" content="InComune — Novoli">
 <meta property="og:description" content="L'app della comunità di Novoli (LE). Eventi, attività, associazioni e novità del paese.">
 <meta property="og:type" content="website">
@@ -25,173 +23,39 @@
 <meta name="twitter:description" content="L'app della comunità di Novoli (LE).">
 <meta name="twitter:image" content="https://incomune.app/assets/og-image.png">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
 <style>
-  :root {
-    --primary: #B95111;
-    --primary-light: #F0E6D5;
-    --text: #1E1E1E;
-    --text-secondary: #555555;
-    --bg: #FAF8F4;
-    --card: #FFFFFF;
-    --border: #D6DEE8;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    -webkit-font-smoothing: antialiased;
-    padding: 24px;
-    text-align: center;
-  }
-  .container {
-    max-width: 520px;
-    width: 100%;
-  }
-  .brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-  .brand-logo {
-    width: 88px;
-    height: auto;
-    display: block;
-  }
-  .logo-text {
-    font-size: 38px;
-    font-weight: 800;
-    color: var(--primary);
-    letter-spacing: -1px;
-    line-height: 1;
-  }
-  .tagline {
-    font-size: 17px;
-    color: var(--text-secondary);
-    margin-bottom: 32px;
-    line-height: 1.5;
-  }
-  .badge {
-    display: inline-block;
-    background: var(--primary);
-    color: white;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 6px 16px;
-    border-radius: 20px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-  }
-  .message {
-    background: var(--card);
-    border-radius: 14px;
-    padding: 24px 20px;
-    box-shadow: 0 1px 4px rgba(58, 28, 14,0.06);
-    margin-bottom: 32px;
-  }
-  .message-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-  .message-body {
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
-  .stores {
-    font-size: 15px;
-    color: var(--text-secondary);
-    margin-bottom: 12px;
-  }
-  .store-badges {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-  .store-badges a {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #000;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-size: 13px;
-    line-height: 1.2;
-    transition: opacity 0.2s;
-  }
-  .store-badges a:hover { opacity: 0.85; }
-  .store-badges a.disabled { opacity: 0.4; pointer-events: none; }
-  .store-badges .store-icon { font-size: 26px; }
-  .store-badges .store-label { text-align: left; }
-  .store-badges .store-small { font-size: 10px; opacity: 0.8; display: block; }
-  .store-badges .store-name { font-size: 17px; font-weight: 600; }
-  .footer {
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin-top: 20px;
-  }
-  .footer a {
-    color: var(--primary);
-    text-decoration: none;
-  }
-  .footer a:hover {
-    text-decoration: underline;
-  }
-  @media (max-width: 400px) {
-    .brand-logo { width: 72px; }
-    .logo-text { font-size: 32px; }
-    .message { padding: 20px 16px; }
-  }
+  .container { max-width: 480px; }
+  .logo-mark { color: var(--terracotta); height: 56px; }
+  .t-title { font-family: var(--font-serif); font-size: clamp(1.6rem, 1.3rem + 1.6vw, 2.2rem); line-height: 1.1; }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="brand">
-    <img src="/assets/logo-blue.svg" alt="" class="brand-logo" width="88" height="115">
-    <div class="logo-text">InComune</div>
-  </div>
-  <p class="tagline">La comunità di Novoli, in un'unica app.</p>
+<div class="centered-screen">
+  <div class="container">
+    <img class="logo-mark" src="/assets/logo-in.svg" alt="InComune" height="56" style="margin: 0 auto 18px;">
+    <p class="eyebrow">Apri nell'app</p>
+    <h1 class="t-title" style="margin:6px 0 10px;">Questo contenuto vive nell'app</h1>
+    <p class="lead" style="margin-bottom: 24px;">Scarica InComune e ritrova tutto ciò che riguarda Novoli direttamente in tasca.</p>
 
-  <div class="message">
-    <p class="message-title">Per vedere questo contenuto serve l'app</p>
-    <p class="message-body">Scarica InComune dall'App Store e troverai tutto ciò che riguarda Novoli direttamente in tasca.</p>
-  </div>
+    <div class="store-row" style="justify-content: center;">
+      <a class="store-btn" href="https://apps.apple.com/app/id6761307454" target="_blank" rel="noopener" aria-label="Scarica InComune su App Store">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span class="store-label"><span class="store-small">Scarica su</span><span class="store-name">App Store</span></span>
+      </a>
+      <a class="store-btn" href="https://play.google.com/store/apps/details?id=app.incomune" target="_blank" rel="noopener" aria-label="Scarica InComune su Google Play">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm.91-.91L19.59 12l-1.87-2.21-2.27 2.27 2.27 2.15zM6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/></svg>
+        <span class="store-label"><span class="store-small">Scarica su</span><span class="store-name">Google Play</span></span>
+      </a>
+    </div>
 
-  <p class="stores">Scarica l'app</p>
-  <div class="store-badges">
-    <a href="https://apps.apple.com/app/id6761307454" target="_blank" rel="noopener" aria-label="Scarica InComune su App Store">
-      <svg class="store-icon" viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      <span class="store-label">
-        <span class="store-small">Scarica su</span>
-        <span class="store-name">App Store</span>
-      </span>
-    </a>
-    <a href="https://play.google.com/store/apps/details?id=app.incomune" target="_blank" rel="noopener" aria-label="Scarica InComune su Google Play">
-      <svg class="store-icon" viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm.91-.91L19.59 12l-1.87-2.21-2.27 2.27 2.27 2.15zM6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/></svg>
-      <span class="store-label">
-        <span class="store-small">Scarica su</span>
-        <span class="store-name">Google Play</span>
-      </span>
-    </a>
-  </div>
-
-  <div class="footer">
-    <a href="/">incomune.app</a> · <a href="/privacy-policy">Privacy</a> · <a href="/termini">Termini</a>
+    <p class="muted" style="margin-top: 28px; font-size: var(--fs-small);">
+      <a href="/">incomune.app</a> · <a href="/privacy-policy">Privacy</a> · <a href="/termini">Termini</a>
+    </p>
   </div>
 </div>
 
