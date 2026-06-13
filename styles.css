@@ -6,6 +6,7 @@
 
 /* ----- Token --------------------------------------------------------------- */
 :root {
+  color-scheme: light;
   /* Palette narrativa */
   --terracotta: #B95111;
   --terracotta-scuro: #9A4310;
@@ -86,25 +87,8 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1); /* ease-out-quart */
 }
 
-/* Dark mode: palette Notte dell'app */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #1A1410;
-    --surface: #2A2018;
-    --text: #F0E8DE;
-    --text-secondary: #C5B49E;
-    --border: #4A3A2A;
-    --tint: #D78862;
-    --on-tint: #1A1410;
-    --pill-quieto: #3A2D1F;
-    --pill-quieto-sottile: #322619;
-    --pill-text: #E8D9C4;
-    --senape: #D4AC4A;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
-    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
-  }
-}
+/* Sito sempre chiaro (light-only): il calore avorio + terracotta è la firma del
+   brand su una vetrina. L'app resta adattiva light/dark; il sito no, per scelta. */
 
 /* ----- Reset --------------------------------------------------------------- */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -217,7 +201,6 @@ h3 { font-size: var(--fs-h3); font-weight: 700; }
   padding: 11px 20px; border-radius: var(--r-lg);
   min-height: 56px; transition: opacity 0.2s, transform 0.12s var(--ease);
 }
-@media (prefers-color-scheme: dark) { .store-btn { background: #000; border: 1px solid var(--border); } }
 .store-btn:hover { opacity: 0.9; text-decoration: none; }
 .store-btn:active { transform: scale(0.98); }
 .store-btn svg { width: 26px; height: 26px; fill: #fff; flex: none; }
