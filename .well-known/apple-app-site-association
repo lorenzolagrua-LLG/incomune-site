@@ -11,6 +11,7 @@
           { "/": "/professionisti/*" },
           { "/": "/varie/*" },
           { "/": "/paese/teatro" },
+          { "/": "/paese/comune" },
           { "/": "/reset-password*" },
           { "/": "/email-confirmed*" }
         ]
