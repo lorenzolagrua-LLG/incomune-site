@@ -11,27 +11,31 @@
 </head>
 <body>
   <main class="torneo-wrap">
-    <section id="intro">
+    <section id="intro" class="panel">
+      <p class="eyebrow">Sondaggio colori</p>
       <h1>Aiutaci a scegliere il colore di InComune</h1>
-      <p>Sfida i colori a coppie e scegli il tuo preferito, fino al campione. Bastano due minuti. Grazie dal team di InComune.</p>
-      <label for="nick">Come ti chiami? (facoltativo)</label>
-      <input id="nick" type="text" maxlength="40" autocomplete="off" placeholder="Il tuo nome">
+      <p class="lede">Sfida i colori a coppie e scegli il tuo preferito, fino al campione. Bastano due minuti, e il voto resta anonimo. Grazie dal team di InComune.</p>
+      <div class="field">
+        <label for="nick">Come ti chiami? (facoltativo)</label>
+        <input id="nick" type="text" maxlength="40" autocomplete="off" placeholder="Il tuo nome">
+      </div>
       <button id="start" type="button" class="cta">Inizia</button>
     </section>
 
     <section id="game" hidden>
-      <div class="progress" id="progress"></div>
+      <p class="progress" id="progress" aria-live="polite"></p>
       <div class="versus">
-        <button class="choice" id="choiceA" type="button"></button>
-        <span class="vs">VS</span>
-        <button class="choice" id="choiceB" type="button"></button>
+        <button class="choice" id="choiceA" type="button" aria-label="Scegli il colore a sinistra"></button>
+        <span class="vs" aria-hidden="true">vs</span>
+        <button class="choice" id="choiceB" type="button" aria-label="Scegli il colore a destra"></button>
       </div>
     </section>
 
-    <section id="final" hidden>
+    <section id="final" hidden class="panel">
+      <p class="eyebrow">Campione</p>
       <h2>Il tuo colore è</h2>
       <div id="winner"></div>
-      <button id="again" type="button" class="cta">Gioca di nuovo</button>
+      <button id="again" type="button" class="cta ghost">Gioca di nuovo</button>
     </section>
   </main>
 
