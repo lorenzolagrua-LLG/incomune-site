@@ -55,13 +55,20 @@ function startGame() {
   nickname = el('nick').value.trim().slice(0, 40);
   sessionId = crypto.randomUUID();
   state = createTournament(CANDIDATES.map(c => c.key));
+  locked = false;
   el('intro').hidden = true;
   el('final').hidden = true;
   el('game').hidden = false;
   renderPair();
 }
 
+// Sceglie lo sfidante in posizione `i` della coppia corrente, se esiste.
+function pickAt(i) {
+  const pair = currentPair(state);
+  if (pair) choose(pair[i]);
+}
+
 el('start').addEventListener('click', startGame);
 el('again').addEventListener('click', () => { el('final').hidden = true; el('intro').hidden = false; });
-el('choiceA').addEventListener('click', () => choose(currentPair(state)[0]));
-el('choiceB').addEventListener('click', () => choose(currentPair(state)[1]));
+el('choiceA').addEventListener('click', () => pickAt(0));
+el('choiceB').addEventListener('click', () => pickAt(1));

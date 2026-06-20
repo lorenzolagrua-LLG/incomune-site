@@ -51,14 +51,16 @@ as $$
   win_counts as (
     select winner as k, count(*) as wins from votes group by winner
   ),
-  -- campione finale = vincitore del round massimo per ciascuna sessione
+  -- campione = vincitore della finale: il round piu profondo raggiunto da chiunque
+  -- (per un bracket da 16 e il round 4, un solo voto per sessione completata).
+  -- Le sessioni abbandonate prima della finale non gonfiano champion_count.
+  final_round as (
+    select max(round) as r from votes
+  ),
   champ as (
     select v.winner as k
-    from votes v
-    join (
-      select session_id, max(round) as max_round
-      from votes group by session_id
-    ) m on m.session_id = v.session_id and m.max_round = v.round
+    from votes v, final_round f
+    where v.round = f.r
   ),
   champ_counts as (
     select k, count(*) as champion_count from champ group by k
