@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scegli il colore di InComune</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="colori.css">
+</head>
+<body>
+  <main class="torneo-wrap">
+    <section id="intro">
+      <h1>Aiutaci a scegliere il colore di InComune</h1>
+      <p>Sfida i colori a coppie e scegli il tuo preferito, fino al campione. Bastano due minuti. Grazie dal team di InComune.</p>
+      <label for="nick">Come ti chiami? (facoltativo)</label>
+      <input id="nick" type="text" maxlength="40" autocomplete="off" placeholder="Il tuo nome">
+      <button id="start" type="button" class="cta">Inizia</button>
+    </section>
+
+    <section id="game" hidden>
+      <div class="progress" id="progress"></div>
+      <div class="versus">
+        <button class="choice" id="choiceA" type="button"></button>
+        <span class="vs">VS</span>
+        <button class="choice" id="choiceB" type="button"></button>
+      </div>
+    </section>
+
+    <section id="final" hidden>
+      <h2>Il tuo colore e</h2>
+      <div id="winner"></div>
+      <button id="again" type="button" class="cta">Gioca di nuovo</button>
+    </section>
+  </main>
+
+  <script type="module" src="colori.js"></script>
+</body>
+</html>
