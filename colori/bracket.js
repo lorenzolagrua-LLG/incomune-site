@@ -23,7 +23,6 @@ export function createTournament(keys, rng = Math.random) {
 export function currentPair(state) {
   if (state.champion) return null;
   const { contestants, index } = state;
-  if (index + 1 >= contestants.length + 1 && contestants.length === 1) return null;
   if (index >= contestants.length) return null;
   return [contestants[index], contestants[index + 1]];
 }
@@ -31,6 +30,9 @@ export function currentPair(state) {
 export function pick(state, winnerKey) {
   const a = state.contestants[state.index];
   const b = state.contestants[state.index + 1];
+  if (winnerKey !== a && winnerKey !== b) {
+    throw new Error(`winner "${winnerKey}" non e tra gli sfidanti correnti (${a} vs ${b})`);
+  }
   const matchup = { round: state.round, candidate_a: a, candidate_b: b, winner: winnerKey };
 
   const winners = [...state.winners, winnerKey];

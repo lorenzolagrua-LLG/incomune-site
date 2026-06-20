@@ -7,6 +7,9 @@ import { shuffle, createTournament, currentPair, pick } from './bracket.js';
 // conservi l'ordine originale: il bracket lavora sull'ordine mescolato, quindi i
 // test derivano le aspettative dall'ordine effettivo, non da quello di partenza.
 const rng0 = () => 0;
+// rng "identità": con valori ~1 ogni swap di Fisher-Yates è j===i (no-op), quindi
+// l'ordine resta invariato. Permette di verificare QUALI chiavi avanzano.
+const rngId = () => 0.999;
 
 test('shuffle non perde elementi', () => {
   const inp = ['a','b','c','d'];
@@ -56,17 +59,23 @@ test('un bracket da 4 produce un campione in 3 scelte', () => {
     picks++;
   }
   assert.equal(picks, 3); // 2 semifinali + 1 finale
-  assert.ok(s.champion);
+  assert.ok(keys.includes(s.champion)); // il campione e una delle chiavi iniziali
 });
 
-test('avanzamento round: dopo aver chiuso il round 1 si passa al round 2', () => {
+test('avanzamento round: i vincitori del round 1 avanzano nell ordine giusto', () => {
+  // rngId non mescola: contestants restano ['a','b','c','d'], quindi verifichiamo
+  // in modo indipendente QUALI chiavi avanzano (non derivate dall implementazione).
   const keys = ['a','b','c','d'];
-  let s = createTournament(keys, rng0);
-  const winner1 = currentPair(s)[0]; // vince il primo della prima coppia
-  s = pick(s, winner1).state;
-  const winner2 = currentPair(s)[0]; // vince il primo della seconda coppia
-  s = pick(s, winner2).state;
+  let s = createTournament(keys, rngId);
+  assert.deepEqual(s.contestants, ['a','b','c','d']);
+  s = pick(s, 'a').state; // a vs b -> a
+  s = pick(s, 'c').state; // c vs d -> c
   assert.equal(s.round, 2);
-  assert.deepEqual(s.contestants, [winner1, winner2]); // i due vincitori avanzano
+  assert.deepEqual(s.contestants, ['a','c']);
   assert.equal(s.index, 0);
+});
+
+test('pick rifiuta un vincitore che non e tra gli sfidanti', () => {
+  const s = createTournament(['a','b','c','d'], rngId);
+  assert.throws(() => pick(s, 'z'), /non e tra gli sfidanti/);
 });
