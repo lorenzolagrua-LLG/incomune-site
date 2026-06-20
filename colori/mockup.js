@@ -6,8 +6,14 @@ function escapeHtml(s) {
   return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 }
 
+// Accetta solo un colore hex valido (#rgb, #rrggbb, #rrggbbaa); altrimenti grigio neutro.
+// Evita iniezione CSS nell'attributo style anche se in futuro `hex` venisse da fonte non fidata.
+function safeHex(value) {
+  return /^#[0-9a-fA-F]{3,8}$/.test(String(value)) ? String(value) : '#cccccc';
+}
+
 export function renderMockupHTML(candidate) {
-  const hex = escapeHtml(candidate.hex);
+  const hex = safeHex(candidate.hex);
   const label = escapeHtml(candidate.label);
   return `
     <div class="mk" style="--accent:${hex}">
@@ -16,7 +22,7 @@ export function renderMockupHTML(candidate) {
         <div class="mk-body">
           <div class="mk-row"></div>
           <div class="mk-row short"></div>
-          <button class="mk-cta" type="button" tabindex="-1">Apri</button>
+          <span class="mk-cta" aria-hidden="true">Apri</span>
           <div class="mk-row"></div>
         </div>
       </div>
