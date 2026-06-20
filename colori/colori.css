@@ -104,6 +104,22 @@ body {
 .cta.ghost:hover { border-color: var(--ink); }
 
 /* ---- partita ---- */
+.progressbar {
+  height: 6px;
+  max-width: 420px;
+  margin: 0 auto 14px;
+  background: var(--hairline);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progressbar > span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--ink);
+  border-radius: 999px;
+  transition: width .35s cubic-bezier(.22, 1, .36, 1);
+}
 .progress {
   margin: 0 0 22px;
   text-align: center;
@@ -190,11 +206,27 @@ body {
   font-weight: 700;
   font-size: 14px;
 }
+/* anteprima del marchio: iN nel colore candidato, sotto la scheda */
+.brandmark {
+  display: grid;
+  place-items: center;
+  margin-top: 16px;
+}
+.brandmark svg { width: 38px; height: auto; }
+.brandmark.chip {
+  width: 64px;
+  height: 64px;
+  margin: 16px auto 0;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px -8px rgba(42, 31, 24, .45);
+}
+.brandmark.chip svg { width: 33px; }
+
 .mk-label {
   text-align: center;
   font-weight: 700;
   font-size: 15px;
-  padding: 12px 10px;
+  margin-top: 10px;
   color: var(--ink);
 }
 
@@ -244,5 +276,5 @@ body {
 /* ---- a11y ---- */
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
-  .cta, .choice, .field input, #winner .mk { transition: none; animation: none; }
+  .cta, .choice, .field input, #winner .mk, .progressbar > span { transition: none; animation: none; }
 }

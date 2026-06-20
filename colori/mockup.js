@@ -22,6 +22,16 @@ function readableInk(hex) {
   return luma > 150 ? '#2A1F18' : '#ffffff';
 }
 
+// Anteprima del marchio: la iN nel colore candidato sul fondo crema. Per i colori
+// chiari (i gialli) la iN in tinta sparirebbe, quindi la rendiamo bianca dentro una
+// pastiglia del colore, cosi resta leggibile mostrando comunque la tinta.
+function renderBrandmark(hex) {
+  const leggibileInTinta = readableInk(hex) === '#ffffff'; // colore scuro: ok in tinta sul crema
+  return leggibileInTinta
+    ? `<div class="brandmark" style="color:${hex}">${LOGO_PATH}</div>`
+    : `<div class="brandmark chip" style="background:${hex};color:#ffffff">${LOGO_PATH}</div>`;
+}
+
 export function renderMockupHTML(candidate) {
   const hex = safeHex(candidate.hex);
   const ink = readableInk(hex);
@@ -37,6 +47,7 @@ export function renderMockupHTML(candidate) {
           <div class="mk-row"></div>
         </div>
       </div>
-      <div class="mk-label">${label}</div>
-    </div>`;
+    </div>
+    ${renderBrandmark(hex)}
+    <div class="mk-label">${label}</div>`;
 }

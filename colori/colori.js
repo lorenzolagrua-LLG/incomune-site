@@ -11,10 +11,24 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const byKey = Object.fromEntries(CANDIDATES.map(c => [c.key, c]));
 const el = id => document.getElementById(id);
 
+const TOTAL_MATCHES = CANDIDATES.length - 1; // sfide totali nel bracket (16 -> 15)
+
 let state = null;
 let sessionId = null;
 let nickname = null;
 let locked = false; // anti doppio-tap: un tocco rapido non deve votare la coppia successiva
+let picksMade = 0;
+
+function updateBar() {
+  const pct = Math.round((picksMade / TOTAL_MATCHES) * 100);
+  el('bar').style.width = pct + '%';
+  const track = document.querySelector('.progressbar');
+  if (track) {
+    track.setAttribute('aria-valuemin', '0');
+    track.setAttribute('aria-valuemax', '100');
+    track.setAttribute('aria-valuenow', String(pct));
+  }
+}
 
 function renderPair() {
   const pair = currentPair(state);
@@ -23,6 +37,7 @@ function renderPair() {
   el('choiceA').innerHTML = renderMockupHTML(byKey[a]);
   el('choiceB').innerHTML = renderMockupHTML(byKey[b]);
   el('progress').textContent = `Round ${state.round} di ${state.totalRounds}`;
+  updateBar();
 }
 
 async function choose(winnerKey) {
@@ -32,6 +47,7 @@ async function choose(winnerKey) {
 
   const { state: next, matchup } = pick(state, winnerKey);
   state = next;
+  picksMade++;
   // fire-and-forget: l'INSERT non deve bloccare l'esperienza
   supabase.from('votes').insert({
     session_id: sessionId,
@@ -56,6 +72,8 @@ function startGame() {
   sessionId = crypto.randomUUID();
   state = createTournament(CANDIDATES.map(c => c.key));
   locked = false;
+  picksMade = 0;
+  updateBar();
   el('intro').hidden = true;
   el('final').hidden = true;
   el('game').hidden = false;
