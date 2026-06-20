@@ -12,32 +12,17 @@ function safeHex(value) {
   return /^#[0-9a-fA-F]{3,8}$/.test(String(value)) ? String(value) : '#cccccc';
 }
 
-// Inchiostro leggibile sopra l'accent: bianco su colori scuri, bruno su colori chiari.
-// Senza questo, il logo bianco sparirebbe sui gialli (contrasto insufficiente).
-function readableInk(hex) {
-  const h = hex.replace('#', '');
-  const f = h.length === 3 ? h.split('').map(c => c + c).join('') : h.slice(0, 6);
-  const r = parseInt(f.slice(0, 2), 16), g = parseInt(f.slice(2, 4), 16), b = parseInt(f.slice(4, 6), 16);
-  const luma = (r * 299 + g * 587 + b * 114) / 1000; // luminanza percepita (YIQ)
-  return luma > 150 ? '#2A1F18' : '#ffffff';
-}
-
-// Anteprima del marchio: la iN nel colore candidato sul fondo crema. Per i colori
-// chiari (i gialli) la iN in tinta sparirebbe, quindi la rendiamo bianca dentro una
-// pastiglia del colore, cosi resta leggibile mostrando comunque la tinta.
+// Anteprima del marchio: l'icona dell'app nel colore candidato, con la iN bianca
+// (stesso trattamento per tutti i colori, coerente con il logo bianco nell'header).
 function renderBrandmark(hex) {
-  const leggibileInTinta = readableInk(hex) === '#ffffff'; // colore scuro: ok in tinta sul crema
-  return leggibileInTinta
-    ? `<div class="brandmark" style="color:${hex}">${LOGO_PATH}</div>`
-    : `<div class="brandmark chip" style="background:${hex};color:#ffffff">${LOGO_PATH}</div>`;
+  return `<div class="brandmark chip" style="background:${hex};color:#ffffff">${LOGO_PATH}</div>`;
 }
 
 export function renderMockupHTML(candidate) {
   const hex = safeHex(candidate.hex);
-  const ink = readableInk(hex);
   const label = escapeHtml(candidate.label);
   return `
-    <div class="mk" style="--accent:${hex};--on-accent:${ink}">
+    <div class="mk" style="--accent:${hex}">
       <div class="mk-screen">
         <div class="mk-header"><span class="mk-logo">${LOGO_PATH}</span><span class="mk-title">InComune</span></div>
         <div class="mk-body">
