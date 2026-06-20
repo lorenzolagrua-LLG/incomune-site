@@ -14,6 +14,7 @@ const el = id => document.getElementById(id);
 let state = null;
 let sessionId = null;
 let nickname = null;
+let locked = false; // anti doppio-tap: un tocco rapido non deve votare la coppia successiva
 
 function renderPair() {
   const pair = currentPair(state);
@@ -25,6 +26,10 @@ function renderPair() {
 }
 
 async function choose(winnerKey) {
+  if (locked) return;
+  locked = true;
+  setTimeout(() => { locked = false; }, 300);
+
   const { state: next, matchup } = pick(state, winnerKey);
   state = next;
   // fire-and-forget: l'INSERT non deve bloccare l'esperienza
