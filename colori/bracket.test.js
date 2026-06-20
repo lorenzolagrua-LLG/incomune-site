@@ -3,7 +3,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { shuffle, createTournament, currentPair, pick } from './bracket.js';
 
-// rng deterministico che restituisce sempre 0 → Fisher-Yates diventa identità invertita prevedibile
+// rng deterministico (sempre 0): rende il test riproducibile. Non assumere che
+// conservi l'ordine originale: il bracket lavora sull'ordine mescolato, quindi i
+// test derivano le aspettative dall'ordine effettivo, non da quello di partenza.
 const rng0 = () => 0;
 
 test('shuffle non perde elementi', () => {
@@ -60,9 +62,11 @@ test('un bracket da 4 produce un campione in 3 scelte', () => {
 test('avanzamento round: dopo aver chiuso il round 1 si passa al round 2', () => {
   const keys = ['a','b','c','d'];
   let s = createTournament(keys, rng0);
-  s = pick(s, currentPair(s)[0]).state; // a vs b -> a
-  s = pick(s, currentPair(s)[0]).state; // c vs d -> c
+  const winner1 = currentPair(s)[0]; // vince il primo della prima coppia
+  s = pick(s, winner1).state;
+  const winner2 = currentPair(s)[0]; // vince il primo della seconda coppia
+  s = pick(s, winner2).state;
   assert.equal(s.round, 2);
-  assert.deepEqual(s.contestants, ['a','c']);
+  assert.deepEqual(s.contestants, [winner1, winner2]); // i due vincitori avanzano
   assert.equal(s.index, 0);
 });
