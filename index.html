@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js')</script>
 <title>InComune · La comunità di Novoli, in un'unica app</title>
 <meta name="description" content="InComune: eventi, attività, associazioni, chiese e comune di Novoli (LE), in un'unica app. Scaricala su App Store e Google Play.">
 
@@ -80,12 +81,50 @@
   .cta-final h2 { font-family: var(--font-serif); font-weight: 400; }
   .cta-final .store-row { justify-content: center; margin-top: 22px; }
 
+  /* ---- Rifiniture premium ---- */
+  /* Alone caldo dietro il device: profondità senza glassmorphism. */
+  .hero__art { position: relative; }
+  .hero__art::before {
+    content: ""; position: absolute; z-index: -1; inset: -10% -8%;
+    background: radial-gradient(58% 52% at 50% 40%, color-mix(in srgb, var(--terracotta) 32%, transparent), transparent 72%);
+    filter: blur(26px); opacity: 0.5; pointer-events: none;
+  }
+  /* Float lento e continuo: l'app "respira" nella mano. */
+  @media (prefers-reduced-motion: no-preference) {
+    .device { animation: device-float 7s ease-in-out infinite; }
+  }
+  @keyframes device-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  /* Hover lift (solo puntatori fini): screenshot e icone feature. */
+  .shot__frame { transition: transform 0.34s var(--ease), box-shadow 0.34s var(--ease); }
+  .feature__ico { transition: transform 0.34s var(--ease), box-shadow 0.2s var(--ease); }
+  @media (hover: hover) {
+    .shot:hover .shot__frame { transform: translateY(-7px); box-shadow: var(--shadow-lg); }
+    .feature:hover .feature__ico { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  }
+  /* Cascata stagger nei gruppi rivelati (indice via nth, niente style inline). */
+  .features > .feature:nth-of-type(2) { --reveal-i: 1; }
+  .features > .feature:nth-of-type(3) { --reveal-i: 2; }
+  .features > .feature:nth-of-type(4) { --reveal-i: 3; }
+  .shots > .shot:nth-of-type(2) { --reveal-i: 1; }
+  .shots > .shot:nth-of-type(3) { --reveal-i: 2; }
+  .about li:nth-of-type(2) { --reveal-i: 1; }
+  .about li:nth-of-type(3) { --reveal-i: 2; }
+  .about li:nth-of-type(4) { --reveal-i: 3; }
+
   @media (max-width: 860px) {
     .hero__grid { grid-template-columns: 1fr; }
     .hero__art { order: -1; }
     .hero__lead { max-width: none; }
     .about__grid { grid-template-columns: 1fr; }
+    /* Display più contenuto in colonna singola: niente clipping sotto i ~400px. */
+    .hero__title { font-size: clamp(2rem, 7vw + 0.5rem, 3.2rem); }
   }
+  /* Wrapping del titolo: pretty evita orfani senza far traboccare (balance
+     spingeva la prima riga oltre il bordo → testo tagliato su mobile). */
+  .hero__title { text-wrap: pretty; overflow-wrap: break-word; }
 </style>
 </head>
 <body>
@@ -97,9 +136,9 @@
       <span class="wordmark">InComune</span>
     </a>
     <nav>
-      <a href="#funzioni">Cosa fa</a>
-      <a href="#scarica">Scarica</a>
-      <a href="/supporto">Supporto</a>
+      <a class="nav-hide-sm" href="#funzioni">Cosa fa</a>
+      <a class="nav-cta" href="#scarica">Scarica</a>
+      <a class="nav-hide-sm" href="/supporto">Supporto</a>
     </nav>
   </div>
 </header>
@@ -110,10 +149,10 @@
   <section class="hero">
     <div class="container hero__grid">
       <div class="hero__text">
-        <p class="eyebrow reveal">Novoli · Lecce</p>
-        <h1 class="hero__title reveal" data-delay="1">La comunità di Novoli, <em>in un'unica app.</em></h1>
-        <p class="hero__lead reveal" data-delay="2">Eventi, attività, associazioni, chiese e comune. Quello che succede InComune, direttamente nella tua tasca.</p>
-        <div class="hero__cta store-row reveal" data-delay="3" id="scarica-top">
+        <p class="eyebrow" data-reveal>Novoli · Lecce</p>
+        <h1 class="hero__title" data-reveal style="--reveal-i:1">La comunità di Novoli, <em>in un'unica app.</em></h1>
+        <p class="hero__lead" data-reveal style="--reveal-i:2">Eventi, attività, associazioni, chiese e comune. Quello che succede InComune, direttamente nella tua tasca.</p>
+        <div class="hero__cta store-row" data-reveal style="--reveal-i:3" id="scarica-top">
           <a class="store-btn" href="https://apps.apple.com/app/id6761307454" target="_blank" rel="noopener" aria-label="Scarica InComune su App Store">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             <span class="store-label"><span class="store-small">Scarica su</span><span class="store-name">App Store</span></span>
@@ -123,10 +162,10 @@
             <span class="store-label"><span class="store-small">Scarica su</span><span class="store-name">Google Play</span></span>
           </a>
         </div>
-        <p class="hero__note reveal" data-delay="3">Gratis. Senza pubblicità. Fatta per il paese.</p>
+        <p class="hero__note" data-reveal style="--reveal-i:4">Gratis. Senza pubblicità. Fatta per il paese.</p>
       </div>
 
-      <div class="hero__art reveal" data-delay="2">
+      <div class="hero__art" data-reveal style="--reveal-i:2">
         <div class="device">
           <div class="device__screen">
             <img src="/assets/screenshots/eventi.jpg" width="620" height="1259" alt="La schermata Eventi dell'app InComune: il calendario di sagre, messe e spettacoli di Novoli" fetchpriority="high">
@@ -139,25 +178,25 @@
   <!-- FUNZIONALITA -->
   <section class="section" id="funzioni">
     <div class="container">
-      <p class="eyebrow">Tutto il paese</p>
-      <h2 class="serif" style="margin:6px 0 36px; max-width: 18ch;">Una sola app, invece di mille bacheche.</h2>
+      <p class="eyebrow" data-reveal>Tutto il paese</p>
+      <h2 class="serif" data-reveal style="margin:6px 0 36px; max-width: 18ch; --reveal-i:1">Una sola app, invece di mille bacheche.</h2>
       <div class="features">
-        <div class="feature">
+        <div class="feature" data-reveal>
           <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9M3 9h18M9 20v-6h6v6"/></svg></div>
           <h3>Servizi</h3>
           <p>Attività, professionisti e negozi del paese. Orari, contatti, dove sono. Senza chiedere in piazza.</p>
         </div>
-        <div class="feature">
+        <div class="feature" data-reveal>
           <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4M8 14h3"/></svg></div>
           <h3>Eventi</h3>
           <p>Sagre, messe, spettacoli, iniziative del comune. Tutto in un calendario, con le notifiche di ciò a cui tieni.</p>
         </div>
-        <div class="feature">
+        <div class="feature" data-reveal>
           <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0M16 5.5a3 3 0 0 1 0 5.5M17 14.5a5.5 5.5 0 0 1 3.5 5.5"/></svg></div>
           <h3>Associazioni</h3>
           <p>Le realtà che animano Novoli, con la loro pagina. Seguile e resta aggiornato su cosa organizzano.</p>
         </div>
-        <div class="feature">
+        <div class="feature" data-reveal>
           <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></div>
           <h3>Comune e chiese</h3>
           <p>Uffici, orari, recapiti del comune e delle parrocchie. L'informazione ufficiale, sempre aggiornata.</p>
@@ -171,14 +210,14 @@
     <div class="container about">
       <div class="about__grid">
         <div>
-          <p class="eyebrow">Un'app del paese</p>
-          <p class="about__lead">Pagine Facebook, locandine, gruppi WhatsApp, sito comunale, passaparola: tutto in un posto solo.</p>
+          <p class="eyebrow" data-reveal>Un'app del paese</p>
+          <p class="about__lead" data-reveal style="--reveal-i:1">Pagine Facebook, locandine, gruppi WhatsApp, sito comunale, passaparola: tutto in un posto solo.</p>
         </div>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Scopri</b> cosa succede prima che capiti per caso.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Trova</b> in un attimo attività, associazioni e chiese.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ricevi</b> notifiche solo su ciò che hai salvato.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Gestisci</b> la tua scheda, se hai un'attività o un'associazione.</span></li>
+          <li data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Scopri</b> cosa succede prima che capiti per caso.</span></li>
+          <li data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Trova</b> in un attimo attività, associazioni e chiese.</span></li>
+          <li data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ricevi</b> notifiche solo su ciò che hai salvato.</span></li>
+          <li data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Gestisci</b> la tua scheda, se hai un'attività o un'associazione.</span></li>
         </ul>
       </div>
     </div>
@@ -187,18 +226,18 @@
   <!-- GALLERIA -->
   <section class="section">
     <div class="container">
-      <p class="eyebrow">Dentro l'app</p>
-      <h2 class="serif" style="margin:6px 0 36px; max-width: 16ch;">Chiara, calda, fatta per tutti.</h2>
+      <p class="eyebrow" data-reveal>Dentro l'app</p>
+      <h2 class="serif" data-reveal style="margin:6px 0 36px; max-width: 16ch; --reveal-i:1">Chiara, calda, fatta per tutti.</h2>
       <div class="shots">
-        <figure class="shot">
+        <figure class="shot" data-reveal>
           <div class="shot__frame"><img src="/assets/screenshots/associazioni.jpg" width="620" height="1259" alt="La schermata Associazioni dell'app InComune, con le realtà del paese" loading="lazy"></div>
           <figcaption class="shot__cap">Associazioni<span>Le realtà che animano il paese</span></figcaption>
         </figure>
-        <figure class="shot">
+        <figure class="shot" data-reveal>
           <div class="shot__frame"><img src="/assets/screenshots/comune.jpg" width="620" height="1259" alt="La schermata Info utili del Comune di Novoli: raccolta differenziata, uffici, trasporto pubblico" loading="lazy"></div>
           <figcaption class="shot__cap">Comune<span>Info utili sempre a portata</span></figcaption>
         </figure>
-        <figure class="shot">
+        <figure class="shot" data-reveal>
           <div class="shot__frame"><img src="/assets/screenshots/teatro.jpg" width="620" height="1259" alt="La scheda del Teatro Comunale di Novoli: orari, contatti e novità" loading="lazy"></div>
           <figcaption class="shot__cap">Schede dettaglio<span>Orari, contatti e novità</span></figcaption>
         </figure>
@@ -209,7 +248,7 @@
   <!-- CTA FINALE -->
   <section class="section cta-final" id="scarica">
     <div class="container">
-      <div class="card">
+      <div class="card" data-reveal>
         <p class="eyebrow">Scaricala ora</p>
         <h2 style="margin:8px 0 6px;">Porta Novoli in tasca.</h2>
         <p class="lead measure" style="margin-inline:auto;">Disponibile per iPhone e Android. Gratis, per tutti.</p>
@@ -261,6 +300,36 @@
     <div class="site-footer__bottom">© 2026 InComune · incomune.app</div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('[data-reveal]');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Senza IntersectionObserver o con "riduci movimento": mostra tutto subito.
+  if (reduce || !('IntersectionObserver' in window)) {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('is-visible');
+  } else {
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          obs.unobserve(e.target); // one-shot: niente re-trigger allo scroll su
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  // Header: leggera elevazione una volta scrollato oltre la soglia.
+  var header = document.querySelector('.site-header');
+  if (header) {
+    var sync = function () { header.classList.toggle('is-scrolled', window.scrollY > 8); };
+    sync();
+    window.addEventListener('scroll', sync, { passive: true });
+  }
+})();
+</script>
 
 </body>
 </html>

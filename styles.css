@@ -190,6 +190,13 @@ h3 { font-size: var(--fs-h3); font-weight: 700; }
   -webkit-backdrop-filter: saturate(140%) blur(8px);
   backdrop-filter: saturate(140%) blur(8px);
   border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  transition: box-shadow 0.3s var(--ease), background-color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+/* Allo scroll: superficie più piena + leggera elevazione (firma di profondità). */
+.site-header.is-scrolled {
+  background: color-mix(in srgb, var(--bg) 95%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--border) 80%, transparent);
+  box-shadow: var(--shadow-sm);
 }
 .site-header__inner {
   display: flex; align-items: center; justify-content: space-between;
@@ -201,9 +208,25 @@ h3 { font-size: var(--fs-h3); font-weight: 700; }
 .brand-lockup .logo-mark { height: 30px; width: auto; color: var(--tint); }
 .brand-lockup .wordmark { font-family: var(--font-serif); font-size: 1.5rem; line-height: 1; color: var(--text); }
 .site-header nav { display: flex; align-items: center; gap: clamp(12px, 2vw, 28px); }
-.site-header nav a { color: var(--text-secondary); font-weight: 600; font-size: var(--fs-small); }
+.site-header nav a { color: var(--text-secondary); font-weight: 600; font-size: var(--fs-small); white-space: nowrap; }
 .site-header nav a:hover { color: var(--text); text-decoration: none; }
 .site-header .nav-hide-sm { } /* visibile di default */
+
+/* Sotto i ~520px wordmark + 3 link non stanno: lascio solo "Scarica" come
+   CTA pill (conversione), nascondo "Cosa fa" (scroll) e "Supporto" (in footer).
+   Header pulito e a prova di overflow anche a 320px. */
+@media (max-width: 520px) {
+  .site-header__inner { gap: 12px; min-height: 56px; }
+  .brand-lockup .wordmark { font-size: 1.35rem; }
+  .brand-lockup .logo-mark { height: 27px; }
+  .site-header .nav-hide-sm { display: none; }
+  .site-header nav a.nav-cta {
+    background: var(--terracotta); color: #fff;
+    padding: 9px 18px; border-radius: var(--r-pill);
+    font-size: var(--fs-small); white-space: nowrap;
+  }
+  .site-header nav a.nav-cta:hover { color: #fff; }
+}
 
 /* ----- Bottoni ------------------------------------------------------------- */
 .btn {
@@ -324,16 +347,22 @@ h3 { font-size: var(--fs-h3); font-weight: 700; }
 }
 .medallion svg { width: 34px; height: 34px; }
 
-/* ----- Motion -------------------------------------------------------------- */
-.reveal { opacity: 0; transform: translateY(16px); animation: reveal 0.7s var(--ease) forwards; }
-.reveal[data-delay="1"] { animation-delay: 0.08s; }
-.reveal[data-delay="2"] { animation-delay: 0.16s; }
-.reveal[data-delay="3"] { animation-delay: 0.24s; }
-.reveal[data-delay="4"] { animation-delay: 0.32s; }
-@keyframes reveal { to { opacity: 1; transform: none; } }
+/* ----- Motion: scroll reveal ----------------------------------------------
+   Gli elementi [data-reveal] partono nascosti SOLO quando il JS è attivo
+   (classe .js su <html>): senza JS, o per i crawler, restano visibili.
+   IntersectionObserver aggiunge .is-visible quando entrano nel viewport.
+   La cascata interna a una sezione è data da --reveal-i (indice 0,1,2...). */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.72s var(--ease), transform 0.72s var(--ease);
+  transition-delay: calc(var(--reveal-i, 0) * 80ms);
+  will-change: opacity, transform;
+}
+.js [data-reveal].is-visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-delay: 0 !important; transition-duration: 0.001ms !important; }
-  .reveal { opacity: 1; transform: none; }
+  .js [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
