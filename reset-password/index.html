@@ -172,7 +172,14 @@
 
 <script>
 (function() {
+  // SEC-05 (redesign token_hash): il template email genera il link con
+  // #token_hash=...&type=recovery nel FRAGMENT. Inoltriamo query E fragment
+  // verbatim all'app (query prima, fragment dopo — ordine URL valido), cosi'
+  // il bridge e' agnostico al formato: gestisce il nuovo token_hash nel
+  // fragment E i vecchi link implicit (#access_token=) durante il rollout
+  // dual-format, senza modifiche. L'app fa il dispatch (token_hash prima).
   var hash = window.location.hash || '';
+  var search = window.location.search || '';
   var ua = navigator.userAgent || '';
   var isIOS = /iPhone|iPad|iPod/i.test(ua);
   var isAndroid = /Android/i.test(ua);
@@ -183,8 +190,8 @@
     if (el) el.classList.remove('hidden');
   }
 
-  // Caso A: nessun hash → link malformato o aperto diretto dall'utente
-  if (!hash || hash.length < 5) {
+  // Caso A: né hash né query → link malformato o aperto diretto dall'utente
+  if ((!hash || hash.length < 5) && (!search || search.length < 5)) {
     show('no-token');
     return;
   }
@@ -201,7 +208,7 @@
   // questa pagina + tenta deep link `incomune://` → fallisce silenziosamente
   // → mostriamo fallback install dopo timeout.
   show('mobile-opening');
-  var deepLink = 'incomune://reset-password' + hash;
+  var deepLink = 'incomune://reset-password' + search + hash;
   document.getElementById('open-app-btn').href = deepLink;
 
   // Tenta deep link

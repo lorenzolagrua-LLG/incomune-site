@@ -139,7 +139,7 @@
 <body>
 <div class="container">
   <img src="/assets/logo-in.svg" alt="InComune" class="brand-logo" width="72" height="94">
-  <h1>Email confermata</h1>
+  <h1 id="page-title">Email confermata</h1>
   <div class="card">
 
     <!-- Mobile: stiamo aprendo l'app -->
@@ -175,10 +175,22 @@
       </div>
     </div>
 
-    <!-- Errore: link senza token (apertura diretta o link scaduto) -->
+    <!-- Errore: link senza parametri (apertura diretta della pagina) -->
     <div id="no-token" class="hidden">
       <p class="strong">Link non valido o scaduto.</p>
       <p>Se la conferma dell'email non è andata a buon fine, registrati di nuovo dall'app InComune.</p>
+    </div>
+
+    <!-- Errore dichiarato da Supabase: link già usato o scaduto. Copy distinta
+         da #no-token: qui l'account con ogni probabilità esiste già, quindi
+         "registrati di nuovo" sarebbe un consiglio sbagliato. -->
+    <div id="link-error" class="hidden">
+      <p class="strong">Questo link non è più valido.</p>
+      <p>Può essere già stato usato oppure essere scaduto. Se avevi già confermato l'email, apri l'app InComune e accedi normalmente.</p>
+      <p>Se invece non riesci ad accedere, richiedi un nuovo link dall'app o scrivi a info@incomune.app.</p>
+      <div class="cta-row">
+        <a id="open-app-error-btn" href="#" class="btn">Apri InComune</a>
+      </div>
     </div>
 
   </div>
@@ -189,7 +201,12 @@
 
 <script>
 (function() {
+  // PKCE (SEC-05): con il flow PKCE Supabase reindirizza con i parametri in
+  // QUERY string (?code=...), non piu' nel fragment (#access_token=...).
+  // Inoltriamo entrambi verbatim all'app: query prima, fragment dopo.
+  // Il fragment resta supportato per i link generati prima del passaggio.
   var hash = window.location.hash || '';
+  var search = window.location.search || '';
   var ua = navigator.userAgent || '';
   var isIOS = /iPhone|iPad|iPod/i.test(ua);
   var isAndroid = /Android/i.test(ua);
@@ -200,9 +217,41 @@
     if (el) el.classList.remove('hidden');
   }
 
-  // Caso A: nessun hash → link malformato o aperto diretto dall'utente
-  if (!hash || hash.length < 5) {
+  // Il titolo non puo' restare "Email confermata" a prescindere: sui link gia'
+  // usati contraddirebbe la card sotto (rilevato nello smoke della 1.0.4).
+  function setTitle(text) {
+    var el = document.getElementById('page-title');
+    if (el) el.textContent = text;
+    document.title = text + ' · InComune';
+  }
+
+  // Supabase segnala i link gia' usati o scaduti con error/error_code/
+  // error_description: in QUERY con il flow PKCE, nel FRAGMENT con i vecchi
+  // link implicit. Si guarda in entrambi, senza presumere quale sia in uso.
+  var allParams = search.replace(/^\?/, '') + '&' + hash.replace(/^#/, '');
+  var hasError = /(^|&)error(_code|_description)?=/.test(allParams);
+
+  // Caso A: né hash né query → link malformato o aperto diretto dall'utente
+  if ((!hash || hash.length < 5) && (!search || search.length < 5)) {
+    setTitle('Link non valido');
     show('no-token');
+    return;
+  }
+
+  // Caso A-bis: il link dichiara un errore. Nessuno stato di successo (prima
+  // il fallback a 2200 ms mostrava "La tua email è stata confermata!" anche
+  // qui), ma il link viene comunque passato all'app, che mostra il suo alert.
+  if (hasError) {
+    setTitle('Link non valido');
+    show('link-error');
+    var errorBtn = document.getElementById('open-app-error-btn');
+    if (isMobile) {
+      var errorLink = 'incomune://email-confirmed' + search + hash;
+      if (errorBtn) errorBtn.href = errorLink;
+      window.location.href = errorLink;
+    } else if (errorBtn && errorBtn.parentNode) {
+      errorBtn.parentNode.classList.add('hidden');
+    }
     return;
   }
 
@@ -216,7 +265,7 @@
   // intercetta tramite Universal Link e apre direttamente. Se NON installata,
   // mostra fallback dopo timeout.
   show('mobile-opening');
-  var deepLink = 'incomune://email-confirmed' + hash;
+  var deepLink = 'incomune://email-confirmed' + search + hash;
   document.getElementById('open-app-btn').href = deepLink;
 
   window.location.href = deepLink;
