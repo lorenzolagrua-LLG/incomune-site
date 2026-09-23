@@ -97,7 +97,7 @@
 
       <p>Gli appuntamenti futuri ancora in attesa o già confermati vengono <strong>annullati automaticamente</strong> nello stesso momento, e l'attività riceve la notifica della disdetta.</p>
 
-      <p>Allo stesso modo, le iscrizioni agli eventi non ancora cominciati vengono <strong>annullate automaticamente</strong>, con i relativi biglietti.</p>
+      <p>Allo stesso modo, le iscrizioni agli eventi non ancora cominciati vengono <strong>annullate automaticamente</strong>, con i relativi biglietti. Se avevi aggiunto un biglietto a Google Wallet, avviamo subito la rimozione dal pass di nome e cognome, codice QR, accompagnatori e ora dell'ingresso e lo segniamo come non valido: Google non consente di cancellarlo, quindi, se lo avevi salvato, il pass resta nel tuo Wallet, senza questi dati, finché non lo rimuovi tu.</p>
 
       <h3>Cosa NON viene eliminato</h3>
       <p>Per motivi di funzionalità dell'app e tutela della comunità, restano salvati anche dopo l'eliminazione:</p>
@@ -106,13 +106,15 @@
         <li>i contenuti pubblici che hai eventualmente pubblicato come amministratore di una scheda (post, eventi, foto delle attività): sono <strong>contenuti della scheda</strong>, non del tuo account personale, e restano disponibili;</li>
         <li>la <strong>traccia delle prenotazioni</strong> già concluse, rifiutate, annullate o scadute, ma <strong>senza più i dati che ti identificano</strong>: all'attività resta una riga con il servizio, la data, l'ora e lo stato, intestata a «Utente eliminato» e non più collegata a te né ad alcun account. Serve alla continuità dell'agenda dell'attività e viene eliminata automaticamente dopo 24 mesi (vedi <em>Tempi di cancellazione</em> qui sotto);</li>
         <li>la <strong>traccia delle iscrizioni agli eventi</strong>, allo stesso modo e <strong>senza più i dati che ti identificano</strong>: all'organizzatore resta una riga con il numero di persone, la data, l'ora, lo stato e l'eventuale ingresso registrato, intestata a «Utente eliminato». Serve al conteggio delle presenze e viene eliminata automaticamente 24 mesi dopo la conclusione dell'evento;</li>
+        <li>il <strong>pass di Google Wallet</strong>, se avevi aggiunto un biglietto: è conservato da Google, che non consente di cancellarlo. Ne togliamo nome e cognome, codice QR, accompagnatori e ora dell'ingresso; se lo avevi salvato, resta nel tuo Wallet, senza questi dati, finché non lo rimuovi tu;</li>
         <li>i log tecnici aggregati e anonimi (statistiche di utilizzo), non collegabili a te.</li>
       </ul>
     </div>
 
     <div class="card">
       <h2>Tempi di cancellazione</h2>
-      <p>L'eliminazione dei dati personali è <strong>immediata</strong> nel momento in cui confermi l'operazione nell'app. Non c'è alcun periodo di grace o ripensamento.</p>
+      <p>L'eliminazione dei dati personali dai nostri server è <strong>immediata</strong> nel momento in cui confermi l'operazione nell'app. Non c'è alcun periodo di grace o ripensamento.</p>
+      <p><strong>Biglietti in Google Wallet: un'altra precisazione.</strong> Se avevi aggiunto un biglietto a Google Wallet, la rimozione dei tuoi dati dal pass parte nello stesso momento, ma avviene sui server di Google e non è istantanea: se Google non risponde la ripetiamo automaticamente finché non verifichiamo che è avvenuta.</p>
       <p><strong>Prenotazioni: una sola precisazione.</strong> Se hai usato le prenotazioni, i dati che ti identificano (nome, telefono, note, motivo della disdetta) vengono rimossi subito, insieme a tutto il resto. Quello che resta all'attività è la sola traccia dell'appuntamento, priva di dati identificativi e non più collegata a te: serve alla continuità della sua agenda e viene eliminata automaticamente <strong>24 mesi</strong> dopo la chiusura della prenotazione (appuntamento concluso, oppure prenotazione rifiutata, annullata o scaduta). Il dettaglio è nella <a href="/privacy-policy">Privacy Policy</a>, nella sezione sulle prenotazioni e nella tabella dei tempi di conservazione. Le iscrizioni agli eventi seguono la stessa regola, con i 24 mesi che decorrono dalla conclusione dell'evento.</p>
       <p>I backup di sistema potrebbero contenere copie temporanee dei dati fino a 30 giorni per ragioni tecniche, dopodiché vengono sovrascritti automaticamente. Durante questo periodo i dati nei backup non sono accessibili.</p>
       <p>Le statistiche di utilizzo (PostHog) sono pseudonime: alla cancellazione dell'account l'identificativo analytics viene rimosso e gli eventi residui restano solo in forma anonima, non più collegabili a te. Anche i report di errori e crash (Sentry; Firebase Crashlytics su Android) sono pseudonimi e conservati al massimo per la retention di default del fornitore; per una cancellazione anticipata scrivi a <a href="mailto:info@incomune.app">info@incomune.app</a>.</p>
