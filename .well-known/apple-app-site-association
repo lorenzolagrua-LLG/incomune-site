@@ -9,6 +9,7 @@
           { "/": "/associazioni/*" },
           { "/": "/chiese/*" },
           { "/": "/professionisti/*" },
+          { "/": "/iscrizioni/*" },
           { "/": "/varie/*" },
           { "/": "/paese/teatro" },
           { "/": "/paese/comune" },
