@@ -19,6 +19,8 @@
 
 <link rel="stylesheet" href="/styles.css">
 <style>
+  .page-head { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .section-en { display: none; }
   .legal .card { margin-bottom: 20px; }
   .legal .card h2:first-child { margin-top: 0; }
   .step-list { list-style: none; padding-left: 0; counter-reset: step; }
@@ -58,9 +60,17 @@
 </header>
 
 <main class="container legal">
-  <div class="legal-body">
-    <p class="eyebrow">Account</p>
+  <div class="page-head">
+    <p class="eyebrow" style="margin:0;">Account</p>
+    <div class="lang-toggle">
+      <button class="active" onclick="switchLang('it')">Italiano</button>
+      <button onclick="switchLang('en')">English</button>
+    </div>
+  </div>
+
+  <div class="legal-body section-it">
     <h1>Elimina il tuo account</h1>
+    <span class="update-badge">Aggiornato il 28 settembre 2026</span>
     <p class="lead">Guida passo-passo per eliminare definitivamente l'account InComune e i dati associati.</p>
 
     <div class="card">
@@ -97,7 +107,7 @@
 
       <p>Gli appuntamenti futuri ancora in attesa o già confermati vengono <strong>annullati automaticamente</strong> nello stesso momento, e l'attività riceve la notifica della disdetta.</p>
 
-      <p>Allo stesso modo, le iscrizioni agli eventi non ancora cominciati vengono <strong>annullate automaticamente</strong>, con i relativi biglietti. Se avevi aggiunto un biglietto a Google Wallet, avviamo subito la rimozione dal pass di nome e cognome, codice QR, accompagnatori e ora dell'ingresso e lo segniamo come non valido: Google non consente di cancellarlo, quindi, se lo avevi salvato, il pass resta nel tuo Wallet, senza questi dati, finché non lo rimuovi tu.</p>
+      <p>Allo stesso modo, le iscrizioni agli eventi non ancora cominciati vengono <strong>annullate automaticamente</strong>, con i relativi biglietti. Se avevi aggiunto un biglietto a Google Wallet, avviamo subito la rimozione dal pass di nome e cognome, codice QR, accompagnatori e ora dell'ingresso e lo segniamo come non valido: Google non consente di cancellarlo, quindi, se lo avevi salvato, il pass resta nel tuo Wallet, senza questi dati, finché non lo rimuovi tu. Se avevi aggiunto un biglietto ad Apple Wallet, proviamo ad aggiornarlo sui tuoi dispositivi per annullarlo e togliere gli stessi dati.</p>
 
       <h3>Cosa NON viene eliminato</h3>
       <p>Per motivi di funzionalità dell'app e tutela della comunità, restano salvati anche dopo l'eliminazione:</p>
@@ -107,6 +117,7 @@
         <li>la <strong>traccia delle prenotazioni</strong> già concluse, rifiutate, annullate o scadute, ma <strong>senza più i dati che ti identificano</strong>: all'attività resta una riga con il servizio, la data, l'ora e lo stato, intestata a «Utente eliminato» e non più collegata a te né ad alcun account. Serve alla continuità dell'agenda dell'attività e viene eliminata automaticamente dopo 24 mesi (vedi <em>Tempi di cancellazione</em> qui sotto);</li>
         <li>la <strong>traccia delle iscrizioni agli eventi</strong>, allo stesso modo e <strong>senza più i dati che ti identificano</strong>: all'organizzatore resta una riga con il numero di persone, la data, l'ora, lo stato e l'eventuale ingresso registrato, intestata a «Utente eliminato». Serve al conteggio delle presenze e viene eliminata automaticamente 24 mesi dopo la conclusione dell'evento;</li>
         <li>il <strong>pass di Google Wallet</strong>, se avevi aggiunto un biglietto: è conservato da Google, che non consente di cancellarlo. Ne togliamo nome e cognome, codice QR, accompagnatori e ora dell'ingresso; se lo avevi salvato, resta nel tuo Wallet, senza questi dati, finché non lo rimuovi tu;</li>
+        <li>il <strong>pass di Apple Wallet</strong>, se avevi aggiunto un biglietto: sta sul tuo dispositivo e resta nel Wallet finché non lo rimuovi tu. Per 30 giorni proviamo ad aggiornarlo per annullarlo e togliere nome e cognome, codice QR, accompagnatori e ora dell'ingresso; per farlo teniamo fino ad allora le registrazioni dei tuoi dispositivi (identificativo e token push), poi le cancelliamo. Su un dispositivo che in quel periodo non si collega, il pass può restare quello precedente;</li>
         <li>i log tecnici aggregati e anonimi (statistiche di utilizzo), non collegabili a te.</li>
       </ul>
     </div>
@@ -115,6 +126,7 @@
       <h2>Tempi di cancellazione</h2>
       <p>L'eliminazione dei dati personali dai nostri server è <strong>immediata</strong> nel momento in cui confermi l'operazione nell'app. Non c'è alcun periodo di grace o ripensamento.</p>
       <p><strong>Biglietti in Google Wallet: un'altra precisazione.</strong> Se avevi aggiunto un biglietto a Google Wallet, la rimozione dei tuoi dati dal pass parte nello stesso momento, ma avviene sui server di Google e non è istantanea: se Google non risponde la ripetiamo automaticamente finché non verifichiamo che è avvenuta.</p>
+      <p><strong>Biglietti in Apple Wallet: una precisazione.</strong> Se avevi aggiunto un biglietto ad Apple Wallet, l'aggiornamento che annulla il pass e ne toglie i tuoi dati parte nello stesso momento, ma arriva solo quando il dispositivo si collega: per questo ripetiamo l'avviso una volta al giorno per 30 giorni, poi cancelliamo le registrazioni dei dispositivi. Non possiamo verificare che il telefono abbia scaricato la versione aggiornata.</p>
       <p><strong>Prenotazioni: una sola precisazione.</strong> Se hai usato le prenotazioni, i dati che ti identificano (nome, telefono, note, motivo della disdetta) vengono rimossi subito, insieme a tutto il resto. Quello che resta all'attività è la sola traccia dell'appuntamento, priva di dati identificativi e non più collegata a te: serve alla continuità della sua agenda e viene eliminata automaticamente <strong>24 mesi</strong> dopo la chiusura della prenotazione (appuntamento concluso, oppure prenotazione rifiutata, annullata o scaduta). Il dettaglio è nella <a href="/privacy-policy">Privacy Policy</a>, nella sezione sulle prenotazioni e nella tabella dei tempi di conservazione. Le iscrizioni agli eventi seguono la stessa regola, con i 24 mesi che decorrono dalla conclusione dell'evento.</p>
       <p>I backup di sistema potrebbero contenere copie temporanee dei dati fino a 30 giorni per ragioni tecniche, dopodiché vengono sovrascritti automaticamente. Durante questo periodo i dati nei backup non sono accessibili.</p>
       <p>Le statistiche di utilizzo (PostHog) sono pseudonime: alla cancellazione dell'account l'identificativo analytics viene rimosso e gli eventi residui restano solo in forma anonima, non più collegabili a te. Anche i report di errori e crash (Sentry; Firebase Crashlytics su Android) sono pseudonimi e conservati al massimo per la retention di default del fornitore; per una cancellazione anticipata scrivi a <a href="mailto:info@incomune.app">info@incomune.app</a>.</p>
@@ -127,6 +139,81 @@
         <p style="margin:0 0 6px"><strong>Scrivi a:</strong></p>
         <p style="margin:0; font-size:18px"><a href="mailto:info@incomune.app?subject=Richiesta%20eliminazione%20account">info@incomune.app</a></p>
         <p style="margin:10px 0 0; font-size:14px;" class="muted">Risposta entro 30 giorni lavorativi.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-body section-en">
+    <h1>Delete your account</h1>
+    <span class="update-badge">Last updated September 28, 2026</span>
+    <p class="lead">Step-by-step guide to permanently delete your InComune account and associated data.</p>
+
+    <div class="card">
+      <h2>How to delete your account from the app</h2>
+      <p>The InComune app lets you delete your account directly from your phone at any time, without writing to anyone.</p>
+
+      <ol class="step-list">
+        <li>Open the <strong>InComune</strong> app on your phone.</li>
+        <li>Tap the profile icon in the top right corner (the silhouette) to open your personal page.</li>
+        <li>Scroll to the bottom of the <strong>"Il mio profilo"</strong> ("My profile") page.</li>
+        <li>Tap <strong>"Elimina il mio account"</strong> ("Delete my account").</li>
+        <li>Confirm twice (for safety). Deletion is immediate and final.</li>
+      </ol>
+
+      <div class="notice">
+        <p><strong>Warning:</strong> deletion cannot be undone. Once confirmed, you will not be able to recover the deleted data. If you want to use InComune again, you will need to register as a new user.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>What data gets deleted</h2>
+      <p>Deleting your account <strong>permanently removes</strong> from our servers:</p>
+      <ul>
+        <li>your profile (name, email, profile picture);</li>
+        <li>your preferences (favorite entities, saved events, followed organizers);</li>
+        <li>your notifications (history of received notifications);</li>
+        <li>your device's push tokens (you stop receiving notifications instantly);</li>
+        <li>your login credentials (email + password / Apple ID / Google);</li>
+        <li>the data identifying you in bookings with businesses: the name shown to the business, phone number, the note you wrote for the business, the business's internal note, and any cancellation reason;</li>
+        <li>any booking block set by a business against you;</li>
+        <li>the data identifying you in event registrations: first and last name, the email and phone number requested by the organizer if any, the note you wrote, and any cancellation reason;</li>
+        <li>requests to be notified when a spot frees up at a full event.</li>
+      </ul>
+
+      <p>Any future appointments still pending or already confirmed are <strong>automatically cancelled</strong> at the same time, and the business receives notice of the cancellation.</p>
+
+      <p>In the same way, registrations for events that have not yet started are <strong>automatically cancelled</strong>, together with their tickets. If you had added a ticket to Google Wallet, we immediately start removing the first and last name, QR code, guests and time of entry from the pass and mark it as no longer valid: Google does not allow it to be deleted, so, if you had saved it, the pass stays in your Wallet, without this data, until you remove it yourself. If you had added a ticket to Apple Wallet, we try to update it on your devices to cancel it and remove the same data.</p>
+
+      <h3>What is NOT deleted</h3>
+      <p>For app functionality and community protection reasons, the following remain saved even after deletion:</p>
+      <ul>
+        <li>the public listings (businesses, associations, churches, theatre, municipal offices) you administered remain in the app but <strong>with no administrator associated</strong> (you can claim them again in the future or report a new admin candidacy);</li>
+        <li>the public content you may have published as the administrator of a listing (posts, events, business photos): these are <strong>content of the listing</strong>, not of your personal account, and remain available;</li>
+        <li>the <strong>record of bookings</strong> already completed, rejected, cancelled or expired, but <strong>with no more data identifying you</strong>: the business keeps a row with the service, date, time and status, labelled &laquo;Utente eliminato&raquo; (deleted user) and no longer linked to you or to any account. It serves the continuity of the business's schedule and is automatically deleted after 24 months (see <em>Deletion timelines</em> below);</li>
+        <li>the <strong>record of event registrations</strong>, in the same way and <strong>with no more data identifying you</strong>: the organizer keeps a row with the number of people, date, time, status and any recorded entry, labelled &laquo;Utente eliminato&raquo; (deleted user). It serves the attendance count and is automatically deleted 24 months after the event's conclusion;</li>
+        <li>the <strong>Google Wallet pass</strong>, if you had added a ticket: it is held by Google, which does not allow it to be deleted. We remove the first and last name, QR code, guests and time of entry; if you had saved it, it stays in your Wallet, without this data, until you remove it yourself;</li>
+        <li>the <strong>Apple Wallet pass</strong>, if you had added a ticket: it stays on your device and in the Wallet until you remove it yourself. For 30 days we try to update it to cancel it and remove the first and last name, QR code, guests and time of entry; to do so we keep your devices' registrations (identifier and push token) until then, then delete them. A device that does not connect during that period may keep the previous version of the pass;</li>
+        <li>aggregated, anonymous technical logs (usage statistics), not linkable to you.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Deletion timelines</h2>
+      <p>Deletion of personal data from our servers is <strong>immediate</strong> as soon as you confirm the operation in the app. There is no grace period or reconsideration window.</p>
+      <p><strong>Tickets in Google Wallet: an additional note.</strong> If you had added a ticket to Google Wallet, removal of your data from the pass starts at the same moment, but it happens on Google's servers and is not instantaneous: if Google does not respond we repeat it automatically until we verify it has occurred.</p>
+      <p><strong>Tickets in Apple Wallet: a note.</strong> If you had added a ticket to Apple Wallet, the update that cancels the pass and removes your data starts at the same moment, but reaches the device only when it connects: for this reason we repeat the notice once a day for 30 days, then delete the device registrations. We cannot verify that the phone has downloaded the updated version.</p>
+      <p><strong>Bookings: one note.</strong> If you used the booking feature, the data identifying you (name, phone, notes, cancellation reason) is removed immediately, along with everything else. What remains with the business is only the record of the appointment, stripped of identifying data and no longer linked to you: it serves the continuity of its schedule and is automatically deleted <strong>24 months</strong> after the booking closes (appointment completed, or booking rejected, cancelled, or expired). Details are in the <a href="/privacy-policy">Privacy Policy</a>, in the section on bookings and in the retention periods table. Event registrations follow the same rule, with the 24 months running from the event's conclusion.</p>
+      <p>System backups may contain temporary copies of the data for up to 30 days for technical reasons, after which they are automatically overwritten. During this period the data in backups is not accessible.</p>
+      <p>Usage statistics (PostHog) are pseudonymous: on account deletion the analytics identifier is removed and the remaining events stay only in anonymous form, no longer linkable to you. Error and crash reports (Sentry; Firebase Crashlytics on Android) are also pseudonymous and kept for at most the provider's default retention; to request earlier deletion write to <a href="mailto:info@incomune.app">info@incomune.app</a>.</p>
+    </div>
+
+    <div class="card">
+      <h2>Can't delete your account from the app?</h2>
+      <p>If for any reason you cannot access the app or complete the deletion (for example you don't remember your credentials or the app won't start), you can write to us directly. We will only ask for the email you used to register, to verify your identity.</p>
+      <div class="contact-card">
+        <p style="margin:0 0 6px"><strong>Write to:</strong></p>
+        <p style="margin:0; font-size:18px"><a href="mailto:info@incomune.app?subject=Account%20deletion%20request">info@incomune.app</a></p>
+        <p style="margin:10px 0 0; font-size:14px;" class="muted">Response within 30 business days.</p>
       </div>
     </div>
   </div>
@@ -164,6 +251,17 @@
     <div class="site-footer__bottom">© 2026 InComune · incomune.app</div>
   </div>
 </footer>
+
+<script>
+function switchLang(lang) {
+  var sections = document.querySelectorAll('.section-it, .section-en');
+  sections.forEach(function(s) { s.style.display = 'none'; });
+  document.querySelectorAll('.section-' + lang).forEach(function(s) { s.style.display = 'block'; });
+  var btns = document.querySelectorAll('.lang-toggle button');
+  btns[0].className = lang === 'it' ? 'active' : '';
+  btns[1].className = lang === 'en' ? 'active' : '';
+}
+</script>
 
 </body>
 </html>
