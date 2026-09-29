@@ -198,6 +198,25 @@ h3 { font-size: var(--fs-h3); font-weight: 700; }
   border-bottom-color: color-mix(in srgb, var(--border) 80%, transparent);
   box-shadow: var(--shadow-sm);
 }
+/* Home: in cima l'header e' trasparente e senza bordo, la luce della hero ci
+   passa sotto; scorrendo compare una lastra avorio quasi opaca con ombra
+   leggera. Si anima solo l'opacity dello pseudo-elemento (niente box-shadow
+   animata, niente backdrop-filter). Le altre pagine non hanno .home: header
+   invariato. */
+.home .site-header {
+  background: transparent; border-bottom-color: transparent; box-shadow: none;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  transition: none;
+}
+.home .site-header::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: color-mix(in srgb, var(--bg) 97%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  box-shadow: 0 1px 2px rgba(58, 28, 14, 0.05), 0 6px 18px rgba(58, 28, 14, 0.07);
+  opacity: 0; transition: opacity 0.35s var(--ease);
+}
+.home .site-header.is-scrolled { background: transparent; box-shadow: none; border-bottom-color: transparent; }
+.home .site-header.is-scrolled::before { opacity: 1; }
 .site-header__inner {
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--s-lg);
@@ -221,8 +240,9 @@ h3 { font-size: var(--fs-h3); font-weight: 700; }
   .brand-lockup .logo-mark { height: 27px; }
   .site-header .nav-hide-sm { display: none; }
   .site-header nav a.nav-cta {
+    display: inline-flex; align-items: center; min-height: 44px; /* target touch >= 44px */
     background: var(--terracotta); color: #fff;
-    padding: 9px 18px; border-radius: var(--r-pill);
+    padding: 0 18px; border-radius: var(--r-pill);
     font-size: var(--fs-small); white-space: nowrap;
   }
   .site-header nav a.nav-cta:hover { color: #fff; }
@@ -265,10 +285,26 @@ h3 { font-size: var(--fs-h3); font-weight: 700; }
   display: inline-flex; align-items: center; gap: 12px;
   background: var(--bruno-seppia); color: #fff;
   padding: 11px 20px; border-radius: var(--r-lg);
-  min-height: 56px; transition: opacity 0.2s, transform 0.12s var(--ease);
+  min-height: 56px; transition: transform 0.14s var(--ease);
+  position: relative; overflow: hidden; isolation: isolate;
 }
-.store-btn:hover { opacity: 0.9; text-decoration: none; }
-.store-btn:active { transform: scale(0.98); }
+/* Cerchio che cresce dal centro e riempie il bottone. Colore #B85500
+   (terracotta pieno): bianco su #B85500 = 4.84:1, bianco su seppia = 16:1,
+   quindi il testo resta AA in ogni istante della transizione. Il cerchio
+   (diametro 240px) copre la diagonale del bottone piu' largo. */
+.store-btn::before {
+  content: ""; position: absolute; z-index: -1; left: 50%; top: 50%;
+  width: 240px; height: 240px; margin: -120px 0 0 -120px; border-radius: 50%;
+  background: #B85500; transform: scale(0); pointer-events: none;
+  transition: transform 0.5s var(--ease);
+}
+.store-btn:hover { text-decoration: none; }
+.store-btn:focus-visible::before { transform: scale(1); }
+.store-btn:focus-visible { outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) {
+  .store-btn:hover::before { transform: scale(1); }
+}
+.store-btn:active { transform: scale(0.97) translateY(1px); }
 .store-btn svg { width: 26px; height: 26px; fill: #fff; flex: none; }
 .store-btn .store-label { text-align: left; line-height: 1.15; }
 .store-btn .store-small { font-size: 11px; opacity: 0.85; display: block; }
