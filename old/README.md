@@ -17,5 +17,8 @@ Suffisso file = data dell'ultimo aggiornamento del contenuto (badge interno al d
 | `termini-20260917.html` | `termini/index.html` (archiviata prima dell'aggiunta delle clausole sulle iscrizioni agli eventi) | 17 set 2026 |
 | `privacy-policy-20260919.html` | `privacy-policy/index.html` (archiviata prima dell'aggiunta dei biglietti in Google Wallet) | 19 set 2026 |
 | `termini-20260919.html` | `termini/index.html` (archiviata prima dell'aggiunta della clausola sui biglietti in Google Wallet) | 19 set 2026 |
+| `privacy-policy-20260928.html` | `privacy-policy/index.html` al commit `2684c17` (recuperata da git l'11 ott 2026: sostituita dalla versione del 30 set senza snapshot) | 28 set 2026 |
+| `privacy-policy-20260930.html` | `privacy-policy/index.html` (archiviata prima dell'aggiunta degli eventi con posti a sedere) | 30 set 2026 |
+| `termini-20260928.html` | `termini/index.html` (archiviata prima dell'aggiunta della clausola sugli eventi con posti a sedere) | 28 set 2026 |
 
 Quando aggiorni il documento canonico (`privacy-policy/index.html` o `termini/index.html`) con modifiche sostanziali, considera di snapshottare la versione attuale qui prima di sovrascriverla.
