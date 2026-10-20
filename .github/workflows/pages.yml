@@ -1,0 +1,183 @@
+# Pubblica incomune.app su GitHub Pages da Actions, con le pagine evento
+# (/eventi/<id>) generate da Supabase.
+#
+# Trigger: push su main, avvio a mano (workflow_dispatch) e chiamata dal giro
+# periodico (pages-cron.yml via workflow_call). Lo schedule sta in un file a
+# parte: GitHub disattiva i workflow schedulati di un repo pubblico dopo 60
+# giorni senza attivita', e cosi' si spegne solo il cron, non il deploy su push.
+#
+# Generatore delle pagine evento:
+# - giro da cron (from_cron): bloccante. Se fallisce (Supabase giu', 0 eventi,
+#   login rifiutato) niente deploy e resta online l'ultima versione buona;
+# - push e avvio a mano: non bloccante. Se fallisce (o con skip_events) il
+#   sito va online senza pagine evento (/eventi/<id> = 404 generico) e il run
+#   mostra un avviso.
+#
+# Mai pubblicare un sito vecchio sopra uno nuovo: un giro da cron partito su
+# main@A puo' finire dopo il deploy di un push main@B. Prima di deploy-pages il
+# job confronta lo sha costruito con l'HEAD attuale di main (API REST): se main
+# e' andato avanti salta il deploy (job verde, avviso), perche' il run del
+# commit piu' recente pubblica lui. Se l'API non risponde, deploy comunque.
+# In piu' i deploy sono in serie (concurrency di job `pages-deploy`), qualunque
+# cosa faccia la concurrency di workflow quando il file e' chiamato dal cron.
+#
+# MAI `[skip ci]` (o simili) nei commit su main: il run del commit precedente
+# salterebbe il deploy perche' main e' andato avanti, e nessun run
+# pubblicherebbe l'ultimo commit.
+
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      skip_events:
+        description: 'Pubblica il sito senza generare le pagine evento'
+        type: boolean
+        default: false
+  workflow_call:
+    inputs:
+      from_cron:
+        description: 'Giro periodico: un errore del generatore ferma il deploy'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+# Un run alla volta; quello in corso non viene mai interrotto. Rischio residuo:
+# un run in attesa viene sostituito da uno piu' recente (stesso sha o piu'
+# nuovo). Se il giro da cron che lo sostituisce fallisce, l'ultimo commit esce
+# al primo cron riuscito o con un avvio a mano (Actions -> Pages -> Run
+# workflow). `queue: max` eviterebbe la sostituzione ma actionlint 1.7.12 la
+# rifiuta: quando actionlint e GitHub accetteranno `queue: max`, si puo' valutare.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    outputs:
+      sha: ${{ steps.commit.outputs.sha }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+
+      - name: Commit costruito
+        id: commit
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+
+      - name: Test del generatore
+        run: node --test scripts/pagine-eventi-core.test.mjs
+
+      - name: Copia del sito in _site
+        # Tutto il repo tranne il materiale interno: .git, .github, scripts
+        # (generatore), docs (piani e spec di sviluppo, mai linkati dal sito) e i
+        # file di configurazione di git (.gitignore, .gitattributes).
+        # Restano .well-known (Universal Links / App Links), CNAME, .nojekyll, old/.
+        run: |
+          mkdir _site
+          shopt -s dotglob
+          for f in *; do
+            case "$f" in
+              .git|.github|.gitignore|.gitattributes|.gitmodules|scripts|docs|_site) ;;
+              *) cp -R "$f" _site/ ;;
+            esac
+          done
+          # Nota interna dell'archivio legale (procedure e nomi di tabelle): resta
+          # nel repo, non va servita.
+          rm -f _site/old/README.md
+          for req in .well-known/apple-app-site-association .well-known/assetlinks.json CNAME .nojekyll index.html 404.html styles.css; do
+            test -f "_site/$req" || { echo "::error::manca _site/$req"; exit 1; }
+          done
+
+      - name: Pagine evento
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+          SHARE_BOT_EMAIL: ${{ secrets.SHARE_BOT_EMAIL }}
+          SHARE_BOT_PASSWORD: ${{ secrets.SHARE_BOT_PASSWORD }}
+          FROM_CRON: ${{ inputs.from_cron && 'true' || 'false' }}
+          SKIP_EVENTS: ${{ inputs.skip_events && 'true' || 'false' }}
+        run: |
+          if [ "$FROM_CRON" != "true" ] && [ "$SKIP_EVENTS" = "true" ]; then
+            echo "::warning::Pagine evento saltate (skip_events): /eventi/<id> resta sul 404 generico."
+            exit 0
+          fi
+          if node scripts/genera-pagine-eventi.mjs --out _site; then
+            exit 0
+          fi
+          # Il generatore scrive in _site/.eventi-in-corso e rinomina solo alla
+          # fine; si ripulisce comunque, cosi' nessuna pagina parziale va online.
+          rm -rf _site/eventi _site/.eventi-in-corso
+          if [ "$FROM_CRON" = "true" ]; then
+            echo "::error::Generatore delle pagine evento fallito: deploy fermato, resta online l'ultima versione."
+            exit 1
+          fi
+          echo "::warning::Generatore delle pagine evento fallito: il sito va online senza pagine evento (404 generico)."
+
+      - name: Artefatto Pages
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+          # Senza questo .well-known/ (AASA e assetlinks) e .nojekyll restano fuori.
+          include-hidden-files: true
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read # lettura dell'HEAD di main via API
+      pages: write
+      id-token: write
+    # Deploy in serie anche se la concurrency di workflow non valesse nel file
+    # chiamato dal cron. Gruppo diverso da `pages`: non si bloccano a vicenda.
+    # Stesso rischio residuo del gruppo `pages` (attesa sostituita).
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Build ancora attuale?
+        id: fresh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BUILT_SHA: ${{ needs.build.outputs.sha }}
+        run: |
+          main_sha=""
+          if body=$(curl -fsS --max-time 15 \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/$REPO/git/ref/heads/main"); then
+            main_sha=$(printf '%s' "$body" | grep -o '"sha": *"[0-9a-f]\{40\}"' | grep -o '[0-9a-f]\{40\}' | head -n 1 || true)
+          fi
+          if [ -z "$main_sha" ] || [ -z "$BUILT_SHA" ]; then
+            echo "::warning::HEAD di main non verificato: deploy comunque."
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          elif [ "$main_sha" != "$BUILT_SHA" ]; then
+            echo "::warning::Build di $BUILT_SHA superata da $main_sha: il deploy lo fa il run piu' recente."
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy
+        id: deployment
+        if: steps.fresh.outputs.deploy == 'true'
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

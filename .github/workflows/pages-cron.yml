@@ -1,0 +1,52 @@
+# Giro periodico delle pagine evento: ogni 15 minuti, sfalsato dall'inizio
+# dell'ora, richiama pages.yml con from_cron (generatore bloccante).
+#
+# Sta in un file a parte perche' GitHub disattiva i workflow schedulati di un
+# repo pubblico dopo 60 giorni senza attivita': si spegne questo, non il deploy
+# su push. Se succede, Sentry (check-in mancato) lo segnala; si riattiva da
+# Actions -> Pages (cron) -> Enable workflow.
+#
+# Niente concurrency qui: la gestisce pages.yml (gruppo `pages`).
+
+name: Pages (cron)
+
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  pagine:
+    # Il chiamato puo' solo ridurre i permessi che riceve: qui quelli che servono
+    # a build (contents: read) e deploy (pages: write, id-token: write).
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages.yml
+    with:
+      from_cron: true
+    secrets: inherit
+
+  check-in:
+    # Solo se il giro e' riuscito: build verde (generatore bloccante compreso) e
+    # deploy fatto, oppure saltato perche' main e' gia' andato avanti e pubblica
+    # il run piu' recente. Un giro annullato o fallito non fa check-in.
+    # Mai bloccante; senza secret si salta.
+    needs: pagine
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    permissions: {}
+    steps:
+      - name: Check-in Sentry Cron
+        env:
+          SENTRY_CRON_URL: ${{ secrets.SENTRY_CRON_URL }}
+        run: |
+          if [ -z "$SENTRY_CRON_URL" ]; then exit 0; fi
+          case "$SENTRY_CRON_URL" in *\?*) sep='&' ;; *) sep='?' ;; esac
+          # Niente set -x ne' echo dell'URL: contiene la chiave pubblica del progetto.
+          if ! curl -fsS --max-time 10 -o /dev/null "${SENTRY_CRON_URL}${sep}status=ok" 2>/dev/null; then
+            echo "::warning::Check-in Sentry non riuscito (il deploy e' comunque andato a buon fine)."
+          fi
