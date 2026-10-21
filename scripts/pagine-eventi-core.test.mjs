@@ -233,9 +233,9 @@ test('programma senza fine del padre: fine effettiva alle 23:59 di Novoli del gi
 
 // ---- locandina ---------------------------------------------------------------
 
-test('POSTER_DAL: logo fino al 16 nov 23:59:59 CET, locandina dal 17 nov 00:00', () => {
-  assert.equal(POSTER_DAL, Date.parse('2026-11-17T00:00:00+01:00'));
-  const e = ev({ start_datetime: '2026-11-17T18:00:00Z' });
+test('POSTER_DAL: logo fino al 31 ott 23:59:59 CET, locandina dal 1 nov 00:00', () => {
+  assert.equal(POSTER_DAL, Date.parse('2026-11-01T00:00:00+01:00'));
+  const e = ev({ start_datetime: '2026-11-01T18:00:00Z' });
   assert.equal(posterCandidate(e, POSTER_DAL - 1), null);
   assert.equal(ogImage(e, POSTER_DAL - 1, OK()).url, FALLBACK_IMAGE);
   assert.equal(posterCandidate(e, POSTER_DAL), IMG);
