@@ -1,18 +1,23 @@
 # Giro periodico delle pagine evento: ogni 15 minuti, sfalsato dall'inizio
 # dell'ora, richiama pages.yml con from_cron (generatore bloccante).
 #
-# Sta in un file a parte perche' GitHub disattiva i workflow schedulati di un
-# repo pubblico dopo 60 giorni senza attivita': si spegne questo, non il deploy
-# su push. Se succede, Sentry (check-in mancato) lo segnala; si riattiva da
-# Actions -> Pages (cron) -> Enable workflow.
+# Lo avvia Supabase, non lo `schedule` di GitHub: il job pg_cron
+# `pages-cron-dispatch` (7,22,37,52 * * * * UTC) chiama l'API workflow_dispatch
+# con un token fine-grained (solo questo repo, Actions: write) salvato nel Vault
+# come `github_pages_dispatch_token`. Lo schedule di GitHub, la notte del
+# 20-21 ott 2026, e' partito 2 volte su circa 40 (la doc lo ammette: sotto
+# carico i giri vengono ritardati o scartati). Senza schedule cade anche lo
+# spegnimento automatico dopo 60 giorni senza attivita'.
+#
+# Se il giro non parte (token scaduto o revocato, job spento) Sentry segnala il
+# check-in mancato. Avvio a mano: Actions -> Pages (cron) -> Run workflow.
 #
 # Niente concurrency qui: la gestisce pages.yml (gruppo `pages`).
 
 name: Pages (cron)
 
 on:
-  schedule:
-    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
 
 permissions:
   contents: read

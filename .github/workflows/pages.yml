@@ -2,9 +2,8 @@
 # (/eventi/<id>) generate da Supabase.
 #
 # Trigger: push su main, avvio a mano (workflow_dispatch) e chiamata dal giro
-# periodico (pages-cron.yml via workflow_call). Lo schedule sta in un file a
-# parte: GitHub disattiva i workflow schedulati di un repo pubblico dopo 60
-# giorni senza attivita', e cosi' si spegne solo il cron, non il deploy su push.
+# periodico (pages-cron.yml via workflow_call, avviato ogni 15 minuti da
+# Supabase con workflow_dispatch: vedi l'intestazione di pages-cron.yml).
 #
 # Generatore delle pagine evento:
 # - giro da cron (from_cron): bloccante. Se fallisce (Supabase giu', 0 eventi,
