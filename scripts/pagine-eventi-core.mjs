@@ -14,10 +14,10 @@ const DAY_MS = 24 * HOUR_MS;
 export const WINDOW_DAYS = 30;
 export const POSTER_GRACE_HOURS = 24;
 // Locandine degli organizzatori nelle anteprime solo dall'entrata in vigore dei
-// Termini versione «2026-11-17»: 17 novembre 2026 00:00 ora italiana (CET).
-// Prima di questa data tutte le pagine usano il logo. Se la data dei Termini
-// slitta, si cambia solo qui (e il test del confine).
-export const POSTER_DAL = Date.parse('2026-11-16T23:00:00Z');
+// Termini versione «2026-11-01»: 1° novembre 2026 00:00 ora italiana (CET, l'ora
+// solare torna il 25 ottobre). Prima di questa data tutte le pagine usano il
+// logo. Se la data dei Termini slitta, si cambia solo qui (e il test del confine).
+export const POSTER_DAL = Date.parse('2026-10-31T23:00:00Z');
 // WhatsApp: «This image should be under 600KB in size»
 // (https://developers.facebook.com/docs/whatsapp/link-previews/). 600.000 byte:
 // la lettura prudente di «600KB» (KB decimali), sotto anche a 600 KiB.
