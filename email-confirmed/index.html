@@ -247,7 +247,7 @@
     show('link-error');
     var errorBtn = document.getElementById('open-app-error-btn');
     if (isMobile) {
-      var errorLink = 'incomune://email-confirmed' + search + hash;
+      var errorLink = 'incomune://email-confirmed/' + search + hash;
       if (errorBtn) errorBtn.href = errorLink;
       window.location.href = errorLink;
     } else if (errorBtn && errorBtn.parentNode) {
@@ -266,7 +266,7 @@
   // intercetta tramite Universal Link e apre direttamente. Se NON installata,
   // mostra fallback dopo timeout.
   show('mobile-opening');
-  var deepLink = 'incomune://email-confirmed' + search + hash;
+  var deepLink = 'incomune://email-confirmed/' + search + hash;
   document.getElementById('open-app-btn').href = deepLink;
 
   window.location.href = deepLink;
