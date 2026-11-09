@@ -373,7 +373,7 @@ export function renderEventPage(ev, nowMs, posterOk = new Map()) {
     </div>
 
     <p class="muted" style="margin-top: 28px; font-size: var(--fs-small);">
-      <a href="/">incomune.app</a> · <a href="/privacy-policy">Privacy</a> · <a href="/termini">Termini</a>
+      <a href="/">incomune.app</a> · <a href="/privacy-policy/">Privacy</a> · <a href="/termini/">Termini</a>
     </p>
   </div>
 </div>
