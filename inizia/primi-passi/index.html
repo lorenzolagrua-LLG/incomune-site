@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InComune · Primi passi: il tuo primo evento e il tuo primo post</title>
+<meta name="description" content="Hai la tua scheda su InComune? Ecco come pubblicare il tuo primo evento e il tuo primo post.">
+<!-- Pagina su invito: non collegata dal resto del sito e fuori dai motori di ricerca. -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#F17100">
+
+<meta property="og:title" content="Hai la tua scheda? Ecco come pubblicare.">
+<meta property="og:description" content="Il tuo primo evento e il tuo primo post su InComune.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://incomune.app/inizia/primi-passi/">
+<meta property="og:image" content="https://incomune.app/assets/og-primi-passi.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="/assets/fonts/Nunito-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/assets/fonts/Nunito-700.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/assets/fonts/Nunito-800.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/assets/fonts/DMSerifDisplay-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+
+<style>
+  /* Pagina verticale, pensata per il telefono: una colonna stretta, una sola idea
+     per sezione, testo grande. Su PC resta una colonna centrata. */
+  html { background: var(--avorio); }
+  body { background: var(--avorio); }
+  .col { width: 100%; max-width: 480px; margin-inline: auto; }
+
+  .sec { padding: 56px 26px; }
+  .sec + .sec { border-top: 1px solid color-mix(in srgb, var(--border) 55%, transparent); }
+  .kicker {
+    font-size: 0.8125rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--terracotta-scuro); margin-bottom: 14px;
+  }
+  .sec h2 {
+    font-family: var(--font-serif); font-weight: 400; letter-spacing: 0;
+    font-size: 2.15rem; line-height: 1.08; text-wrap: balance;
+  }
+  .sec h2 em { font-style: normal; color: var(--terracotta); }
+  .big { font-size: 1.25rem; line-height: 1.45; margin-top: 18px; }
+  .big + .big { margin-top: 12px; }
+  .soft { color: var(--text-secondary); }
+  strong { font-weight: 800; }
+
+  /* ----- Apertura: manifesto arancio, come la home ------------------------- */
+  .cover {
+    position: relative; isolation: isolate; overflow: hidden;
+    background: var(--terracotta); color: var(--bruno-seppia);
+    min-height: 100vh; min-height: 100svh;
+    display: flex; flex-direction: column;
+    padding: max(44px, env(safe-area-inset-top)) 26px 32px;
+  }
+  .cover::after {
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .12 0 0 0 0 .09 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-size: 180px 180px; opacity: 0.18;
+  }
+  .cover .mark {
+    position: absolute; z-index: -1; width: 380px; max-width: none; height: auto;
+    right: -160px; top: 90px; opacity: 0.14; pointer-events: none;
+  }
+  .cover .logo { width: 36px; height: auto; }
+  .cover .who {
+    margin-top: auto; padding-top: 48px;
+    font-size: 0.8125rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em;
+  }
+  .cover h1 {
+    margin-top: 14px;
+    font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em;
+    font-size: clamp(2.5rem, 1.3rem + 6vw, 3rem); line-height: 1.03; text-wrap: balance;
+  }
+  .cover h1 em { font-style: normal; color: #fff; }
+  .cover .sub { margin-top: 18px; font-size: 1.1875rem; font-weight: 800; line-height: 1.4; }
+  .cover .down {
+    margin-top: 26px; text-align: center; font-weight: 800; font-size: var(--fs-small);
+  }
+  .cover :focus-visible { outline: 3px solid var(--bruno-seppia); outline-offset: 3px; }
+
+  /* ----- Passi ----------------------------------------- */
+  .steps { list-style: none; display: grid; grid-template-columns: minmax(0, 1fr); gap: 34px; margin-top: 30px; }
+  .step { min-width: 0; }
+  .step .n {
+    display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--terracotta); color: #fff; font-weight: 800; font-size: 1.25rem;
+  }
+  .step h3 { margin-top: 12px; font-size: 1.375rem; font-weight: 800; line-height: 1.2; }
+  .step p { margin-top: 6px; font-size: 1.125rem; line-height: 1.45; }
+  .step q { quotes: "«" "»"; font-weight: 800; }
+  .shot {
+    margin: 18px auto 0; width: min(100%, 250px); aspect-ratio: 690 / 1402;
+    border-radius: 30px; overflow: hidden; background: var(--pill-quieto-sottile);
+    border: 6px solid var(--bruno-seppia); box-shadow: var(--shadow-lg);
+  }
+  .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  /* Più catture nello stesso passo: una sotto l'altra, tutte intere, nell'ordine in cui si vedono. */
+  .shots { display: grid; justify-items: center; gap: 18px; margin-top: 18px; }
+  .shots .shot { width: min(100%, 250px); margin: 0; box-shadow: var(--shadow-md); }
+  /* Segnaposto finché non arrivano le catture vere. */
+  .shot.todo {
+    display: grid; place-items: center; text-align: center; padding: 18px;
+    border-style: dashed; border-color: var(--sabbia-bordo); box-shadow: none;
+    color: var(--text-secondary); font-size: var(--fs-small); font-weight: 800; line-height: 1.4;
+  }
+
+  /* ----- Chiusura ----------------------------------------------------------- */
+  /* Riquadro «E poi?»: cosa succede dopo l'invio. */
+  .after {
+    margin-top: 30px; background: var(--surface); border-radius: var(--r-card); padding: 20px;
+    border: 1px solid color-mix(in srgb, var(--border) 45%, transparent); box-shadow: var(--shadow-sm);
+  }
+  .after h3 { font-size: 1.1875rem; font-weight: 800; color: var(--terracotta-scuro); }
+  .after p { margin-top: 8px; font-size: 1.0625rem; line-height: 1.45; }
+  .sec q { quotes: "«" "»"; font-weight: 800; }
+  .pdf { margin-top: 26px; width: 100%; min-height: 56px; font-size: 1rem; }
+  .sign { margin-top: 34px; text-align: center; font-size: var(--fs-small); color: var(--text-secondary); font-weight: 800; }
+  .sign img { width: 26px; height: auto; margin: 0 auto 8px; }
+
+  /* ----- PDF: stesso contenuto, pagine alte come un telefono ---------------- */
+  @page { size: 108mm 192mm; margin: 0; }
+  @media print {
+    html, body { background: var(--avorio); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .col { max-width: none; }
+    .cover { min-height: 0; height: 192mm; padding: 14mm 9mm 12mm; }
+    .cover .down, .pdf { display: none; }
+    .sec { padding: 13mm 9mm 9mm; border-top: 0 !important; break-before: page; }
+    .step { break-inside: avoid; }
+    .step + .step { break-before: page; padding-top: 13mm; }
+    .steps { gap: 0; margin-top: 6mm; }
+    .shot { width: 50mm; border-width: 1.4mm; border-radius: 6mm; box-shadow: none; }
+    .after { break-before: page; break-inside: avoid; box-shadow: none; margin-top: 13mm; }
+    .after .shot { width: 44mm; }
+    #si-parte .shot { width: 42mm; }
+  }
+</style>
+</head>
+<body>
+<div class="col">
+
+  <!-- 1. Apertura -->
+  <header class="cover">
+    <img class="mark" src="/assets/logo-white.svg" alt="" width="809" height="1056" aria-hidden="true">
+    <img class="logo" src="/assets/logo-white.svg" alt="InComune" width="44" height="57">
+
+    <p class="who">Per chi gestisce una scheda su InComune</p>
+    <h1>Hai la tua scheda? <em>Ecco come pubblicare.</em></h1>
+    <p class="sub">Il tuo primo evento e il tuo primo post, dal telefono.</p>
+    <p class="down" aria-hidden="true">Scorri per vedere come ↓</p>
+  </header>
+
+  <main>
+    <!-- 2. Si parte da qui -->
+    <section class="sec" id="si-parte">
+      <p class="kicker">Si parte da qui</p>
+      <h2>Apri il <em>Pannello amministratore.</em></h2>
+      <p class="big">Vai sul tuo profilo e tocca <q>Pannello amministratore</q>.</p>
+      <p class="big soft">Sotto la tua scheda trovi due riquadri: <q>Eventi</q> e <q>Post</q>.</p>
+      <div class="shot todo">Cattura 1<br>«Gestisci pagina» con i riquadri Eventi e Post</div>
+    </section>
+
+    <!-- 3. Evento -->
+    <section class="sec" id="evento">
+      <p class="kicker">Eventi</p>
+      <h2>Il tuo primo <em>evento.</em></h2>
+
+      <ol class="steps">
+        <li class="step" id="evento-1">
+          <span class="n">1</span>
+          <h3>Tocca <q>Eventi</q>, poi il <q>+</q>.</h3>
+          <p>Il <q>+</q> è in alto a destra.</p>
+          <div class="shot todo">Cattura 2<br>Elenco Eventi con il «+»</div>
+        </li>
+        <li class="step" id="evento-2">
+          <span class="n">2</span>
+          <h3>Compila l'evento.</h3>
+          <p>Titolo, quando e dove. Se vuoi aggiungi una descrizione e la locandina.</p>
+          <div class="shot todo">Cattura 3<br>Modulo dell'evento compilato, in alto</div>
+        </li>
+        <li class="step" id="evento-3">
+          <span class="n">3</span>
+          <h3>Tocca <q>Invia per approvazione</q>.</h3>
+          <p>Lo trovi in fondo al modulo.</p>
+          <div class="shot todo">Cattura 4<br>Fondo del modulo con «Invia per approvazione»</div>
+        </li>
+      </ol>
+
+      <div class="after">
+        <h3>E poi?</h3>
+        <p>Prima che sia pubblico lo controlla il team di InComune. Quando è approvato ti arriva una notifica e l'evento compare nel Feed, nella sezione Eventi.</p>
+        <p>Se c'è qualcosa da correggere ne vedi il motivo, lo sistemi e lo reinvii.</p>
+      </div>
+    </section>
+
+    <!-- 4. Post -->
+    <section class="sec" id="post">
+      <p class="kicker">Post</p>
+      <h2>Il tuo primo <em>post.</em></h2>
+      <p class="big soft">Un aggiornamento, un'offerta o una novità.</p>
+
+      <ol class="steps">
+        <li class="step" id="post-1">
+          <span class="n">1</span>
+          <h3>Tocca <q>Post</q> e scegli la categoria.</h3>
+          <p>Aggiornamento, Offerta, Novità o Info.</p>
+        </li>
+        <li class="step" id="post-2">
+          <span class="n">2</span>
+          <h3>Scrivi e tocca <q>Pubblica</q>.</h3>
+          <p>Se vuoi aggiungi una foto.</p>
+          <div class="shot todo">Cattura 5<br>Modulo del post con categoria e testo</div>
+        </li>
+      </ol>
+
+      <div class="after">
+        <h3>E poi?</h3>
+        <p>Il post viene pubblicato subito sulla tua scheda e compare nel Feed, nella sezione Novità.</p>
+        <p>Chi ha salvato la tua scheda riceve una notifica (fino a 3 al giorno). La foto resta visibile 24 ore.</p>
+        <div class="shot todo">Cattura 6<br>Il post sulla scheda</div>
+      </div>
+    </section>
+
+    <!-- 5. Chiusura -->
+    <section class="sec end" id="fine">
+      <p class="big"><strong>Qualcosa non torna?</strong></p>
+      <p class="big soft">Rispondi al messaggio con cui ti è arrivata questa pagina: ti aiutiamo noi.</p>
+
+      <a class="btn btn-ghost pdf" href="/inizia/primi-passi/InComune-primi-passi.pdf" download>Scarica questa pagina in PDF</a>
+
+      <div class="sign">
+        <img src="/assets/logo-in.svg" alt="" width="26" height="34">
+        Il team di InComune
+      </div>
+    </section>
+  </main>
+
+</div>
+</body>
+</html>
