@@ -139,6 +139,8 @@
     .steps { gap: 0; margin-top: 6mm; }
     .shot { width: 50mm; border-width: 1.4mm; border-radius: 6mm; box-shadow: none; }
     .after { break-before: page; break-inside: avoid; box-shadow: none; margin-top: 13mm; }
+    /* Il passo 3 dell'evento non ha una cattura: nel PDF sta sulla stessa pagina di «E poi?». */
+    #evento .after { break-before: auto; margin-top: 8mm; }
     .after .shot { width: 44mm; }
     #si-parte .shot { width: 42mm; }
   }
@@ -164,8 +166,8 @@
       <p class="kicker">Si parte da qui</p>
       <h2>Apri il <em>Pannello amministratore.</em></h2>
       <p class="big">Vai sul tuo profilo e tocca <q>Pannello amministratore</q>.</p>
-      <p class="big soft">Sotto la tua scheda trovi due riquadri: <q>Eventi</q> e <q>Post</q>.</p>
-      <div class="shot todo">Cattura 1<br>«Gestisci pagina» con i riquadri Eventi e Post</div>
+      <p class="big soft">Sotto la tua scheda trovi i riquadri <q>Eventi</q> e <q>Post</q>.</p>
+      <div class="shot"><img src="/inizia/primi-passi/img/gestisci-pagina.jpg" alt="La schermata «Gestisci pagina»: sotto la scheda ci sono i riquadri «Eventi» e «Post»" width="690" height="1402"></div>
     </section>
 
     <!-- 3. Evento -->
@@ -178,19 +180,18 @@
           <span class="n">1</span>
           <h3>Tocca <q>Eventi</q>, poi il <q>+</q>.</h3>
           <p>Il <q>+</q> è in alto a destra.</p>
-          <div class="shot todo">Cattura 2<br>Elenco Eventi con il «+»</div>
+          <div class="shot"><img src="/inizia/primi-passi/img/eventi-elenco.jpg" alt="La schermata «I miei eventi» con il «+» in alto a destra" width="690" height="1402"></div>
         </li>
         <li class="step" id="evento-2">
           <span class="n">2</span>
           <h3>Compila l'evento.</h3>
           <p>Titolo, quando e dove. Se vuoi aggiungi una descrizione e la locandina.</p>
-          <div class="shot todo">Cattura 3<br>Modulo dell'evento compilato, in alto</div>
+          <div class="shot"><img src="/inizia/primi-passi/img/evento-modulo.jpg" alt="Il modulo «Nuovo evento» compilato: titolo, quando e dove; in alto a destra c'è «Invia»" width="690" height="1402"></div>
         </li>
         <li class="step" id="evento-3">
           <span class="n">3</span>
           <h3>Tocca <q>Invia per approvazione</q>.</h3>
-          <p>Lo trovi in fondo al modulo.</p>
-          <div class="shot todo">Cattura 4<br>Fondo del modulo con «Invia per approvazione»</div>
+          <p>Lo trovi in fondo al modulo. Oppure tocca <q>Invia</q> in alto a destra: è lo stesso.</p>
         </li>
       </ol>
 
@@ -217,7 +218,7 @@
           <span class="n">2</span>
           <h3>Scrivi e tocca <q>Pubblica</q>.</h3>
           <p>Se vuoi aggiungi una foto.</p>
-          <div class="shot todo">Cattura 5<br>Modulo del post con categoria e testo</div>
+          <div class="shot"><img src="/inizia/primi-passi/img/post-modulo.jpg" alt="Il modulo del post con la categoria scelta, il testo e il pulsante «Pubblica»" width="690" height="1402"></div>
         </li>
       </ol>
 
@@ -225,7 +226,7 @@
         <h3>E poi?</h3>
         <p>Il post viene pubblicato subito sulla tua scheda e compare nel Feed, nella sezione Novità.</p>
         <p>Chi ha salvato la tua scheda riceve una notifica (fino a 3 al giorno). La foto resta visibile 24 ore.</p>
-        <div class="shot todo">Cattura 6<br>Il post sulla scheda</div>
+        <div class="shot"><img src="/inizia/primi-passi/img/post-feed.jpg" alt="Il post appena pubblicato nel Feed, nella sezione Novità" width="690" height="1402"></div>
       </div>
     </section>
 
