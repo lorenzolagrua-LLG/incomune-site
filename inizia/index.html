@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>InComune · Inizia a gestire la tua scheda</title>
-<meta name="description" content="Per attività, associazioni e chiese di Novoli: la tua scheda su InComune c'è già. Ecco come iniziare a gestirla.">
+<meta name="description" content="La tua scheda su InComune c'è già. È tutto gratis: usare l'app e gestire la tua scheda. Ecco come iniziare.">
 <!-- Pagina su invito: non collegata dal resto del sito e fuori dai motori di ricerca. -->
 <meta name="robots" content="noindex, nofollow">
 
@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#F17100">
 
 <meta property="og:title" content="La tua scheda su InComune c'è già. Inizia a gestirla!">
-<meta property="og:description" content="Per attività, associazioni e chiese di Novoli.">
+<meta property="og:description" content="È tutto gratis: usare l'app e gestire la tua scheda.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://incomune.app/inizia/">
 <meta property="og:image" content="https://incomune.app/assets/og-inizia.png">
@@ -71,17 +71,14 @@
     right: -160px; top: 90px; opacity: 0.14; pointer-events: none;
   }
   .cover .logo { width: 36px; height: auto; }
-  .cover .who {
-    margin-top: auto; padding-top: 48px;
-    font-size: 0.8125rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em;
-  }
   .cover h1 {
-    margin-top: 14px;
+    margin-top: auto; padding-top: 48px;
     font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em;
     font-size: clamp(2.5rem, 1.3rem + 6vw, 3rem); line-height: 1.03; text-wrap: balance;
   }
   .cover h1 em { font-style: normal; color: #fff; }
   .cover .sub { margin-top: 18px; font-size: 1.1875rem; font-weight: 800; line-height: 1.4; }
+  .cover .sub + .sub { margin-top: 6px; }
   .cover .store-row { margin-top: 30px; }
   .store-btn { padding-inline: 14px; }
   .store-btn .store-name { white-space: nowrap; font-weight: 800; }
@@ -90,6 +87,11 @@
     margin-top: 26px; text-align: center; font-weight: 800; font-size: var(--fs-small);
   }
   .cover :focus-visible { outline: 3px solid var(--bruno-seppia); outline-offset: 3px; }
+
+  /* ----- Perché conviene: tre vantaggi, uno sotto l'altro -------------------- */
+  .gains { list-style: none; display: grid; gap: 22px; margin-top: 28px; }
+  .gains li { font-size: 1.125rem; line-height: 1.45; }
+  .gains strong { display: block; margin-bottom: 2px; font-size: 1.3125rem; line-height: 1.25; color: var(--terracotta-scuro); }
 
   /* ----- Cosa puoi fare: tre blocchi --------------------------------------- */
   .blocks { display: grid; gap: 14px; margin-top: 26px; }
@@ -116,6 +118,10 @@
   .step h3 { margin-top: 12px; font-size: 1.375rem; font-weight: 800; line-height: 1.2; }
   .step p { margin-top: 6px; font-size: 1.125rem; line-height: 1.45; }
   .step q { quotes: "«" "»"; font-weight: 800; }
+  .step .note {
+    margin-top: 16px; padding: 16px 18px; border-radius: var(--r-card);
+    background: var(--pill-quieto-sottile); font-size: 1.0625rem; line-height: 1.45;
+  }
   .shot {
     margin: 18px auto 0; width: min(100%, 250px); aspect-ratio: 690 / 1402;
     border-radius: 30px; overflow: hidden; background: var(--pill-quieto-sottile);
@@ -137,6 +143,7 @@
     background: var(--aperto-bg); color: var(--aperto-testo); border-radius: var(--r-card);
     padding: 20px; font-size: 1.375rem; font-weight: 800; line-height: 1.25; text-align: center;
   }
+  .big + .free { margin-top: 28px; }
   .end .store-row { margin-top: 26px; }
   .end .store-btn { flex: 1 1 150px; justify-content: center; }
   .pdf { margin-top: 14px; width: 100%; min-height: 56px; font-size: 1rem; }
@@ -180,8 +187,8 @@
     <img class="mark" src="/assets/logo-white.svg" alt="" width="809" height="1056" aria-hidden="true">
     <img class="logo" src="/assets/logo-white.svg" alt="InComune" width="44" height="57">
 
-    <p class="who">Per attività, associazioni e chiese di Novoli</p>
     <h1>La tua scheda su InComune <em>c'è già.</em> Inizia a gestirla!</h1>
+    <p class="sub">È tutto gratis: usare l'app e gestire la tua scheda.</p>
     <p class="sub">Bastano tre passi, dal telefono.</p>
 
     <div class="store-row">
@@ -215,7 +222,19 @@
       <p class="big soft">Fino ad allora in app c'è ancora poca gente: è il momento giusto per sistemare tutto con calma.</p>
     </section>
 
-    <!-- 4. Cosa puoi fare -->
+    <!-- 4. Perché conviene -->
+    <section class="sec" id="perche-conviene">
+      <p class="kicker">Perché conviene</p>
+      <h2>È pubblicità che arriva <em>sul telefono del paese.</em></h2>
+      <p class="big">Per un'attività o un'associazione la scheda è il modo più semplice per farsi conoscere.</p>
+      <ul class="gains">
+        <li><strong>Notifiche</strong> Quando pubblichi una novità, un'offerta o un evento, chi ti ha tra i preferiti riceve una notifica sul telefono.</li>
+        <li><strong>Preferiti</strong> Chi ti salva con la stellina ti ritrova in un tocco e non si perde niente di te.</li>
+        <li><strong>Orari sempre aggiornati</strong> Chi ti cerca sa quando sei aperto, e viene da te.</li>
+      </ul>
+    </section>
+
+    <!-- 5. Cosa puoi fare -->
     <section class="sec" id="cosa-puoi-fare">
       <p class="kicker">Cosa puoi fare</p>
       <h2>La scheda la aggiorni <em>tu.</em></h2>
@@ -249,7 +268,7 @@
       </div>
     </section>
 
-    <!-- 5. Come si inizia -->
+    <!-- 6. Come si inizia -->
     <section class="sec" id="come-si-inizia">
       <p class="kicker">Come si inizia</p>
       <h2>Tre passi, <em>in cinque minuti.</em></h2>
@@ -259,6 +278,7 @@
           <span class="n">1</span>
           <h3>Scarica InComune e crea il tuo account.</h3>
           <p>Ti servono un'email e una password, oppure entri con Google o con Apple.</p>
+          <p class="note"><strong>Un solo account per tutto:</strong> con lo stesso gestisci la tua scheda e usi l'app come tutti, per vedere cosa c'è in paese.</p>
         </li>
         <li class="step" id="passo-2">
           <span class="n">2</span>
@@ -282,11 +302,11 @@
       </ol>
     </section>
 
-    <!-- 6. Chiusura -->
+    <!-- 7. Chiusura -->
     <section class="sec end" id="fine">
-      <p class="free">Gestire la tua scheda è gratis.</p>
       <p class="big"><strong>Non trovi la tua scheda, o qualcosa non torna?</strong></p>
       <p class="big soft">Rispondi al messaggio con cui ti è arrivata questa pagina: ti aiutiamo noi.</p>
+      <p class="free">Scaricala: è più semplice a farsi che a dirsi.</p>
 
       <div class="store-row">
         <a class="store-btn" href="https://apps.apple.com/app/id6761307454" target="_blank" rel="noopener" aria-label="Scarica InComune su App Store">
