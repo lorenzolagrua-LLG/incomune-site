@@ -122,14 +122,9 @@
     border: 6px solid var(--bruno-seppia); box-shadow: var(--shadow-lg);
   }
   .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-  /* Più catture nello stesso passo: una fila da scorrere col dito, la successiva fa capolino. */
-  .shots {
-    display: flex; gap: 14px; margin: 18px -26px 0; padding: 0 26px 16px;
-    overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .shots::-webkit-scrollbar { display: none; }
-  .shots .shot { flex: none; width: 230px; margin: 0; scroll-snap-align: center; box-shadow: var(--shadow-md); }
+  /* Più catture nello stesso passo: una sotto l'altra, tutte intere, nell'ordine in cui si vedono. */
+  .shots { display: grid; justify-items: center; gap: 18px; margin-top: 18px; }
+  .shots .shot { width: min(100%, 250px); margin: 0; box-shadow: var(--shadow-md); }
   /* Segnaposto finché non arrivano le catture vere. */
   .shot.todo {
     display: grid; place-items: center; text-align: center; padding: 18px;
@@ -166,7 +161,7 @@
     .block { padding: 3mm 4.5mm; }
     .block ul { gap: 1.6mm; }
     .shot { width: 52mm; box-shadow: none; }
-    .shots { gap: 3mm; justify-content: center; margin: 5mm 0 0; padding: 0; overflow: visible; }
+    .shots { display: flex; gap: 3mm; justify-content: center; margin: 5mm 0 0; }
     .shots .shot { width: 41mm; border-width: 1.2mm; border-radius: 5mm; box-shadow: none; }
     #passo-2 .shots .shot { width: 28mm; border-width: 0.9mm; border-radius: 3.5mm; }
     #cosa-puoi-fare h2 { font-size: 1.7rem; }
