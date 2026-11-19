@@ -78,8 +78,10 @@ jobs:
         with:
           node-version: '24'
 
-      - name: Test del generatore
-        run: node --test scripts/pagine-eventi-core.test.mjs
+      - name: Test del generatore e della pagina /scarica/
+        run: |
+          node --test scripts/pagine-eventi-core.test.mjs
+          node --test scripts/scarica.test.mjs
 
       - name: Copia del sito in _site
         # Tutto il repo tranne il materiale interno: .git, .github, scripts

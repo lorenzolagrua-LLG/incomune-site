@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scarica InComune</title>
+<meta name="description" content="Scarica InComune, l'app della comunità di Novoli (LE): eventi, attività, associazioni e novità del paese.">
+<!-- Destinazione dei QR code e dei link di invito. Mai tra i percorsi dei
+     Universal Links / App Links (.well-known): deve aprirsi sempre nel browser. -->
+<link rel="canonical" href="https://incomune.app/scarica/">
+
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#F17100">
+
+<meta property="og:title" content="Scarica InComune">
+<meta property="og:description" content="L'app della comunità di Novoli (LE). Eventi, attività, associazioni e novità del paese.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://incomune.app/scarica/">
+<meta property="og:image" content="https://incomune.app/assets/og-image.png">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scarica InComune">
+<meta name="twitter:description" content="L'app della comunità di Novoli (LE).">
+<meta name="twitter:image" content="https://incomune.app/assets/og-image.png">
+
+<link rel="preload" href="/assets/fonts/Nunito-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/assets/fonts/Nunito-800.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/assets/fonts/DMSerifDisplay-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+
+<script>
+  // Riconosce il telefono e mette una classe su <html> (is-ios / is-android) prima
+  // del disegno, così lo store giusto è già in evidenza. Ordine ed evidenza li fa il
+  // CSS: senza JS, o con un dispositivo non riconosciuto, i due pulsanti sono alla pari.
+  /* storeFor */ function storeFor(ua, platform, maxTouchPoints) {
+    if (/Android/i.test(ua)) return 'android';
+    // iPadOS 13+ si presenta come un Mac: lo distingue lo schermo touch.
+    if (/iPhone|iPad|iPod/.test(ua) || (platform === 'MacIntel' && maxTouchPoints > 1)) return 'ios';
+    return null;
+  }
+  try {
+    var store = storeFor(navigator.userAgent || '', navigator.platform || '', navigator.maxTouchPoints || 0);
+    if (store) document.documentElement.classList.add('is-' + store);
+  } catch (e) { /* pulsanti alla pari */ }
+</script>
+
+<style>
+  html, body { background: var(--terracotta); }
+
+  /* Una sola schermata arancio, come l'apertura della home e di /inizia/. */
+  .cover {
+    position: relative; isolation: isolate; overflow: hidden;
+    background: var(--terracotta); color: var(--bruno-seppia);
+    min-height: 100vh; min-height: 100svh;
+    display: flex; flex-direction: column;
+    padding: max(44px, env(safe-area-inset-top)) 26px max(28px, env(safe-area-inset-bottom));
+  }
+  .cover::after {
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .12 0 0 0 0 .09 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-size: 180px 180px; opacity: 0.18;
+  }
+  .col { position: relative; width: 100%; max-width: 480px; margin-inline: auto; flex: 1; display: flex; flex-direction: column; }
+  .mark {
+    position: absolute; z-index: -1; width: 380px; max-width: none; height: auto;
+    right: -160px; top: 46px; opacity: 0.14; pointer-events: none;
+  }
+  .logo { width: 36px; height: auto; }
+
+  h1 {
+    margin-top: auto; padding-top: 48px;
+    font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em;
+    font-size: clamp(2.6rem, 1.4rem + 6vw, 3.4rem); line-height: 1.03; text-wrap: balance;
+  }
+  h1 em { font-style: normal; color: #fff; }
+  .sub { margin-top: 16px; font-size: 1.1875rem; font-weight: 800; line-height: 1.4; }
+
+  /* ----- Pulsanti store ---------------------------------------------------- */
+  .stores { margin-top: 30px; display: flex; flex-direction: column; gap: 12px; }
+  .stores .store-btn { justify-content: center; padding-inline: 14px; }
+  .stores .store-name { white-space: nowrap; font-weight: 800; }
+  .alt-hint { display: none; margin-top: 10px; text-align: center; font-weight: 800; font-size: var(--fs-small); }
+
+  /* Telefono riconosciuto: il suo store sopra e più grande, l'altro sotto
+     preceduto da «Hai un Android?» / «Hai un iPhone?». */
+  .is-ios [data-store="ios"],
+  .is-android [data-store="android"] { order: 0; min-height: 66px; }
+  .is-ios [data-store="ios"] .store-name,
+  .is-android [data-store="android"] .store-name { font-size: 20px; }
+  .is-ios [data-store="ios"] svg,
+  .is-android [data-store="android"] svg { width: 30px; height: 30px; }
+  .is-ios .alt-hint[data-for="android"],
+  .is-android .alt-hint[data-for="ios"] { display: block; order: 1; }
+  .is-ios [data-store="android"],
+  .is-android [data-store="ios"] { order: 2; }
+
+  /* Schermo largo: pulsanti affiancati, niente righe di contorno. */
+  @media (min-width: 640px) {
+    .stores { flex-direction: row; }
+    .stores .store-btn { flex: 1 1 0; }
+    /* Stessa specificità delle regole sopra (che vengono prima): vince questa. */
+    .is-ios .alt-hint[data-for], .is-android .alt-hint[data-for] { display: none; }
+  }
+
+  .foot { margin-top: 34px; text-align: center; font-size: var(--fs-small); font-weight: 800; }
+  .foot .free { font-size: 1.0625rem; }
+  .foot nav { margin-top: 6px; font-weight: 700; }
+  .foot a { color: var(--bruno-seppia); text-decoration: underline; text-underline-offset: 3px; }
+  .cover :focus-visible { outline: 3px solid var(--bruno-seppia); outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<main class="cover">
+  <div class="col">
+    <img class="mark" src="/assets/logo-white.svg" alt="" width="809" height="1056" aria-hidden="true">
+    <img class="logo" src="/assets/logo-white.svg" alt="InComune" width="44" height="57">
+
+    <h1>Scarica <em>InComune</em></h1>
+    <p class="sub">L'app della comunità di Novoli: eventi, attività, associazioni e novità del paese, tutto in un posto.</p>
+
+    <!-- Ogni «Hai un...?» sta nel DOM subito prima del suo pulsante: l'ordine a schermo
+         lo cambia il CSS (order), ma i lettori di schermo seguono il DOM. -->
+    <div class="stores">
+      <p class="alt-hint" data-for="ios">Hai un iPhone?</p>
+      <a class="store-btn" data-store="ios" href="https://apps.apple.com/app/id6761307454" aria-label="Scarica InComune su App Store">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span class="store-label"><span class="store-small">Scarica su</span><span class="store-name">App Store</span></span>
+      </a>
+      <p class="alt-hint" data-for="android">Hai un Android?</p>
+      <a class="store-btn" data-store="android" href="https://play.google.com/store/apps/details?id=app.incomune" aria-label="Scarica InComune su Google Play">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm.91-.91L19.59 12l-1.87-2.21-2.27 2.27 2.27 2.15zM6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/></svg>
+        <span class="store-label"><span class="store-small">Scarica su</span><span class="store-name">Google Play</span></span>
+      </a>
+    </div>
+
+    <footer class="foot">
+      <p class="free">È gratis.</p>
+      <nav><a href="/">incomune.app</a> · <a href="/privacy-policy/">Privacy</a> · <a href="/termini/">Termini</a></nav>
+    </footer>
+  </div>
+</main>
+
+</body>
+</html>
