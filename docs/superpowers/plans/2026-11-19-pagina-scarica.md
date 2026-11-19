@@ -87,3 +87,38 @@ Run (PowerShell, dalla root del sito): `npx --yes http-server -p 8765 -c-1 .` in
 git add scarica/index.html scripts/scarica.test.mjs .github/workflows/pages.yml docs/superpowers/specs/2026-11-19-pagina-scarica-design.md docs/superpowers/plans/2026-11-19-pagina-scarica.md
 git commit -m "Pagina /scarica/: un indirizzo per i QR con i due store, quello del telefono in evidenza"
 ```
+
+---
+
+## HANDOFF 19 nov 2026, 10:16
+
+**Fatto**
+- Task 1 completo con TDD: `scarica/index.html`, `scripts/scarica.test.mjs` (7 test), test aggiunto allo step dei test di `pages.yml`.
+- Review finale Opus: 0 Critical, 1 Important (I1: «Hai un...?» letto da TalkBack accanto al pulsante sbagliato su Android), corretto con test RED→GREEN spostando le righe nel DOM subito prima del loro pulsante.
+- Controllo visivo con Edge headless in iframe da 390/320/700 px, UA iPhone e Android: ordine ed evidenza corretti, niente scroll orizzontale; corretta una specificità CSS (riga «Hai un Android?» fra i pulsanti affiancati su iPad).
+- Pubblicato su richiesta dell'utente: commit `ec4e666`, merge `e3a9002`, push; run Pages 44492511830 verde; `https://incomune.app/scarica/` risponde 200 col contenuto nuovo (controllato col download della pagina online).
+- **Fatto ma NON verificato su device:** comportamento su iPhone e Android veri, in particolare il tocco dei pulsanti dentro i browser interni di WhatsApp, Instagram e Facebook.
+
+**Stato del branch**
+- `incomune-site` su `main`, pulito, allineato a `origin/main`. Ultimo commit di codice di questa pagina: `ec4e666` (merge `e3a9002`); sopra c'è il lavoro `/contatti/` di un'altra sessione.
+- Worktree `wt-site-scarica` e branch `feat/2026-11-19-scarica` rimossi.
+
+**Gate**
+- Sito: `node --test scripts/*.test.mjs` → 52 test, 52 pass, 0 fail, exit 0.
+- App (non toccata da questo lavoro): `npm test` exit 0; lint 0 errori, 51 warning, baseline 56 rispettata; unit 4203/4203.
+
+**Gate aperti**
+- QR da stampare con la barra finale: `https://incomune.app/scarica/` (senza barra GitHub Pages fa un 301 in più).
+- Minori della review rimandati: testo di sistema >=175% a 320 px taglia «Google Play» e, al 200%, «InComune» nel titolo; aria-label «Scarica InComune su App Store» diverso dal testo visibile (anche su 404 e /inizia/); cerchio hover 240 px corto sui pulsanti larghi (desktop 480-639 px); «InComune» bianco su arancio circa 2.96:1 (come /inizia/); tablet Android in modalità desktop non riconosciuti; test AASA per sottostringa; nessun test dello stato senza JS; workflow con due `node --test` separati.
+- Telefoni Android senza Google Play (Huawei HMS): evidenziato Google Play, nessun rimedio semplice dal web.
+
+**Prossimo task**
+- Smoke su telefono vero: aprire il link da WhatsApp e Instagram su iPhone e su Android e toccare il pulsante in evidenza e l'altro.
+
+**Decisioni aperte**
+- Se e quando sistemare i minori (il più rilevante per persone anziane: testo di sistema grande).
+
+**Prompt di ripresa**
+```
+Riprendo la pagina incomune.app/scarica/ dal blocco «HANDOFF 19 nov 2026, 10:16» del ledger incomune-site/docs/superpowers/plans/2026-11-19-pagina-scarica.md e dal topic di memoria project_pagina_scarica_qr. La pagina è online (merge e3a9002 su main di incomune-site, pushato). Vincoli: niente commit/push sul sito senza mia richiesta, il push su main pubblica. Smoke su telefono vero da fare: aprire il link da WhatsApp e Instagram su iPhone e Android e toccare i due pulsanti. Primo passo: dammi la lista dello smoke nel formato azione/atteso/vietato, con l'indirizzo anche come QR sul PC. Se lo smoke va bene, chiedimi con AskUserQuestion se sistemare i minori rimandati partendo dal testo di sistema grande; se nei browser interni il tocco apre una pagina web dello store invece dello store, analizza la causa prima di proporre correzioni.
+```
